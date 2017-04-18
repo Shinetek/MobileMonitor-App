@@ -1,0 +1,109 @@
+<ion-view view-title="">
+  <link href="css/checkbox.css" rel="stylesheet">
+
+  <style type="text/css">
+    .sensorButton{
+      width: 100%;
+      height: 80px;
+      font-family: Microsoft Yi Baiti;
+      font-size: 13px;
+      /*height:55px;*/
+      line-height: 22PX ;
+      margin-top: 5px;
+    }
+
+    .systemButton{
+      width: 100%;
+      font-size: 13px;
+      height:100%;
+      margin-right:0px;
+      line-height: 18PX ;
+      margin-bottom:15px;
+      margin-top: 15px
+    }
+
+    .size img{
+      width: 30px;
+      height: 30px
+    }
+
+    .col{
+      background-color: #F9FAFB;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      height: 85px;
+      vertical-align: middle;
+    }
+
+    .cellcol{
+      background-color: #F9FAFB;
+      border-bottom: 1px solid #ddd;
+      border-top: 1px solid #ddd;
+      height: 36px;
+      width: 100%;
+    }
+
+    .spacol{
+      background-color: transparent;
+      text-align: center;
+      height: 100%;
+      vertical-align: middle;
+      width: 33.333334%;
+      border: 0px;
+    }
+
+
+
+  </style>
+  <ion-nav-bar>
+    <!--<ion-nav-back-button >-->
+      <!--<font color="#1e90ff">返回</font>-->
+    <!--</ion-nav-back-button>-->
+
+    <ion-nav-back-button class="button-clear" style="color: #628fc0;font-size: medium">
+      <i class="ion-chevron-left"></i> 地面系统
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="right">
+      <div
+        class="button  button-clear "
+        nav-direction="right"
+        style="color: black;text-align: right;font-size: medium;"
+        ng-click="saveChanged()" >
+        保存
+      </div>
+    </ion-nav-buttons>
+
+  </ion-nav-bar>
+  <ion-content overflow-scroll="true" style="overflow: hidden">
+    <ion-scroll style="height: 100%;overflow: hidden;width: 100%">
+
+      <div class="row row-wrap row-no-padding" style="width: 100%">
+
+        <div class="cellcol col-100 col-center" style="padding-top: 7px;padding-left: 5px" >
+          <div style="font-family: 宋体;font-size: small;height: 22px;vertical-align: middle">分系统列表</div>
+        </div>
+
+        <div class="col col-25 col-center"  ng-repeat="s in systems">
+
+          <div style="vertical-align: bottom;" ng-click="selectedChanged(s.name,$event)">
+
+            <div style="" class="roundedOne" id="checkboxBlock" >
+              <input style="background-color: #0000AA;" id="{{s.name}}" type="checkbox" ng-checked="s.selected" ng-click="selectedChanged(s.name,$event)"  />
+              <label for="{{s.name}}"></label>
+            </div>
+
+            <P >
+              <img style="height: 32px;width: 32px;margin-bottom: 5px" ng-src="{{s.icon}}" />
+              <nobr><font color="black" size="2px" face="宋体">{{s.name}} </font></nobr>
+            </P>
+
+          </div>
+
+        </div>
+
+      </div>
+    </ion-scroll>
+  </ion-content>
+</ion-view>

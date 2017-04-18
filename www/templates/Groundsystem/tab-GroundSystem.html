@@ -1,0 +1,112 @@
+<ion-view view-title="地面系统重要工作状态" style="background: rgba(186, 182, 179, 0.33)" >
+  <style type="text/css">
+    .sensorButton{
+      width: 100%;
+      height: 80px;
+      font-family: Microsoft Yi Baiti;
+      font-size: 13px;
+      /*height:55px;*/
+      line-height: 22PX ;
+      margin-top: 5px;
+    }
+
+    .systemButton{
+      width: 100%;
+      font-size: 13px;
+      height:100%;
+      margin-right:0px;
+      line-height: 18PX ;
+      margin-bottom:15px;
+      margin-top: 15px
+    }
+
+    .size img{
+      width: 30px;
+      height: 30px
+    }
+
+    .col{
+      background-color: #F9FAFB;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      height: 85px;
+      vertical-align: middle;
+    }
+
+    .cellcol{
+      background-color: #F9FAFB;
+      border-bottom: 1px solid #ddd;
+      border-top: 1px solid #ddd;
+      height: 36px;
+      width: 100%;
+    }
+
+    .spacol{
+      background-color: transparent;
+      text-align: center;
+      height: 100%;
+      vertical-align: middle;
+      width: 33.333334%;
+      border: 0px;
+    }
+
+  </style>
+
+  <ion-content overflow-scroll="true" style="overflow: hidden">
+
+    <ion-scroll style="overflow: hidden;background: rgba(36, 73, 114, 0.96);align-content: center" direction="x" >
+
+      <div class="row row-no-padding" style="width: auto;vertical-align: middle;height: 110px;">
+        <div class="spacol col-center"  ng-repeat="s in sensors">
+          <div class="button  button-clear  sensorButton" style="color: white;text-align: center">
+            <img style="width: 32px;height: 32px;margin:  auto"  ng-src="{{s.icon}}" />
+            <p>
+
+              <font size="2" color="red" face="Arial" weight>
+                {{s.fail}}
+              </font>
+
+              <font size="2" color="white" >/</font>
+
+              <font size="2" color="#adff2f" face="Arial" >
+                {{s.success}}
+              </font>
+
+            </p>
+            <font size="2" color="white" face="宋体"><nobr>{{s.name}}</nobr></font>
+          </div>
+        </div>
+      </div>
+
+    </ion-scroll>
+
+    <div style="margin-bottom: 5px;width: 100%;background: white;height: 40px;padding-top: 9px;padding-left: 5px">
+      <div style="font-family: 宋体;font-size: small;height: 22px">实时消息</div>
+    </div>
+
+    <ion-scroll style="height: 100%;overflow: hidden;width: 100%">
+
+      <div class="row row-wrap row-no-padding" style="width: 100%">
+
+        <div class="cellcol col-100 col-center" style="padding-top: 7px;padding-left: 5px" >
+          <div style="font-family: 宋体;font-size: small;height: 22px;vertical-align: middle">分系统列表</div>
+        </div>
+
+        <div class="col col-25 col-center"  ng-repeat="s in systems">
+          <a class="button  button-clear icon-top button-positive systemButton">
+            <img style="height: 32px;width: 32px;margin-bottom: 5px" ng-src="{{s.icon}}" />
+            <P><nobr><font color="black" face="宋体">{{s.name}}</font></nobr></P>
+          </a>
+        </div>
+        <div class="col col-25 col-center"  >
+          <a class="button  button-clear icon-top button-positive systemButton" href="#/tab/groundsystem/custom">
+            <img style="width: 32px;height: 32px;margin-bottom: 5px"  ng-src="img/TreeListRegViewer.Icon.png" />
+            <P><nobr><font color="black" face="宋体">自定义</font></nobr></P>
+          </a>
+        </div>
+      </div>
+    </ion-scroll>
+
+  </ion-content>
+</ion-view>

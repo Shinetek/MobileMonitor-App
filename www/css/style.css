@@ -1,0 +1,36 @@
+/* Empty. Add your own CSS if you like */
+.tab-item  i.icon {
+  margin-top: 1px;
+}
+.bar-home-on {
+  background: url(../img/Demo_Image_Properties_32x32.png) no-repeat center top
+}
+
+.bar-home-off {
+  background: url(../img/Demo_Image_Properties_32x32.png) no-repeat center top
+}
+
+.separator {
+  position: relative;
+  margin-left: 60%;
+  margin-top: 10%;
+  height:40px;
+  /*margin-top: 30px;*/
+  background: darkgray;
+  border-left-style:solid;
+  border-bottom-style:none;
+  border-right-style:none;
+  border-top-style:none;
+  vertical-align: middle;
+}
+
+/*div {*/
+  /*width: 60px;*/
+  /*background: red;*/
+  /*font-family: Microsoft Yi Baiti;*/
+  /*font-size: 13px;*/
+  /*height:40px;*/
+  /*margin-right:5px;*/
+  /*margin-bottom:5px;*/
+  /*line-height: 18PX*/
+/*}*/
