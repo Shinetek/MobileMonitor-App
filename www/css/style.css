@@ -24,13 +24,54 @@
   vertical-align: middle;
 }
 
-/*div {*/
-  /*width: 60px;*/
-  /*background: red;*/
-  /*font-family: Microsoft Yi Baiti;*/
-  /*font-size: 13px;*/
-  /*height:40px;*/
-  /*margin-right:5px;*/
-  /*margin-bottom:5px;*/
-  /*line-height: 18PX*/
-/*}*/
+.col{
+  background-color: #F9FAFB;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  height: 85px;
+  vertical-align: middle;
+}
+
+.cellcol{
+  background-color: #F9FAFB;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  height: 36px;
+  width: 100%;
+}
+
+.sensorButton{
+  width: 100%;
+  height: 80px;
+  font-family: Microsoft Yi Baiti;
+  font-size: 13px;
+  /*height:55px;*/
+  line-height: 22PX ;
+  margin-top: 5px;
+}
+
+.systemButton{
+  width: 100%;
+  font-size: 13px;
+  height:100%;
+  margin-right:0px;
+  line-height: 18PX ;
+  margin-bottom:15px;
+  margin-top: 15px
+}
+
+.size img{
+  width: 30px;
+  height: 30px
+}
+
+.spacol{
+  background-color: transparent;
+  text-align: center;
+  height: 100%;
+  vertical-align: middle;
+  width: 33.333334%;
+  border: 0px;
+}
+
