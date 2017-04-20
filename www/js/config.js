@@ -14,9 +14,7 @@ angular.module('starter')
       url: '/tab',
       //abstract: true,
       templateUrl: 'partials/tabs.html',
-      //controller: 'TabsCtrl'
     })
-
     .state('tab.building',{
       url:'/building',
       views:{
@@ -26,7 +24,6 @@ angular.module('starter')
         }
       }
     })
-
     .state('tab.fastView',{
       url:'/fastView',
       views:{
@@ -36,7 +33,6 @@ angular.module('starter')
         }
       }
     })
-
     .state('tab.fastView-detail',{
       url:'/fastView/:instname',
       views:{
@@ -46,7 +42,14 @@ angular.module('starter')
         }
       }
     })
-
+    .state("tab.lv1fastview", {
+      url: "/lv1fastview",
+      views: {
+        "tab-lv1fastview": {
+            templateUrl: "partials/lv1fastview/lv1fastview.html"
+        }
+      }
+    })
     .state('tab.subsystem',{
       url:'/subsystem',
       views:{
@@ -56,7 +59,6 @@ angular.module('starter')
         }
       }
     })
-
     .state('tab.subsystem-custom',{
       url:'/subsystem/:state',
       views:{
@@ -68,6 +70,6 @@ angular.module('starter')
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/subsystem');
+  $urlRouterProvider.otherwise('/tab/lv1fastview');
 
 });
