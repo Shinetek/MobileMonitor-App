@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "angular": "registry:dt/angular#1.6.0+20170321201455"
+  },
+  "globalDependencies": {
+    "cordova": "registry:dt/cordova#0.0.0+20160819210047"
+  }
+}
