@@ -1,7 +1,8 @@
 angular.module('starter')
   .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-  console.log("###############################");
+  var date = new Date();
+  console.log(date.toLocaleString() + " ###############################");
 
   $ionicConfigProvider.platform.android.tabs.position('bottom'); //导航栏置底
   $ionicConfigProvider.platform.android.tabs.style('standard');
