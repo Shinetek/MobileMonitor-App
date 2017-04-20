@@ -1,0 +1,35 @@
+.inst-profile-nav {
+    border-bottom: solid 1px #ddd;
+    width: 100%;
+    position: static; 
+}
+
+.underline-nav {
+    display: table;
+    height: 62px;
+    width: 100%;
+}
+
+.underline-nav .underline-nav-item.selected {
+    color: #333;
+    border-bottom-color: #c9510c;
+}
+
+.underline-nav > div {
+    cursor: pointer;
+}
+
+.underline-nav .underline-nav-item {
+    display: table-cell;
+    color: white;
+    font-size: 1em;
+    vertical-align: middle;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.underline-nav .underline-nav-item > a {
+    color: white;
+}
