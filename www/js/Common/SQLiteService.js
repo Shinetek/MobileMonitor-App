@@ -18,6 +18,8 @@ function SQLiteService($q,$cordovaSQLite){
 
     _tablename = tableName;
 
+    console.log(tableName);
+
     if(!window.cordova) {
       console.log("window.cordova");
       _db = $cordovaSQLite.openDB({name:"my.db" , bgType: 1});
@@ -83,6 +85,7 @@ function SQLiteService($q,$cordovaSQLite){
       qSelect = "SELECT * FROM " + _tablename + " WHERE id = ?";
 
     $cordovaSQLite.execute(_db, qSelect, [id]).then(function(res) {
+      console.log("sqlite get data success!");
       q.resolve(res);
     }, function(err){
       q.reject(err);
