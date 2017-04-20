@@ -10,6 +10,7 @@ SubSystemCtrl.$inject = ['$scope', 'Systems', 'Sensors', 'SQLiteService'];
 function SubSystemCtrl($scope, Systems, Sensors, SQLiteService){
 
   $scope.sensors = Sensors.all();
+
   $scope.currsensors = Sensors.all() ;
 
   $scope.systems = {};
