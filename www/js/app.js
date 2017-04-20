@@ -19,7 +19,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 $http,
                 $timeout,
                 $q,
-                HTTPGET,
+                HttpService,
+                $rootScope,
                 SQLiteService) {
 
     // 初始化数据库放到deviceready前面，以便controller里去进行数据库的操作
@@ -63,7 +64,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           var apkpath;
           var fileSize;
 
-          var promise = HTTPGET.getdata(apkurl,$http,$q);
+          var promise = HttpService.getdata(apkurl,$http,$q);
           promise.then(function(data){
 
             if(data.latestVersion != "") {
@@ -185,25 +186,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-    $ionicConfigProvider.platform.android.tabs.style('standard');
+    console.log("###############################");
 
-    //导航栏置底
-    $ionicConfigProvider.platform.android.tabs.position('bottom');
+    $ionicConfigProvider.platform.android.tabs.position('bottom'); //导航栏置底
+    $ionicConfigProvider.platform.android.tabs.style('standard');
+    //$ionicConfigProvider.scrolling.jsScrolling.
 
     $stateProvider
 
       .state('tab', {
         url: '/tab',
         //abstract: true,
-        templateUrl: 'templates/tabs.html',
+        templateUrl: 'partials/tabs.html',
         //controller: 'TabsCtrl'
       })
 
       .state('tab.building',{
         url:'/building',
         views:{
-          'tab-telemetering':{
-            templateUrl:'templates/building.html',
+          'tab-building':{
+            templateUrl:'partials/building.html',
             //controller:'TelemteringCtrl'
           }
         }
@@ -213,7 +215,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         url:'/fastView',
         views:{
           'tab-fastView':{
-            templateUrl:'templates/tab-fastView.html',
+            templateUrl:'partials/fastview/fastview.html',
             controller:'FastViewCtrl'
           }
         }
@@ -223,33 +225,33 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         url:'/fastView/:instname',
         views:{
           'tab-fastView':{
-            templateUrl:'templates/fastView-detail.html',
+            templateUrl:'partials/fastview/fastview-detail.html',
             controller:'FastViewDetailCtrl'
           }
         }
       })
 
-      .state('tab.groundsystem',{
-        url:'/groundsystem',
+      .state('tab.subsystem',{
+        url:'/subsystem',
         views:{
-          'tab-groundsystem':{
-            templateUrl:'templates/Groundsystem/tab-GroundSystem.html',
-            controller:'GroundSystemCtrl'
+          'tab-subsystem':{
+            templateUrl:'partials/subsystem/subsystem.html',
+            //controller:'SubSystemCtrl'
           }
         }
       })
 
-      .state('tab.groundsystem-custom',{
-        url:'/groundsystem/:state',
+      .state('tab.subsystem-custom',{
+        url:'/subsystem/:state',
         views:{
-          'tab-groundsystem':{
-            templateUrl:'templates/Groundsystem/system-custom.html',
+          'tab-subsystem':{
+            templateUrl:'partials/subsystem/subsystem-custom.html',
             controller:'SystemCustomCtrl'
           }
         }
       });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/groundsystem');
+  $urlRouterProvider.otherwise('/tab/subsystem');
 
   });

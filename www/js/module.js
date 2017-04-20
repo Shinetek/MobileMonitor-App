@@ -2,8 +2,11 @@
 
     "use strict";
 
-    angular.module("app", [
-        ngRouter
+    angular.module('starter', [
+      'ionic',
+      'starter.controllers',
+      'starter.services',
+      'ngCordova'
     ]);
 
 })();

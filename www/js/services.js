@@ -1,28 +1,26 @@
 angular.module('starter.services', ['ngCordova'])
 
   // 远程http请求服务
-  .factory('HTTPGET',function(){
+  .factory('HttpService',["$http","$q",function($http, $q){
 
     return {
-      getdata: function(url, $http, $q){
+      getdata: function(url){
         var deferred = $q.defer();
         $http({
           method:'Get',
           url:url
         }).success(function(data,staus,headers,config){
-          console.log("HTTPGET get data success...");
-          console.log(data);
+          console.log("Success Get Data : " + url);
           deferred.resolve(data);
         }).error(function(data,status,headers,config){
-          console.log("HTTPGET get data error...");
-          //return null;
+          console.log("Fail Get Data!");
           deferred.reject(data);
         })
 
         return deferred.promise;
       }
     }
-  })
+  }])
 
   .factory('Sensors',function(){
     var sensors = [{
@@ -145,7 +143,6 @@ angular.module('starter.services', ['ngCordova'])
       }
     };
   })
-  //.factory('AttentionService', ["$q",function ($q) {
 
   .factory('SQLiteService', ["$q","$cordovaSQLite",function($q,$cordovaSQLite){
 
@@ -159,9 +156,10 @@ angular.module('starter.services', ['ngCordova'])
       _tablename = tableName;
 
       if(!window.cordova) {
-        alert("window.cordova");
+        console.log("window.cordova");
         _db = $cordovaSQLite.openDB({name:"my.db" , bgType: 1});
       } else {
+        console.log("not window.cordova");
         _db = window.openDatabase("my.db" , '1', 'ES Database', 5 * 1024 * 1024);
       }
 
@@ -189,12 +187,6 @@ angular.module('starter.services', ['ngCordova'])
       });
 
       return q.promise;
-    }
-
-    function insertDataList(systems){
-      for(var i = 0;i<systems.length;i++){
-
-      }
     }
 
     // 删除单条数据
