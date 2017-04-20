@@ -32,7 +32,7 @@
       <div style="font-family: 宋体;font-size: small;height: 22px">实时消息</div>
     </div>
 
-    <ion-scroll style="height: 200px;overflow: hidden;width: 100%;background-color: blue">
+    <ion-scroll style="height: 100%;overflow: hidden;width: 100%">
 
       <div class="row row-wrap row-no-padding" style="width: 100%">
 
@@ -46,24 +46,7 @@
             <P><nobr><font color="black" face="宋体">{{s.name}}</font></nobr></P>
           </a>
         </div>
-        <div class="col col-25 col-center"  ng-repeat="s in systems">
-          <a class="button  button-clear icon-top button-positive systemButton">
-            <img style="height: 32px;width: 32px;margin-bottom: 5px" ng-src="{{s.icon}}" />
-            <P><nobr><font color="black" face="宋体">{{s.name}}</font></nobr></P>
-          </a>
-        </div>
-        <div class="col col-25 col-center"  ng-repeat="s in systems">
-          <a class="button  button-clear icon-top button-positive systemButton">
-            <img style="height: 32px;width: 32px;margin-bottom: 5px" ng-src="{{s.icon}}" />
-            <P><nobr><font color="black" face="宋体">{{s.name}}</font></nobr></P>
-          </a>
-        </div>
-        <div class="col col-25 col-center"  ng-repeat="s in systems">
-          <a class="button  button-clear icon-top button-positive systemButton">
-            <img style="height: 32px;width: 32px;margin-bottom: 5px" ng-src="{{s.icon}}" />
-            <P><nobr><font color="black" face="宋体">{{s.name}}</font></nobr></P>
-          </a>
-        </div>
+
         <div class="col col-25 col-center"  >
           <a class="button  button-clear icon-top button-positive systemButton" href="#/tab/subsystem/custom">
             <img style="width: 32px;height: 32px;margin-bottom: 5px"  ng-src="img/TreeListRegViewer.Icon.png" />
