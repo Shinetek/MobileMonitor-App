@@ -1,5 +1,22 @@
-<ion-view> 
-    <ion-content>
-        hello world
+<ion-view view-title="L1快视"> 
+    <ion-content overflow-scroll="true" style="overflow: hidden">
+        <div style="height: auto; background-color: rgba(36, 73, 114, 0.96);">
+            <div class="inst-profile-nav top-0">
+                <nav class="underline-nav" role="navigation">
+                    <div class="underline-nav-item" role="tab" ng-class="{'selected':L1FastViewCtrl.instNavItemIsSelected('cxy')}"
+                        ng-click="L1FastViewCtrl.selectInstNavItem('cxy')">
+                        <a>成像仪</a>
+                    </div>
+                    <div class="underline-nav-item" role="tab" ng-class="{'selected':L1FastViewCtrl.instNavItemIsSelected('tcy')}"
+                        ng-click="L1FastViewCtrl.selectInstNavItem('tcy')">
+                        <a>探测仪</a>
+                    </div>
+                    <div class="underline-nav-item" role="tab" ng-class="{'selected':L1FastViewCtrl.instNavItemIsSelected('sdy')}"
+                        ng-click="L1FastViewCtrl.selectInstNavItem('sdy')">
+                        <a>闪电仪</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
     <ion-content>
 </ion-view>
