@@ -1,0 +1,153 @@
+<ion-view view-title="{{rename}}" id="heightall">
+  <ion-content class="main" scroll="false">
+    <!--计划任务数-->
+    <div class="observe">
+      <h4>观测计划数</h4>
+    </div>
+
+    <div class="plan">
+
+      <div class="planup">
+
+        <div class="upleft">
+
+          <div class="dayplan">
+
+            <div>日计划</div>
+            <div>{{listDate.plan}}</div>
+
+          </div>
+        </div>
+
+        <div class="upright">
+
+          <div class="daysucceed">
+
+            <div>成功</div>
+            <div>{{listDate.succeed}}</div>
+
+          </div>
+        </div>
+
+      </div>
+
+        <div class="planxia">
+
+          <div class="upleft">
+
+            <div class="current">
+
+              <div>截至当前</div>
+              <div>{{listDate.present}}</div>
+
+            </div>
+          </div>
+
+          <div class="upright">
+
+            <div class="failed">
+
+              <div>失败</div>
+              <div>{{listDate.failed}}</div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!--任务列表-->
+    <div class="planlist">
+      <div class="observe">
+        <h4>观测任务表</h4>
+      </div>
+
+      <ion-scroll class="scrolls" direction="y" style="margin-top: 2px;" ng-style="gird_height">
+        <ion-refresher class="pull" pulling-text="下拉刷新" on-refresh="new()"></ion-refresher>
+        <div class="row row-wrap">
+            <div class="col-25 cool button button-icon" ng-repeat="x in listDate.task" ng-click="taskall(x.id)"style="background: {{upBackground(x.status)}}" id="coolheight">
+                <div class="colls">
+                  <p>{{x.name}}</p>
+                  <p>{{x.time}}</p>
+                </div>
+            </div>
+        </div>
+        <!--<ion-infinite-scroll on-infinite="loadMore()" distance="1%" immediate-check="false"></ion-infinite-scroll>-->
+      </ion-scroll>
+
+
+
+
+    </div>
+
+    <!--当前状态-->
+    <!--<div class="tasks">
+      <div class="statuss">
+        <p>当前任务:</p>
+        <p>{{tasknames}}</p>
+        <p>{{tasktimes}}</p>
+      </div>
+
+      <ion-scroll class="taskss" direction="y">
+        <ion-list class="tasklists">
+          <ion-item class="taskitem" ng-repeat="t in taskalls.task">
+
+            <div class="tasklist">
+
+              <h4>{{t.title}}</h4>
+
+              <div class="tasktime">
+                <div class="taskone">
+                  <div class="oneleft">
+                    <p>计划开始时间:{{t.planstart}}</p>
+                    <p>实际开始时间:{{t.realitystart}}</p>
+                  </div>
+                  <div class="oneright">
+                    <p>输入</p>
+                    <p>{{t.inputone}}/{{t.inputtwo}}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="wroklist">
+                <div class="wrokleft">
+                  <div class="ps">
+                    <p>关</p>
+                    <p>键</p>
+                    <p>做</p>
+                    <p>业</p>
+                  </div>
+                </div>
+                <div class="wrokright">
+                  <ion-scroll direction="y" style="height: 100px;">
+                    <p>{{t.wrok.one}}<i class="icon ion-clock"></i></p>
+                    <p>{{t.wrok.two}}</p>
+                    <p>{{t.wrok.three}}</p>
+                    <p>{{t.wrok.four}}</p>
+                    <p>{{t.wrok.five}}</p>
+                  </ion-scroll>
+                </div>
+              </div>
+
+              <div class="tasktime">
+                <div class="tasktwo">
+                  <div class="oneleft">
+                    <p>计划结束时间:{{t.planend}}</p>
+                    <p>实际结束时间:{{t.realityend}}</p>
+                  </div>
+                  <div class="oneright">
+                    <p>输出</p>
+                    <p>{{t.outputone}}/{{t.outputtwo}}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="end">
+                <p>任务状态</p><span>{{t.state}}</span>
+              </div>
+
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-scroll>
+    </div>-->
+  </ion-content>
+</ion-view>
