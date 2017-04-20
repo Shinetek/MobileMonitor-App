@@ -8,7 +8,7 @@
     L1FastViewServicesFn.$inject = ["$http"];
 
     function L1FastViewServicesFn($http) {
-        
+        return {};
     }
 
 })();

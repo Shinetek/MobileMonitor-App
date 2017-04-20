@@ -45,8 +45,9 @@ angular.module('starter')
     .state("tab.lv1fastview", {
       url: "/lv1fastview",
       views: {
-        "tab-lv1fastview": {
-            templateUrl: "partials/lv1fastview/lv1fastview.html"
+        "tab-lv1fastview": {          
+            templateUrl: "partials/lv1fastview/lv1fastview.html",
+            controller:'L1FastViewController'
         }
       }
     })
