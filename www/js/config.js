@@ -6,7 +6,7 @@ angular.module('starter')
 
   $ionicConfigProvider.platform.android.tabs.position('bottom'); //导航栏置底
   $ionicConfigProvider.platform.android.tabs.style('standard');
-  $ionicConfigProvider.scrolling.jsScrolling(true);
+  //$ionicConfigProvider.scrolling.jsScrolling(true);
 
   $stateProvider
 
@@ -45,7 +45,7 @@ angular.module('starter')
     .state("tab.lv1fastview", {
       url: "/lv1fastview",
       views: {
-        "tab-lv1fastview": {          
+        "tab-lv1fastview": {
             templateUrl: "partials/lv1fastview/lv1fastview.html",
             controller:'L1FastViewController'
         }
