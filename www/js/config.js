@@ -6,7 +6,7 @@ angular.module('starter')
 
   $ionicConfigProvider.platform.android.tabs.position('bottom'); //导航栏置底
   $ionicConfigProvider.platform.android.tabs.style('standard');
-  $ionicConfigProvider.scrolling.jsScrolling(false);
+  $ionicConfigProvider.scrolling.jsScrolling(true);
 
   $stateProvider
 
