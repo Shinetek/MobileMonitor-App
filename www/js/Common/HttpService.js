@@ -3,11 +3,11 @@
  */
 angular
   .module('starter.services')
-  .factory('HttpSerivce', HttpSerivce)
+  .factory('HttpService', HttpService)
 
-HttpSerivce.$inject = ['$http','$q'];
+HttpService.$inject = ['$http', '$q'];
 
-function HttpSerivce($http,$q){
+function HttpService($http, $q){
   return {
     getdata: function(url){
       var deferred = $q.defer();
@@ -24,5 +24,5 @@ function HttpSerivce($http,$q){
 
       return deferred.promise;
     }
-  }
+  };
 }

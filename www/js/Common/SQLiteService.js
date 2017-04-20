@@ -1,8 +1,8 @@
 /**
  * Created by qq on 2017/4/20.
  */
-anguler
-  .module('starter.service')
+angular
+  .module('starter.services')
   .factory('SQLiteService', SQLiteService)
 
 SQLiteService.$inject = ['$q','$cordovaSQLite'];
