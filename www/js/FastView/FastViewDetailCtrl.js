@@ -2,7 +2,7 @@
  * Created by qq on 2017/4/18.
  */
 define([], function () {
-  function ctrl($scope, $stateParams, $http, $q, $ionicLoading,  HTTPGET){
+  function ctrl($scope, $stateParams, $http, $q, $ionicLoading,  HttpSerivce){
     $scope.instrumentName = $stateParams.instname;
     $scope.updateTimeString = function(datetimeString){
       var strs= new Array(); //定义一数组
@@ -42,7 +42,7 @@ define([], function () {
 
     $scope.init = function() {
       var url = 'http://10.24.4.139:8080/fy3d/api/l1monitor/collect/l0static/20170320/' + $stateParams.instname + '/dpt/ad/r';
-      var promise = HTTPGET.getdata(url, $http, $q);
+      var promise = HttpService.getdata(url, $http, $q);
       promise.then(function (res) {
         $scope.orbitModels = res;
       })
@@ -59,7 +59,7 @@ define([], function () {
     });
 
     var url = 'http://10.24.4.139:8080/fy3d/api/l1monitor/collect/l0static/20170320/' + $stateParams.instname + '/dpt/ad/r';
-    var promise = HTTPGET.getdata(url, $http, $q);
+    var promise = HttpService.getdata(url, $http, $q);
     promise.then(function (res) {
       $scope.orbitModels = res;
       $ionicLoading.hide();
