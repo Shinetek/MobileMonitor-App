@@ -5,7 +5,7 @@
     <ion-scroll style="overflow: hidden;background: rgba(36, 73, 114, 0.96);align-content: center" direction="x" >
 
       <div class="row row-no-padding" style="width: auto;vertical-align: middle;height: 110px;">
-        <div class="spacol col-center"  ng-repeat="s in sensors">
+        <div class="spacol col-center"  ng-repeat="s in sensors" ng-click="instrument(s.id)">
           <div class="button  button-clear  sensorButton" style="color: white;text-align: center">
             <img style="width: 32px;height: 32px;margin:  auto"  ng-src="{{s.icon}}" />
             <p>

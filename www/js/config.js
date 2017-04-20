@@ -67,6 +67,28 @@ angular.module('starter')
           controller:'SubSystemCustomCtrl'
         }
       }
+    })
+
+    //添加成像仪观测任务运行状态监测
+    .state('tab.apparatus-cxy',{
+      url:'/subsystem/:listname',
+      views:{
+        'tab-subsystem':{
+          templateUrl:'partials/apparatus/apparatus-list.html',
+          controller:"ApparatusListCtrl"
+        }
+      }
+    })
+
+    //增加仪器下当前任务详细报告
+    .state("tab.apparatus-task",{
+      url:"/subsystem/:listname/:taskid",
+      views:{
+        "tab-subsystem":{
+          templateUrl:'partials/apparatus/apparatus-task.html'
+          //controller:"apparatus"
+        }
+      }
     });
 
   // if none of the above states are matched, use this as the fallback
