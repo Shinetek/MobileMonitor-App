@@ -45,7 +45,7 @@ angular.module('starter')
     .state("tab.lv1fastview", {
       url: "/lv1fastview",
       views: {
-        "tab-lv1fastview": {          
+        "tab-lv1fastview": {
             templateUrl: "partials/lv1fastview/lv1fastview.html",
             controller:'L1FastViewController'
         }
@@ -60,15 +60,16 @@ angular.module('starter')
         }
       }
     })
-    .state('tab.subsystem-custom',{
+
+    /*.state('tab.subsystem-custom',{
       url:'/subsystem/:state',
       views:{
-        'tab-subsystem':{
+       'tab-subsystem':{
           templateUrl:'partials/subsystem/subsystem-custom.html',
-          controller:'SubSystemCustomCtrl'
+         controller:'SubSystemCustomCtrl'
         }
       }
-    })
+    })*/
 
     //添加成像仪观测任务运行状态监测
     .state('tab.apparatus-cxy',{
@@ -86,8 +87,8 @@ angular.module('starter')
       url:"/subsystem/:listname/:taskid",
       views:{
         "tab-subsystem":{
-          templateUrl:'partials/apparatus/apparatus-task.html'
-          //controller:"apparatus"
+          templateUrl:'partials/apparatus/apparatus-task.html',
+          controller:"ApparatusTaskCtrl"
         }
       }
     });

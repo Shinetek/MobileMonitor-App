@@ -21,7 +21,7 @@ function SubSystemCtrl($scope, Systems, Sensors, SQLiteService){
   };
 
   $scope.$on('$ionicView.beforeEnter', function() {
-    $scope.loadself();//局部刷新，更新所需的字段
+    //$scope.loadself();//局部刷新，更新所需的字段
     //这里只需要将需要的字段重新赋值就OK了
   });
 

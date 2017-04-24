@@ -4,10 +4,9 @@
 angular
   .module("starter.controllers")
   .controller("ApparatusListCtrl",ApparatusListCtrl);
-ApparatusListCtrl.$inject = ["$scope", "$http", "$stateParams", "$ionicLoading", "$q", "HTTPGET"];
-function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HTTPGET){
+ApparatusListCtrl.$inject = ["$scope", "$http", "$stateParams", "$ionicLoading", "$q", "HttpService"];
+function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpService){
 
-  console.log("123");
   //标题名称
   $scope.name = $stateParams.listname;
   if($scope.name == "cxy"){
@@ -28,7 +27,7 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HTTPG
   });
   //计划数与任务表数据
   var url = 'http://10.24.4.130:4701/api/apparatus/' + $scope.name;
-  var promise = HTTPGET.getdata(url, $http, $q);
+  var promise = HttpService.getdata(url, $http, $q);
   promise.then(function(res){
     $scope.listDate = res;
     $ionicLoading.hide();
@@ -38,7 +37,7 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HTTPG
 
   $scope.new = function(){
     var url = 'http://10.24.4.130:4701/api/apparatus/' + $scope.name;
-    var promise = HTTPGET.getdata(url, $http, $q);
+    var promise = HttpService.getdata(url, $http, $q);
     promise.then(function(res){
       $scope.listDate = res;
     });
@@ -56,7 +55,9 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HTTPG
 
   //获取滚动视图高度
   //console.log(document.getElementById("heightall").offsetHeight);
-  $scope.gird_height = {height:''+document.getElementById("heightall").offsetHeight-259+"px"};
+  //$scope.gird_height = {height:''+document.getElementById("heightall").offsetHeight-259+"px"};
+  //少20px为手机端与浏览器端高度塌陷值
+  $scope.gird_height = {height:''+document.getElementById("heightall").offsetHeight-239+"px"};
 
   $scope.taskall = function(taskid){
     //获取当前任务名称与时间
@@ -66,7 +67,7 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HTTPG
 
     //增加当前任务跳转
 
-    var addtask = "#/tab/groundsystem/" + $stateParams.listname + "/" + taskid;
+    var addtask = "#/tab/subsystem/" + $stateParams.listname + "/" + taskid;
     console.log("addtask" + addtask);
     window.location.href = addtask;
   };
