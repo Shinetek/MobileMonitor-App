@@ -1,0 +1,96 @@
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select,img{margin:0;padding:0;}
+.tasks{
+  overflow: hidden;
+}
+.statuss{
+  height: 31px;
+  background: #28CDE0;
+  padding: 7px 0px 0px 5px;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+.statuss p{
+  color: white;
+  float: left;
+  font-size: 14px;
+  padding-right: 5px;
+}
+
+.taskss{
+  width: 100%;
+  background: #E8E7E6;
+  text-align: center;
+  height: 280px;
+}
+.tasklists{
+  overflow: hidden;
+}
+.taskitem{
+  overflow: hidden;
+  background: #E8E7E6;
+  padding: 10px;
+}
+.tasklist{
+  overflow: hidden;
+  background: #053552;
+}
+.tasklist h4{
+  color: white;
+  background: #AAAAAA;
+  font-size: 16px;
+  text-align: center;
+}
+.tasktime{
+  overflow: hidden;
+  padding: 5px 20px 0px 20px;
+}
+.taskone{
+  overflow: hidden;
+  padding-bottom: 5px;
+}
+.oneleft{
+  float: left;
+}
+.oneleft p{
+  color: white;
+}
+.oneright{
+  width: 50px;
+  float: right;
+  overflow: hidden;
+  background: #AAAAAA;
+}
+.oneright p:nth-child(1){
+  background: #AAAAAA;
+  color: white;
+  text-align: center;
+}
+.oneright p:nth-child(2){
+  text-align: center;
+  background: white;
+}
+.tasktwo{
+  overflow: hidden;
+  border-top: 1px solid #aaaaaa;
+  padding: 5px 0px 5px 0px;
+  border-bottom: 1px solid #aaaaaa;
+}
+.end{
+  overflow: hidden;
+  padding: 5px 20px 0px 20px;
+}
+.end p{
+  font-size: 12px;
+  float: left;
+  color: white;
+  background: #F26E2D;
+  margin-top: 2px;
+  border-radius: 2px;
+}
+.end span{
+  float: left;
+  color: white;
+  font-size: 12px;
+  padding-left: 10px;
+  margin-top: 2px;
+}

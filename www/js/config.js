@@ -60,12 +60,35 @@ angular.module('starter')
         }
       }
     })
-    .state('tab.subsystem-custom',{
+
+    /*.state('tab.subsystem-custom',{
       url:'/subsystem/:state',
       views:{
-        'tab-subsystem':{
+       'tab-subsystem':{
           templateUrl:'partials/subsystem/subsystem-custom.html',
-          controller:'SubSystemCustomCtrl'
+         controller:'SubSystemCustomCtrl'
+        }
+      }
+    })*/
+
+    //添加成像仪观测任务运行状态监测
+    .state('tab.apparatus-cxy',{
+      url:'/subsystem/:listname',
+      views:{
+        'tab-subsystem':{
+          templateUrl:'partials/apparatus/apparatus-list.html',
+          controller:"ApparatusListCtrl"
+        }
+      }
+    })
+
+    //增加仪器下当前任务详细报告
+    .state("tab.apparatus-task",{
+      url:"/subsystem/:listname/:taskid",
+      views:{
+        "tab-subsystem":{
+          templateUrl:'partials/apparatus/apparatus-task.html',
+          controller:"ApparatusTaskCtrl"
         }
       }
     });

@@ -23,16 +23,19 @@ angular.module('starter.services', ['ngCordova'])
 
   .factory('Sensors',function(){
     var sensors = [{
+      id:"cxy",
       name:'成像仪',
       icon:'img/accessories-camera-icon.png',
       success:'10',
       fail:'10'
     },{
+      id:"tcy",
       name:'探测仪',
       icon:'img/midori-globe-icon.png',
       success:'10',
       fail:'10'
     },{
+      id:"sdy",
       name:'闪电仪',
       icon:'img/flash.png',
       success:'10',
