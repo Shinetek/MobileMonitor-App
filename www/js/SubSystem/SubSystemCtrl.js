@@ -5,9 +5,9 @@ angular
   .module('starter.controllers')
   .controller('SubSystemCtrl',SubSystemCtrl)
 
-SubSystemCtrl.$inject = ['$scope', 'Systems', 'Sensors', 'SQLiteService'];
+SubSystemCtrl.$inject = ['$scope', 'Sensors', 'SQLiteService'];
 
-function SubSystemCtrl($scope, Systems, Sensors, SQLiteService){
+function SubSystemCtrl($scope, Sensors, SQLiteService){
 
   $scope.sensors = Sensors.all();
 
@@ -26,8 +26,6 @@ function SubSystemCtrl($scope, Systems, Sensors, SQLiteService){
   function getdata(){
 
     SQLiteService.get("").then(function(res){
-
-      //alert("初始显示数据个数 : " + res.rows.length)
 
       var s;
       var ss = new Array();
