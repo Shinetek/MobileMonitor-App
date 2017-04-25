@@ -12,9 +12,9 @@ angular.module('starter')
 
     .state('tab', {
       url: '/tab',
-      //abstract: true,
       templateUrl: 'partials/tabs.html',
     })
+
     .state('tab.building',{
       url:'/building',
       views:{
@@ -24,6 +24,7 @@ angular.module('starter')
         }
       }
     })
+
     .state('tab.fastView',{
       url:'/fastView',
       views:{
@@ -33,6 +34,7 @@ angular.module('starter')
         }
       }
     })
+
     .state('tab.fastView-detail',{
       url:'/fastView/:instname',
       views:{
@@ -42,6 +44,7 @@ angular.module('starter')
         }
       }
     })
+
     .state("tab.lv1fastview", {
       url: "/lv1fastview",
       views: {
@@ -51,6 +54,17 @@ angular.module('starter')
         }
       }
     })
+
+    .state('tab.faultview',{
+      url:'/faultview',
+      views:{
+        'tab-subsystem':{
+          templateUrl:'partials/faultview/faultview.html',
+          //controller:'SubSystemCtrl'
+        }
+      }
+    })
+
     .state('tab.subsystem',{
       url:'/subsystem',
       views:{
@@ -61,7 +75,7 @@ angular.module('starter')
       }
     })
 
-    /*.state('tab.subsystem-custom',{
+    .state('tab.subsystem-custom',{
       url:'/subsystem/:state',
       views:{
        'tab-subsystem':{
@@ -69,11 +83,11 @@ angular.module('starter')
          controller:'SubSystemCustomCtrl'
         }
       }
-    })*/
+    })
 
     //添加成像仪观测任务运行状态监测
     .state('tab.apparatus-cxy',{
-      url:'/subsystem/:listname',
+      url:'/apparatus/:listname',
       views:{
         'tab-subsystem':{
           templateUrl:'partials/apparatus/apparatus-list.html',
@@ -83,8 +97,8 @@ angular.module('starter')
     })
 
     //增加仪器下当前任务详细报告
-    .state("tab.apparatus-task",{
-      url:"/subsystem/:listname/:taskid",
+    .state("tab.apparatus-list-task",{
+      url:"/apparatus/:listname/:taskid",
       views:{
         "tab-subsystem":{
           templateUrl:'partials/apparatus/apparatus-task.html',
@@ -94,6 +108,6 @@ angular.module('starter')
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/lv1fastview');
+  $urlRouterProvider.otherwise('/tab/subsystem');
 
 });

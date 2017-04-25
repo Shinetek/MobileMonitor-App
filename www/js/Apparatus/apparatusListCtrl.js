@@ -67,7 +67,7 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
 
     //增加当前任务跳转
 
-    var addtask = "#/tab/subsystem/" + $stateParams.listname + "/" + taskid;
+    var addtask = "#/tab/apparatus/" + $stateParams.listname + "/" + taskid;
     console.log("addtask" + addtask);
     window.location.href = addtask;
   };

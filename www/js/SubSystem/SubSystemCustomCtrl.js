@@ -37,34 +37,50 @@ function SubSystemCustomCtrl($scope, Systems, SQLiteService){
     for(var i = 0;i<$scope.systems.length;i++){
       if($scope.systems[i].name == name){
         $scope.systems[i].selected = !$scope.systems[i].selected;
+
+        if($scope.systems[i].selected){
+          // 被选中，插入数据
+          SQLiteService.insert(
+            $scope.systems[i].id,
+            $scope.systems[i].name,
+            $scope.systems[i].icon).then(function(){
+            });
+        }
+        else{
+          // 取消选中，删除数据
+          SQLiteService.delete($scope.systems[i].id).then(function(res) {
+
+          });
+        }
       }
     }
   }
 
   // 更新数据库中的数据
-  function UpdateDataBase(){
-
-    SQLiteService.delete("").then(function(res){
-
-      // 先清空数据库在插入新数据
-      for(var i = 0;i<$scope.systems.length;i++) {
-        if($scope.systems[i].selected == true){
-          //alert($scope.systems[i].name + " " + $scope.systems[i].selected);
-          SQLiteService.insert(
-            $scope.systems[i].id,
-            $scope.systems[i].name,
-            $scope.systems[i].icon).then(function(){
-            //alert("插入数据" + $scope.systems[i].id);
-          });
-        }
-      }
-
-    }, function(err){
-      alert("删除数据错误！");
-    });
-  }
-
-  $scope.saveChanged = function(){
-    UpdateDataBase();
-  }
+  //function UpdateDataBase(){
+  //
+  //  SQLiteService.delete("").then(function(res){
+  //
+  //    // 先清空数据库在插入新数据
+  //    for(var i = 0;i<$scope.systems.length;i++) {
+  //      if($scope.systems[i].selected == true){
+  //        //alert($scope.systems[i].name + " " + $scope.systems[i].selected);
+  //        console.log("插入数据" + $scope.systems[i].name);
+  //
+  //        SQLiteService.insert(
+  //          $scope.systems[i].id,
+  //          $scope.systems[i].name,
+  //          $scope.systems[i].icon).then(function(){
+  //        });
+  //      }
+  //    }
+  //
+  //  }, function(err){
+  //    alert("删除数据错误！");
+  //  });
+  //}
+  //
+  //$scope.saveChanged = function(){
+  //  UpdateDataBase();
+  //}
 }

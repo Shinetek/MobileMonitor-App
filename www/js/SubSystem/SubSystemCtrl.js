@@ -5,9 +5,9 @@ angular
   .module('starter.controllers')
   .controller('SubSystemCtrl',SubSystemCtrl)
 
-SubSystemCtrl.$inject = ['$scope', 'Sensors', 'SQLiteService'];
+SubSystemCtrl.$inject = ['$scope', 'Sensors', 'SQLiteService', 'HttpService'];
 
-function SubSystemCtrl($scope, Sensors, SQLiteService){
+function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService){
 
   $scope.sensors = Sensors.all();
 
@@ -19,7 +19,7 @@ function SubSystemCtrl($scope, Sensors, SQLiteService){
   };
 
   $scope.$on('$ionicView.beforeEnter', function() {
-    //$scope.loadself();//局部刷新，更新所需的字段
+    $scope.loadself();//局部刷新，更新所需的字段
     //这里只需要将需要的字段重新赋值就OK了
   });
 
@@ -39,6 +39,23 @@ function SubSystemCtrl($scope, Sensors, SQLiteService){
         ss[i] = s;
       }
 
+
+      var url = "http://10.24.4.130:4701/api/ground";
+      HttpService.getdata(url).then(function(res){
+        console.log(res.length);
+        console.log(ss[0].id);
+        console.log("onefault : " + res[0].status.onefault);
+        for(var i = 0;i < ss.length;i++){
+          for(var j = 0;j < res.length;j++){
+            if(res[j].name == ss[i].id){
+              console.log(res[j].status.onefault);
+              ss[i].fault = res[j].status.onefault;
+              break;
+            }
+          }
+        }
+      });
+
       $scope.systems = ss;
 
     }, function (err) {
@@ -47,7 +64,7 @@ function SubSystemCtrl($scope, Sensors, SQLiteService){
   };
 
   $scope.instrument = function(listname){
-    var addname = "#/tab/subsystem/" + listname;
+    var addname = "#/tab/apparatus/" + listname;
     console.log("addname:" + addname);
     window.location.href = addname;
   }
