@@ -23,11 +23,11 @@
         </nav>
       </div>
     </div>
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel-group" id="L1FastView" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default" ng-repeat="task in L1FastViewCtrl.currentTaskList">
             <div class="panel-heading" role="tab" id="heading-{{task.id}}">
           <h4 class="panel-title">
-              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#L1FastView"
                  href="#collapse-{{task.id}}" aria-expanded="false" aria-controls="collapse-{{task.id}}">
                   {{task.name}} {{task.time}}
               </a>
