@@ -7,4 +7,3 @@ platforms/
 *.log
 jsconfig.json
 typings/
-typings.json
