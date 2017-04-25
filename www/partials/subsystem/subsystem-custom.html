@@ -10,44 +10,49 @@
     </ion-nav-back-button>
 
     <ion-nav-buttons side="right">
-      <div
-        class="button  button-clear "
-        nav-direction="right"
-        style="color: black;text-align: right;font-size: medium;"
-        ng-click="saveChanged()" >
-        保存
-      </div>
+      <!--<div-->
+        <!--class="button  button-clear "-->
+        <!--nav-direction="right"-->
+        <!--style="color: black;text-align: right;font-size: medium;"-->
+        <!--ng-click="saveChanged()" >-->
+        <!--保存-->
+      <!--</div>-->
     </ion-nav-buttons>
 
   </ion-nav-bar>
   <ion-content overflow-scroll="true" style="overflow: hidden">
     <ion-scroll style="height: 100%;overflow: hidden;width: 100%">
 
-      <div class="row row-wrap row-no-padding" style="width: 100%">
+      <div class="list">
 
-        <div class="cellcol col-100 col-center" style="padding-top: 7px;padding-left: 5px" >
-          <div style="font-family: 宋体;font-size: small;height: 22px;vertical-align: middle">分系统列表</div>
+        <div class="item item-divider">
+          分系统列表
         </div>
 
-        <div class="col col-25 col-center"  ng-repeat="s in systems">
+        <div class="row row-wrap row-no-padding" style="width: 100%">
 
-          <div style="vertical-align: bottom;" ng-click="selectedChanged(s.name,$event)">
+          <div class="col col-25 col-center"  ng-repeat="s in systems">
 
-            <div style="" class="roundedOne" id="checkboxBlock" >
-              <input style="background-color: #0000AA;" id="{{s.name}}" type="checkbox" ng-checked="s.selected" ng-click="selectedChanged(s.name,$event)"  />
-              <label for="{{s.name}}"></label>
+            <div style="vertical-align: bottom;" ng-click="selectedChanged(s.name,$event)">
+
+              <div style="" class="roundedOne" id="checkboxBlock" >
+                <input style="background-color: #0000AA;" id="{{s.name}}" type="checkbox" ng-checked="s.selected"   />
+                <label for="{{s.name}}"></label>
+              </div>
+
+              <P >
+                <img style="height: 32px;width: 32px;margin-bottom: 5px" ng-src="{{s.icon}}" />
+                <nobr><font color="black" size="2px" face="宋体">{{s.name}} </font></nobr>
+              </P>
+
             </div>
-
-            <P >
-              <img style="height: 32px;width: 32px;margin-bottom: 5px" ng-src="{{s.icon}}" />
-              <nobr><font color="black" size="2px" face="宋体">{{s.name}} </font></nobr>
-            </P>
 
           </div>
 
         </div>
 
       </div>
+
     </ion-scroll>
   </ion-content>
 </ion-view>

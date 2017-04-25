@@ -1,11 +1,11 @@
 (function () {
 
-    'use strict';
+    "use strict";
 
-    angular.module('starter.controllers').
-        controller('L1FastViewController', L1FastViewCtrlFn);
+    angular.module("starter.controllers")
+        .controller("L1FastViewController", L1FastViewCtrlFn);
 
-    L1FastViewCtrlFn.$inject = ['L1FastViewServices', '$scope'];
+    L1FastViewCtrlFn.$inject = ["L1FastViewServices", "$scope"];
 
     function L1FastViewCtrlFn(L1FastViewServices, $scope) {
         var self = this;
