@@ -27,20 +27,20 @@
             // var url = CONFIG_GLOBAL.BASEURL + "api/timetable/cxy/20170424";
             var url = CONFIG_GLOBAL.BASEURL + '/api/apparatus/' + instName;
             L1FastViewServices.getInistTaskList(url, function(doc) {
-                alert(JSON.stringify(doc));
+                //alert(JSON.stringify(doc));
                 if (doc === null || doc === undefined) {
                     return;
                 }
                 self.currentTaskList.splice(0, self.currentTaskList.length);
                 doc['task'].forEach(function(element) {
-                    if (element.name === '全圆盘' && element.status === '1' &&
-                        element.id !== undefined) {
+	                if (element.name === '全圆盘' && element.status === '1' &&
+		                element.id !== undefined) {
                         // 临时增加 imgUrl属性
                         element.imgUrl = 'http://pic.qiantucdn.com/58pic/19/31/02/30P58PICNjD_1024.jpg';
                         self.currentTaskList.push(element);
                     }
                 });
-                alert(JSON.stringify(self.currentTaskList));
+                //alert(JSON.stringify(self.currentTaskList));
             }, function(err) {
 
             });
