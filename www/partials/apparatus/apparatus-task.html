@@ -1,0 +1,52 @@
+<ion-view view-title="任务表">
+  <ion-content>
+    <!--当前状态-->
+    <div class="tasks">
+      <div class="statuss">
+        <p>当前任务:</p>
+        <p>{{taskalls.name}}</p>
+        <p>{{taskalls.time}}</p>
+      </div>
+
+        <ion-list class="tasklists">
+          <ion-item class="taskitem" ng-repeat="t in taskalls.task">
+
+            <div class="tasklist">
+
+              <h4 style="background:{{upbackground(t.stateall)}}">{{t.title}}</h4>
+
+              <div class="tasktime">
+                <div class="taskone">
+                  <div class="oneleft">
+                    <p>计划开始时间:{{t.planstart}}</p>
+                    <p>实际开始时间:{{t.realitystart}}</p>
+                  </div>
+                  <div class="oneright">
+                    <p>输入</p>
+                    <p>{{t.inputone}}/{{t.inputtwo}}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tasktime">
+                <div class="tasktwo">
+                  <div class="oneleft">
+                    <p>计划结束时间:{{t.planend}}</p>
+                    <p>实际结束时间:{{t.realityend}}</p>
+                  </div>
+                  <div class="oneright">
+                    <p>输出</p>
+                    <p>{{t.outputone}}/{{t.outputtwo}}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="end">
+                <p>任务状态</p><span style="color:{{upcolor(t.stateall)}}">{{t.state}}</span>
+              </div>
+            </div>
+          </ion-item>
+        </ion-list>
+    </div>
+  </ion-content>
+</ion-view>

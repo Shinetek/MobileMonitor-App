@@ -21,7 +21,7 @@ function SubSystemCtrl($scope, Systems, Sensors, SQLiteService){
   };
 
   $scope.$on('$ionicView.beforeEnter', function() {
-    $scope.loadself();//局部刷新，更新所需的字段
+    //$scope.loadself();//局部刷新，更新所需的字段
     //这里只需要将需要的字段重新赋值就OK了
   });
 
@@ -49,5 +49,11 @@ function SubSystemCtrl($scope, Systems, Sensors, SQLiteService){
       alert("GroundSystemCtrl get error");
     });
   };
+
+  $scope.instrument = function(listname){
+    var addname = "#/tab/subsystem/" + listname;
+    console.log("addname:" + addname);
+    window.location.href = addname;
+  }
 }
 

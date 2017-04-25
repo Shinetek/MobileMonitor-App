@@ -1,5 +1,5 @@
-<ion-view view-title="{{rename}}">
-  <ion-content class="main">
+<ion-view view-title="{{rename}}" id="heightall">
+  <ion-content class="main" scroll="false">
     <!--计划任务数-->
     <div class="observe">
       <h4>观测计划数</h4>
@@ -60,16 +60,22 @@
         <h4>观测任务表</h4>
       </div>
 
-      <ion-scroll class="scrolls" direction="y" style="margin-top: 2px;">
+      <ion-scroll class="scrolls" direction="y" style="margin-top: 2px;" ng-style="gird_height">
+        <ion-refresher class="pull" pulling-text="下拉刷新" on-refresh="new()"></ion-refresher>
         <div class="row row-wrap">
-            <div class="col-25 cool button button-icon" ng-repeat="x in listDate.task" ng-click="taskall(x.name,x.time)">
+            <div class="col-25 cool button button-icon" ng-repeat="x in listDate.task" ng-click="taskall(x.id)"style="background: {{upBackground(x.status)}}">
                 <div class="colls">
                   <p>{{x.name}}</p>
                   <p>{{x.time}}</p>
                 </div>
             </div>
         </div>
+        <!--<ion-infinite-scroll on-infinite="loadMore()" distance="1%" immediate-check="false"></ion-infinite-scroll>-->
       </ion-scroll>
+
+
+
+
     </div>
 
     <!--当前状态-->

@@ -1,0 +1,261 @@
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select,img{margin:0;padding:0;}
+
+
+.main{
+  width: 100%;
+  background: #E8E7E6;
+}
+
+/*观测计划数*/
+.observe{
+  height: 30px;
+  background: #28CDE0;
+  padding: 0px 0px 0px 5px;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+.observe h4{
+  color: white;
+  font-size: 14px;
+  width: 100px;
+  line-height: 30px;
+}
+
+.plan{
+  width: 100%;
+  height: 80px;
+  background: #28CDE0;
+}
+.planup{
+  width: 100%;
+  height: 40px;
+}
+.planxia{
+  width: 100%;
+  height: 40px;
+}
+
+.upleft,.upright{
+  float: left;
+  width: 50%;
+  height: 40px;
+  position: relative;
+}
+.dayplan,.daysucceed,.current,.failed{
+  width: 85%;
+  height: 25px;
+  position: absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #888888;
+  background: white;
+}
+
+.dayplan div:nth-child(2),.daysucceed div:nth-child(2),.current div:nth-child(2),.failed div:nth-child(2){
+  float: right;
+  width: 50%;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  background: white;
+  border-radius:0px 5px 5px 0px;
+  font-size: 12px;
+}
+.dayplan div:nth-child(1){
+  font-size: 12px;
+  float: left;
+  width: 50%;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  background: #E0E0E0;
+  border-radius:5px 0px 0px 5px;
+  position: relative;
+}
+
+.daysucceed div:nth-child(1){
+  font-size: 12px;
+  color: white;
+  float: left;
+  width: 50%;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  background: #5A9055;
+  border-radius:5px 0px 0px 5px;
+}
+.current div:nth-child(1){
+  font-size: 12px;
+  color: white;
+  float: left;
+  width: 50%;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  background: #0B5D8B;
+  border-radius:5px 0px 0px 5px;
+}
+.failed div:nth-child(1){
+  font-size: 12px;
+  color: white;
+  float: left;
+  width: 50%;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  background: #D9534F;
+  border-radius:5px 0px 0px 5px;
+}
+
+/*观测任务列表*/
+.planlist{
+  overflow: hidden;
+}
+.scrolls{
+  width: 100%;
+  background: #4BA1CE;
+  text-align: center;
+}
+.task{
+  height: 100px;
+  background: white;
+  margin-top: 3px;
+}
+.cool{
+  font-size: 13px;
+  margin-bottom: 10px;
+  background: #5A9055;
+  color: white;
+  border-radius:5px;
+  border: 1px solid black;
+}
+.button{
+ line-height:20px;
+}
+
+
+
+
+/*观测当前状态*/
+/*.tasks{
+  overflow: hidden;
+  height: 300px;
+}
+.statuss{
+  height: 31px;
+  background: #28CDE0;
+  padding: 7px 0px 0px 5px;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+.statuss p{
+  color: white;
+  float: left;
+  font-size: 14px;
+  padding-right: 5px;
+}
+
+.taskss{
+  width: 100%;
+  background: #E8E7E6;
+  text-align: center;
+  height: 280px;
+}
+.tasklists{
+  overflow: hidden;
+}
+.taskitem{
+  overflow: hidden;
+  background: #E8E7E6;
+  padding: 10px;
+}
+.tasklist{
+  height: 260px;
+  background: #053552;
+}
+.tasklist h4{
+  color: white;
+  background: #AAAAAA;
+  font-size: 16px;
+}
+.tasktime{
+  overflow: hidden;
+  padding: 0px 20px 0px 20px;
+}
+.taskone{
+  overflow: hidden;
+  border-bottom: 1px solid #aaaaaa;
+  padding-bottom: 5px;
+}
+.oneleft{
+  float: left;
+}
+.oneleft p{
+  color: white;
+}
+.oneright{
+  width: 50px;
+  float: right;
+  overflow: hidden;
+  background: #AAAAAA;
+}
+.oneright p:nth-child(1){
+  background: #AAAAAA;
+  color: white;
+}
+.oneright p:nth-child(2){
+  background: white;
+}
+.wroklist{
+  height: 100px;
+  overflow: hidden;
+  padding: 5px 20px 5px 20px;
+}
+.wrokleft{
+  float: left;
+  padding: 0px 0px 0px 10px;
+}
+.wrokleft p{
+  color: white;
+}
+.ps{
+  border-right: 1px solid #aaaaaa;
+  padding-right: 5px;
+  height: 90px;
+}
+.wrokright{
+  float: left;
+  padding-left: 40px;
+}
+.wrokright p{
+  color: white;
+}
+.tasktwo{
+  overflow: hidden;
+  border-top: 1px solid #aaaaaa;
+  padding: 5px 0px 5px 0px;
+  border-bottom: 1px solid #aaaaaa;
+}
+.end{
+  overflow: hidden;
+  padding: 0px 20px 0px 20px;
+}
+.end p{
+  font-size: 12px;
+  float: left;
+  color: white;
+  background: #F26E2D;
+  margin-top: 2px;
+  border-radius: 2px;
+}
+.end span{
+  float: left;
+  color: white;
+  font-size: 12px;
+  padding-left: 10px;
+  margin-top: 2px;
+}*/
