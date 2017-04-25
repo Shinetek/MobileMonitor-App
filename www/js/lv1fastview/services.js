@@ -1,7 +1,6 @@
 (function () {
 
     "use strict";
-
     angular.module("starter")
     .factory("L1FastViewServices", L1FastViewServicesFn);
 
@@ -13,7 +12,7 @@
         };
 
         function _getInistTaskList(url, successFn, errorFn) {
-            $http.get(url).success(successFn).errorFn(errorFn);
+            $http.get(url).success(successFn).error(errorFn);
         }
     }
 
