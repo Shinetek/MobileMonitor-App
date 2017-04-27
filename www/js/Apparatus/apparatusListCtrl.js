@@ -31,6 +31,9 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
   promise.then(function(res){
     $scope.listDate = res;
     $ionicLoading.hide();
+  }, function(err){
+    console.log("err");
+    $ionicLoading.hide();
   });
 
   //下拉刷新数据

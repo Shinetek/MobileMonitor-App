@@ -4,13 +4,12 @@
 
     <ion-scroll style="overflow: hidden;background: rgba(36, 73, 114, 0.96);align-content: center" direction="x" >
 
-      <div class="row row-no-padding" style="width: auto;vertical-align: middle;height: 100px;">
+      <div class="row row-no-padding" style="height: 100px;">
         <div class="spacol col-center col-33"  ng-repeat="s in sensors" ng-click="instrument(s.id)">
-
-          <div class="button  button-clear  sensorButton">
-            <p>
-              <img style="width: 32px;height: 32px;margin:  auto"  ng-src="{{s.icon}}" />
-              <p>
+          <div class=" sensorButton " style="width: 100%;">
+            <!--<p>-->
+              <img style="width: 32px;height: 32px;margin:  auto;"  ng-src="{{s.icon}}" />
+              <div >
                 <font size="2" color="red" face="Arial" >
                   {{s.fail}}
                 </font>
@@ -20,10 +19,9 @@
                 <font size="2" color="#adff2f" face="Arial" >
                   {{s.success}}
                 </font>
-              </p>
-              <font size="2" color="white" face="宋体" style="margin-top: 5px"><nobr>{{s.name}}</nobr></font>
-            </p>
-
+              </div>
+              <font size="2" color="white" face="宋体" >{{s.name}}</font>
+            <!--</p>-->
           </div>
         </div>
       </div>
@@ -46,13 +44,13 @@
 
           <div class="col col-25 col-center"  ng-repeat="s in systems">
 
-            <div style="position:absolute;width:25%;text-align: right;padding-right:5px">
-              <label style="font-size: smaller">
+            <div style="position:absolute;width:25%;text-align: right;padding-right: 3px;z-index: 2;" ng-if="s.fault != 0">
+              <label style="font-size: smaller;background-color: orangered;padding: 0px 2px;color: white;border-radius: 4px;border: 1px solid white">
                 {{s.fault}}
               </label>
             </div>
 
-            <a class="button  button-clear icon-top button-positive systemButton" href="#/tab/faultview">
+            <a class="button  button-clear icon-top button-positive systemButton" href="#/tab/faultview" style="z-index: 1">
               <img style="height: 32px;width: 32px;margin-bottom: 5px" ng-src="{{s.icon}}" />
               <P><nobr><font color="black" face="宋体">{{s.name}}</font></nobr></P>
             </a>

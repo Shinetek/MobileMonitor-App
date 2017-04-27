@@ -44,6 +44,7 @@
 .sensorButton{
   width: 100%;
   margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
 }
 
@@ -66,8 +67,7 @@
   background-color: transparent;
   text-align: center;
   height: 100%;
-  vertical-align: middle;
-  width: 100%;
+  /*width: 100%;*/
   border: 0px;
 }
 

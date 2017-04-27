@@ -39,20 +39,23 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService){
         ss[i] = s;
       }
 
-
       var url = "http://10.24.4.130:4701/api/ground";
       HttpService.getdata(url).then(function(res){
-        console.log(res.length);
-        console.log(ss[0].id);
-        console.log("onefault : " + res[0].status.onefault);
+        //console.log(res.length);
+        //console.log(ss.length);
+        //console.log("onefault : " + res[0].status.onefault);
         for(var i = 0;i < ss.length;i++){
           for(var j = 0;j < res.length;j++){
             if(res[j].name == ss[i].id){
-              console.log(res[j].status.onefault);
+              //console.log(res[j].status.onefault);
               ss[i].fault = res[j].status.onefault;
               break;
             }
           }
+        }
+      }, function(err){
+        for(var i = 0;i < ss.length;i++){
+          ss[i].fault = 0;
         }
       });
 
@@ -65,7 +68,7 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService){
 
   $scope.instrument = function(listname){
     var addname = "#/tab/apparatus/" + listname;
-    console.log("addname:" + addname);
+    //alert("addname:" + addname);
     window.location.href = addname;
   }
 }

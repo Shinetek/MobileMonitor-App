@@ -2,7 +2,7 @@ angular.module('starter')
   .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
   var date = new Date();
-  console.log(date.toLocaleString() + " ###############################");
+  console.log(date.toISOString().substr(0, 19).replace("T"," ") + " ###############################");
 
   $ionicConfigProvider.platform.android.tabs.position('bottom'); //导航栏置底
   $ionicConfigProvider.platform.android.tabs.style('standard');
@@ -25,26 +25,6 @@ angular.module('starter')
       }
     })
 
-    .state('tab.fastView',{
-      url:'/fastView',
-      views:{
-        'tab-fastView':{
-          templateUrl:'partials/fastview/fastview.html',
-          controller:'FastViewCtrl'
-        }
-      }
-    })
-
-    .state('tab.fastView-detail',{
-      url:'/fastView/:instname',
-      views:{
-        'tab-fastView':{
-          templateUrl:'partials/fastview/fastview-detail.html',
-          controller:'FastViewDetailCtrl'
-        }
-      }
-    })
-
     .state("tab.lv1fastview", {
       url: "/lv1fastview",
       views: {
@@ -55,12 +35,13 @@ angular.module('starter')
       }
     })
 
+    // 故障信息
     .state('tab.faultview',{
       url:'/faultview',
       views:{
         'tab-subsystem':{
           templateUrl:'partials/faultview/faultview.html',
-          //controller:'SubSystemCtrl'
+          controller:'FaultViewCtrl'
         }
       }
     })
@@ -108,6 +89,6 @@ angular.module('starter')
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/subsystem');
+  $urlRouterProvider.otherwise('/tab/lv1fastview');
 
 });
