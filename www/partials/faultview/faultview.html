@@ -1,48 +1,38 @@
-<ion-view view-title="" style="background: rgba(186, 182, 179, 0.33)" >
-  <ion-nav-bar>
+<ion-view view-title="" style="background: rgba(186, 182, 179, 0.33)">
+    <ion-nav-bar>
 
-    <ion-nav-back-button class="button-clear" style="color: #628fc0;font-size: medium">
-      <i class="ion-chevron-left"></i> 地面系统
-    </ion-nav-back-button>
+        <ion-nav-back-button class="button-clear" style="color: #628fc0;font-size: medium">
+            <i class="ion-chevron-left"></i> 地面系统
+        </ion-nav-back-button>
 
-    <ion-nav-buttons side="right">
+        <ion-nav-buttons side="right">
 
-      <script id="my-popover.html" type="text/ng-template">
-        <ion-popover-view style="width: 85%;height: 240px">
+            <label class="item-input-wrapper" style="background-color: transparent;cursor: hand"
+                   ng-click="openPopover($event)">
+                查询&nbsp;<i class="icon ion-ios-search-strong"></i>
+            </label>
 
-          <!--<ion-header-bar>-->
-            <!--<label class="item-input-wrapper" style="background-color: transparent;cursor: hand" ng-click="openPopover($event)">-->
-                  <!--<span>-->
-                  <!--输入查询条件-->
-                  <!--</span>-->
-            <!--</label>-->
-          <!--</ion-header-bar>-->
-          <div ng-include="faultquery.html"></div>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content overflow-scroll="true">
+        <ion-refresher pulling-text="Pull to refresh" on-refresh="vm.doRefresh()"></ion-refresher>
+        <ion-list>
 
-        </ion-popover-view>
-      </script>
+            <div class="item item-divider">
+                故障列表
+            </div>
 
-      <label class="item-input-wrapper" style="background-color: transparent;cursor: hand" ng-click="openPopover($event)">
-          <span>
-          查询&nbsp;<i class="icon ion-ios-search-strong" ></i>
-          </span>
-      </label>
+            <ion-item class="row-no-padding" style="padding: 10px" ng-repeat="f in faults">
+                <h2 style="display: inline-block"><strong>{{f.code}}-{{f.category}}</strong></h2>
 
-    </ion-nav-buttons>
-  </ion-nav-bar>
-  <ion-content overflow-scroll="true"  >
-    <ion-list>
+                <p style="float: right ">{{f.happen_dt}} </p><br>
 
-      <div class="item item-divider">
-        故障列表
-      </div>
+                <p style="float:left">{{f.describe}}</p>
 
-      <ion-item class="row-no-padding" style="padding: 10px" ng-repeat="f in faults">
-        <h2 style="display: inline-block"><strong>{{f.code}}</strong></h2><p style="float: right ">{{f.happen_dt}} </p><br>
-        <p style="float:left">{{f.describe}}</p><p style="float: right;color: red;display: inline-block;font-family: 宋体">{{f.status}}</p>
-      </ion-item >
+                <p style="float: right;color: red;display: inline-block;font-family: 宋体">{{f.status}}</p>
+            </ion-item>
 
-    </ion-list>
-
-  </ion-content>
+        </ion-list>
+        <ion-infinite-scroll ng-if="!vm.moredata" on-infinite="vm.loadMore()" distance="1%" ></ion-infinite-scroll>
+    </ion-content>
 </ion-view>

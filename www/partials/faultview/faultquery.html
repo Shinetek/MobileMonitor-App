@@ -1,65 +1,65 @@
 <!--<script id="my-popover.html" type="text/ng-template">-->
-    <!--<ion-popover-view style="width: 85%;height: 240px">-->
-<ion-view view-title="" hide-nav-bar="true">
-        <ion-header-bar>
-            <label class="item-input-wrapper" style="background-color: transparent;cursor: hand" ng-click="openPopover($event)">
+<!--<ion-popover-view style="width: 85%;height: 240px">-->
+<ion-header-bar>
+    <label class="item-input-wrapper" style="background-color: transparent;cursor: hand" ng-click="openPopover($event)">
                   <span>
                   输入查询条件
                   </span>
+    </label>
+</ion-header-bar>
+<ion-content style="background-color: white;overflow: hidden;height:auto" >
+    <ion-list>
+        <div class="item item-input " style="height: 35px;background-color: transparent">
+            <div class="input-label">
+                <P>故障描述</P>
+            </div>
+            <label class="item-input-wrappe1r" style="margin-right: 10px;background-color: transparent">
+                <input type="search" placeholder="输入故障描述" style="background-color: transparent"
+                       ng-model="data.queryDescribe">
             </label>
-        </ion-header-bar>
-        <ion-content style="background-color: white;overflow: hidden;height:auto">
-            <ion-list >
-                <div class="item item-input " style="height: 35px;background-color: transparent">
-                    <div class="input-label" >
-                        <P>故障描述</P>
-                    </div>
-                    <label class="item-input-wrapper" style="height: 26px;margin-right: 10px;background-color: transparent">
-                        <!--<i class="icon ion-ios-search placeholder-icon"></i>-->
-                        <input type="search" placeholder="输入故障描述" style="background-color: transparent">
-                    </label>
 
-                </div>
+        </div>
 
-                <div class="item item-input item-select" style="height: 35px;background-color: transparent" >
-                    <div class="input-label" >
-                        <P>故障级别</P>
-                    </div>
-                    <select >
-                        <option selected>一级故障</option>
-                        <option>二级故障</option>
-                    </select>
-                </div>
+        <div class="item item-input item-select" style="height: 35px;background-color: transparent">
+            <div class="input-label">
+                <P>故障级别</P>
+            </div>
+            <select>
+                <option selected>一级故障</option>
+                <option>二级故障</option>
+            </select>
+        </div>
 
-                <div class="item item-input item-select" style="height: 35px;background-color: transparent">
-                    <div class="input-label">
-                        <P>故障类型</P>
-                    </div>
-                    <select>
-                        <option selected>所有</option>
-                        <option>硬件设备类</option>
-                        <option>基础系统类</option>
-                        <option>应用软件类</option>
-                        <option>任务相关</option>
-                        <option>其它类</option>
-                    </select>
-                </div>
+        <div class="item item-input item-select" style="height: 35px;background-color: transparent">
+            <div class="input-label">
+                <P>故障类型</P>
+            </div>
+            <select ng-model="data.queryType">
+                <option selected id="all">ALL</option>
+                <option>硬件设备类</option>
+                <option>基础系统类</option>
+                <option>应用软件类</option>
+                <option>任务相关</option>
+                <option>其它类</option>
+            </select>
+        </div>
 
-                <label class="item item-input" style="height: 35px;background-color: transparent">
-                    <span class="input-label"><P>故障时间</P></span>
-                    <input type="date" id="datePicker" style="text-align: right;">
-                    <!--<input type="datetime" id="datePicker" style="max-width: 130px;padding: 0px">- -->
-                    <!--<input type="datetime" id="datePicker1" style="max-width: 130px;padding: 0px" >-->
-                </label>
+        <label class="item item-input" style="height: 35px;background-color: transparent">
+            <span class="input-label"><P>故障时间</P></span>
+            <input type="date" id="datePicker" style="text-align: right;" value="{{data.currdate}}" ng-model="data.currdate">
+            <!--<input type="datetime" id="datePicker" style="max-width: 130px;padding: 0px">- -->
+            <!--<input type="datetime" id="datePicker1" style="max-width: 130px;padding: 0px" >-->
+        </label>
 
-                <div class="item item-button-left" style="background-color: transparent;height: 50px">
-                    <button class="button button-positive">
-                        <P style="color: white">&nbsp;&nbsp;&nbsp;&nbsp;确定&nbsp;&nbsp;&nbsp;&nbsp;</P>
-                    </button>
-                </div>
-            </ion-list>
-        </ion-content>
-    <!--</ion-popover-view>-->
+
+        <div class="item item-button-left" style="background-color: transparent;height: 50px">
+            <button class="button button-positive" ng-click="filterData()">
+                <P style="color: white">&nbsp;&nbsp;&nbsp;&nbsp;确定&nbsp;&nbsp;&nbsp;&nbsp;</P>
+            </button>
+        </div>
+    </ion-list>
+</ion-content>
+<!--</ion-popover-view>-->
 <!--</script>-->
 
-</ion-view>
+
