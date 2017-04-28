@@ -26,7 +26,7 @@
 	    function _refreshData() {
 		    var instName = self.instNavCurrentItem;
 		    _getTaskListForInst(instName, function(err) {
-
+					$scope.$broadcast('scroll.refreshComplete');
 		    });
 	    }
 
