@@ -67,8 +67,8 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService){
   };
 
   $scope.instrument = function(listname){
-    var addname = "#/tab/apparatus/" + listname;
-    //alert("addname:" + addname);
+    var addname = "#/tab/subsystem/apparatus/" + listname;
+    console.log("addname:" + addname);
     window.location.href = addname;
   }
 }
