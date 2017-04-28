@@ -2,44 +2,59 @@
 <ion-view view-title="L1快视" ng-controller="L1FastViewController as L1FastViewCtrl"
           data-ng-init="L1FastViewCtrl.pageInit()">
     <ion-content overflow-scroll="true" style="overflow: auto">
-    <div style="height: auto; background-color: rgba(36, 73, 114, 0.96);">
-      <div class="inst-profile-nav top-0">
-        <nav class="underline-nav" role="navigation">
-            <div class="underline-nav-item" role="tab"
-                 ng-class="{'selected':L1FastViewCtrl.instNavItemIsSelected('cxy')}"
-                 ng-click="L1FastViewCtrl.selectInstNavItem('cxy')">
-            <a>成像仪</a>
-          </div>
-            <div class="underline-nav-item" role="tab"
-                 ng-class="{'selected':L1FastViewCtrl.instNavItemIsSelected('tcy')}"
-                 ng-click="L1FastViewCtrl.selectInstNavItem('tcy')">
-            <a>探测仪</a>
-          </div>
-            <div class="underline-nav-item" role="tab"
-                 ng-class="{'selected':L1FastViewCtrl.instNavItemIsSelected('sdy')}"
-                 ng-click="L1FastViewCtrl.selectInstNavItem('sdy')">
-            <a>闪电仪</a>
-          </div>
-        </nav>
-      </div>
-    </div>
-    <div class="panel-group" id="L1FastView" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default" ng-repeat="task in L1FastViewCtrl.currentTaskList">
-            <div class="panel-heading" role="tab" id="heading-{{task.id}}">
-          <h4 class="panel-title">
-              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#L1FastView"
-                 href="#collapse-{{task.id}}" aria-expanded="false" aria-controls="collapse-{{task.id}}">
-                  {{task.name}} {{task.time}}
-              </a>
-          </h4>
+        <ion-refresher pulling-text="刷新" on-refresh="L1FastViewCtrl.refreshData()"></ion-refresher>
+        <div style="height: auto; background-color: rgba(36, 73, 114, 0.96);">
+            <div class="inst-profile-nav top-0">
+                <nav class="underline-nav" role="navigation">
+                    <div class="underline-nav-item" role="tab"
+                         ng-class="{'selected':L1FastViewCtrl.instNavItemIsSelected('agri')}"
+                         ng-click="L1FastViewCtrl.selectInstNavItem('agri')">
+                        <a>成像仪</a>
+                    </div>
+                    <div class="underline-nav-item" role="tab"
+                         ng-class="{'selected':L1FastViewCtrl.instNavItemIsSelected('giirs')}"
+                         ng-click="L1FastViewCtrl.selectInstNavItem('giirs')">
+                        <a>探测仪</a>
+                    </div>
+                    <div class="underline-nav-item" role="tab"
+                         ng-class="{'selected':L1FastViewCtrl.instNavItemIsSelected('lmi')}"
+                         ng-click="L1FastViewCtrl.selectInstNavItem('lmi')">
+                        <a>闪电仪</a>
+                    </div>
+                </nav>
+            </div>
         </div>
-            <div id="collapse-{{task.id}}" class="panel-collapse collapse" role="tabpanel"
-                 aria-labelledby="heading-{{task.id}}">
-                <div class="panel-body" style="text-align: center;">
-                    <img src="{{task.imgUrl}}" width="90%" height="auto"/>
-          </div>
+            <ion-list>
+                <ion-item ng-repeat="taskItem in L1FastViewCtrl.currentTaskList | orderBy:['-time']" class="item-thumbnail-right">
+                    <div class="d-inline-block">
+                        <h2>{{taskItem.name}} - {{taskItem.time | formatTime}}</h2>
+                        <p>{{taskItem.task_id}}</p>
+                    </div>
+                    <a class="thum-img">
+                        <img width="80" height="80" src="{{taskItem.imgUrl}}"/>
+                    </a>
+                    <ion-option-button class="button-positive">分享</ion-option-button>
+                    <ion-option-button class="button-info">查看</ion-option-button>
+                </ion-item>
+            </ion-list>
         </div>
-      </div>
-    </div>
+        <!--<div class="panel-group" id="L1FastView" role="tablist" aria-multiselectable="true">-->
+        <!--<div class="panel panel-default" ng-repeat="task in L1FastViewCtrl.currentTaskList">-->
+        <!--<div class="panel-heading" role="tab" id="heading-{{task.id}}">-->
+        <!--<h4 class="panel-title">-->
+        <!--<a class="collapsed" role="button" data-toggle="collapse" data-parent="#L1FastView"-->
+        <!--href="#collapse-{{task.id}}" aria-expanded="false" aria-controls="collapse-{{task.id}}">-->
+        <!--{{task.name}} {{task.time}}-->
+        <!--</a>-->
+        <!--</h4>-->
+        <!--</div>-->
+        <!--<div id="collapse-{{task.id}}" class="panel-collapse collapse" role="tabpanel"-->
+        <!--aria-labelledby="heading-{{task.id}}">-->
+        <!--<div class="panel-body" style="text-align: center;">-->
+        <!--<img src="{{task.imgUrl}}" width="90%" height="auto"/>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
   </ion-content>
 </ion-view>

@@ -33,3 +33,18 @@
 .underline-nav .underline-nav-item > a {
     color: white;
 }
+
+.task-img-item {
+    width: 48%!important;
+    height: auto!important;
+}
+
+.d-inline-block {
+    display: inline-block!important;
+}
+
+.thum-img {
+    position: absolute;
+    right: 15px;
+    top: 8px;
+}
