@@ -13,7 +13,11 @@
 	    self.instNavCurrentItem = 'agri';
         // 任务列表
         self.currentTaskList = [];
-
+        // 是否显示大图
+		self.bigImgShow = false;
+        // 大图地址 
+	    self.bigImgUrl = "";
+			
         // 初始化页面
         self.pageInit = _pageInit;
         // 判断页签是否为选中状态
@@ -22,6 +26,19 @@
         self.selectInstNavItem = _selectInstNavItem;
 	    // 下拉刷新页面
 	    self.refreshData = _refreshData;
+	    // 隐藏大图
+	    self.hideBigImg = _hideBigImg;
+	    // 显示大图
+	    self.showBigImg = _showBigImg;
+
+	    function _showBigImg(taskModule) {
+		    self.bigImgUrl = taskModule.imgUrl.replace("&thum=1", "&thum=0");
+		    self.bigImgShow = true;
+	    }
+	    
+	    function _hideBigImg() {
+			self.bigImgShow = false;
+	    }
 
 	    function _refreshData() {
 		    var instName = self.instNavCurrentItem;
