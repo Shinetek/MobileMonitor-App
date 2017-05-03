@@ -57,8 +57,8 @@ angular.module('starter')
     })
 
     .state('tab.subsystem-custom',{
-      url:'/subsystem/:state',
-      //url:'/subsystem/state/:state',
+      //url:'/subsystem/:state',
+      url:'/subsystem/state/:state',
       views:{
        'tab-subsystem':{
           templateUrl:'partials/subsystem/subsystem-custom.html',
@@ -68,7 +68,7 @@ angular.module('starter')
     })
 
     //添加成像仪观测任务运行状态监测
-      .state('tab.apparatus-cxy',{
+      .state('tab.apparatus-list',{
           url:'/subsystem/apparatus/:listname',
           views:{
               'tab-subsystem':{
@@ -80,7 +80,7 @@ angular.module('starter')
 
       //增加仪器下当前任务详细报告
       .state("tab.apparatus-task",{
-          url:"/subsystem/apparatus/:listname/:taskid",
+          url:"/subsystem/apparatus/:listname/:name/:time/:task_id",
           views:{
               "tab-subsystem":{
                   templateUrl:'partials/apparatus/apparatus-task.html',
