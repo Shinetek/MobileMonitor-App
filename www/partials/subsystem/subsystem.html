@@ -1,72 +1,87 @@
 <ion-view view-title="地面系统重要工作状态" style="background: rgba(186, 182, 179, 0.33)">
 
-  <ion-content overflow-scroll="true" style="overflow: hidden" >
+    <ion-content overflow-scroll="true" style="overflow: hidden">
 
-    <ion-scroll style="overflow: hidden;background: rgba(36, 73, 114, 0.96);align-content: center" direction="x" >
+        <ion-scroll style="overflow: hidden;background: rgba(36, 73, 114, 0.96);align-content: center" direction="x">
 
-      <div class="row row-no-padding" style="height: 100px;">
-        <div class="spacol col-center col-33"  ng-repeat="s in sensors" ng-click="instrument(s.id)">
-          <div class=" sensorButton " style="width: 100%;">
-            <!--<p>-->
-              <img style="width: 32px;height: 32px;margin:  auto;"  ng-src="{{s.icon}}" />
-              <div >
-                <font size="2" color="red" face="Arial" >
-                  {{s.fail}}
-                </font>
+            <div class="row row-no-padding" style="height: 100px;">
+                <div class="spacol col-center col-33" ng-repeat="s in sensors" ng-click="instrument(s.id)">
+                    <div class=" sensorButton " style="width: 100%;">
+                        <!--<p>-->
+                        <img style="width: 32px;height: 32px;margin:  auto;" ng-src="{{s.icon}}"/>
 
-                <font size="2" color="white" >/</font>
+                        <div>
+                            <font size="2" color="red" face="Arial">
+                                {{s.fail}}
+                            </font>
 
-                <font size="2" color="#adff2f" face="Arial" >
-                  {{s.success}}
-                </font>
-              </div>
-              <font size="2" color="white" face="宋体" >{{s.name}}</font>
-            <!--</p>-->
-          </div>
-        </div>
-      </div>
+                            <font size="2" color="white">/</font>
 
-    </ion-scroll>
-
-    <div style="margin-bottom: 5px;width: 100%;background: white;height: 40px;padding-top: 9px;padding-left: 5px">
-      <div style="font-family: 宋体;font-size: small;height: 22px">实时消息</div>
-    </div>
-
-    <ion-scroll style="height: 100%;overflow: hidden;width: 100%">
-
-      <div class="list">
-
-        <div class="item item-divider">
-          分系统列表
-        </div>
-
-        <div class="row row-wrap row-no-padding" style="width: 100%">
-
-          <div class="col col-25 col-center"  ng-repeat="s in systems">
-
-            <div style="position:absolute;width:25%;text-align: right;padding-right: 3px;z-index: 2;" ng-if="s.fault != 0">
-              <label style="font-size: smaller;background-color: orangered;padding: 0px 2px;color: white;border-radius: 4px;border: 1px solid white">
-                {{s.fault}}
-              </label>
+                            <font size="2" color="#adff2f" face="Arial">
+                                {{s.success}}
+                            </font>
+                        </div>
+                        <font size="2" color="white" face="宋体">{{s.name}}</font>
+                        <!--</p>-->
+                    </div>
+                </div>
             </div>
 
-            <a class="button  button-clear icon-top button-positive systemButton" href="#/tab/faultview" style="z-index: 1">
-              <img style="height: 32px;width: 32px;margin-bottom: 5px" ng-src="{{s.icon}}" />
-              <P><nobr><font color="black" face="宋体">{{s.name}}</font></nobr></P>
-            </a>
+        </ion-scroll>
 
-          </div>
-
-          <div class="col col-25 col-center"  >
-            <a class="button  button-clear icon-top button-positive systemButton" href="#/tab/subsystem/custom">
-              <img style="width: 32px;height: 32px;margin-bottom: 5px"  ng-src="img/TreeListRegViewer.Icon.png" />
-              <P><nobr><font color="black" face="宋体">自定义</font></nobr></P>
-            </a>
-          </div>
+        <div style="width: 100%;background: white;height: 40px;padding-left: 5px;margin-bottom: 10px;border-bottom: 1px;border-color: #444444" >
+            <div style="font-family: 宋体;font-size: small;height: 22px;padding-top: 10px;white-space:nowrap; text-overflow:ellipsis;" >
+                <!--<marquee behavior="scroll" loop="-1" scrollAmount="1" scrolldelay="0" width="300px" direction="up" style="height: 22px">-->
+                    {{message}}
+                <!--</marquee>-->
+            </div>
         </div>
 
-      </div>
-    </ion-scroll>
+        <ion-scroll style="height: 100%;overflow: hidden;width: 100%">
 
-  </ion-content>
+            <div class="list">
+
+                <div class="item item-divider">
+                    分系统列表
+                </div>
+
+                <div class="row row-wrap row-no-padding" style="width: 100%">
+
+                    <div class="col col-25 col-center" ng-repeat="s in systems">
+
+                        <div style="position:absolute;width:25%;text-align: right;padding-right: 3px;z-index: 2;"
+                             ng-if="s.fault != 0">
+                            <label style="font-size: smaller;background-color: orangered;padding: 0px 2px;color: white;border-radius: 4px;border: 1px solid white">
+                                {{s.fault}}
+                            </label>
+                        </div>
+
+                        <a class="button  button-clear icon-top button-positive systemButton" href="#/tab/faultview"
+                           style="z-index: 1">
+                            <img style="height: 32px;width: 32px;margin-bottom: 5px" ng-src="{{s.icon}}"/>
+
+                            <P>
+                            <nobr><font color="black" face="宋体">{{s.name}}</font></nobr>
+                            </P>
+                        </a>
+
+                    </div>
+
+                    <div class="col col-25 col-center">
+                        <a class="button  button-clear icon-top button-positive systemButton"
+                           href="#/tab/subsystem/custom">
+                            <img style="width: 32px;height: 32px;margin-bottom: 5px"
+                                 ng-src="img/TreeListRegViewer.Icon.png"/>
+
+                            <P>
+                            <nobr><font color="black" face="宋体">自定义</font></nobr>
+                            </P>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </ion-scroll>
+
+    </ion-content>
 </ion-view>

@@ -41,6 +41,8 @@ function AppVersionService($cordovaAppVersion,
       var promise = HttpService.getdata(apkurl);
       promise.then(function(data){
 
+        console.log("data.latestVersion : " + data.latestVersion);
+
         if(data.latestVersion != "") {
 
           apkpath = data.path;

@@ -42,10 +42,17 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.fy4monitor805434"
+        },
+        "jpush-phonegap-plugin": {
+            "APP_KEY": "42ddcacb17ad49582e9e9ab6",
+            "PACKAGE_NAME": "com.ionicframework.fy4monitor805434"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.fy4monitor805434"
+        },
+        "cordova-plugin-jcore": {
             "PACKAGE_NAME": "com.ionicframework.fy4monitor805434"
         }
     }

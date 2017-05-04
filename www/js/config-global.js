@@ -1,7 +1,7 @@
 // (function () {
     
     var CONFIG_GLOBAL = {
-        "BASEURL" : "http://10.24.4.130:4701/"
+        "BASEURL" : "http://123.56.135.196:4202/"
     }
 
 // })();

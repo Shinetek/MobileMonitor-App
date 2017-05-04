@@ -15,7 +15,7 @@
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content overflow-scroll="true">
-        <ion-refresher pulling-text="Pull to refresh" on-refresh="vm.doRefresh()"></ion-refresher>
+        <ion-refresher pulling-text="下拉刷新数据" on-refresh="refreshData()"></ion-refresher>
         <ion-list>
 
             <div class="item item-divider">
@@ -27,12 +27,14 @@
 
                 <p style="float: right ">{{f.happen_dt}} </p><br>
 
-                <p style="float:left">{{f.describe}}</p>
+                <div style="width:200px;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;float:left;display: inline-block;font-size: small">
+                    {{f.describe}}
+                </div>
 
                 <p style="float: right;color: red;display: inline-block;font-family: 宋体">{{f.status}}</p>
             </ion-item>
 
         </ion-list>
-        <ion-infinite-scroll ng-if="!vm.moredata" on-infinite="vm.loadMore()" distance="1%" ></ion-infinite-scroll>
+        <ion-infinite-scroll immediate-check="false" ng-if="!isShow" on-infinite="nextData()" distance="1%"></ion-infinite-scroll>
     </ion-content>
 </ion-view>
