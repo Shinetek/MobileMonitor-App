@@ -14,6 +14,7 @@ body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,s
   float: left;
   font-size: 14px;
   padding-right: 5px;
+  margin: 0px;
 }
 
 .taskss{
@@ -36,8 +37,10 @@ body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,s
 }
 .tasklist h4{
   color: white;
+  height: 20px;
+  line-height: 20px;
   background: #AAAAAA;
-  font-size: 16px;
+  font-size: 14px !important;
   text-align: center;
 }
 .tasktime{
@@ -52,7 +55,7 @@ body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,s
   float: left;
 }
 .oneleft p{
-  color: white;
+  color: white!important;
 }
 .oneright{
   width: 50px;
@@ -82,7 +85,7 @@ body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,s
 .end p{
   font-size: 12px;
   float: left;
-  color: white;
+  color: white!important;
   background: #F26E2D;
   margin-top: 2px;
   border-radius: 2px;
@@ -93,4 +96,8 @@ body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,s
   font-size: 12px;
   padding-left: 10px;
   margin-top: 2px;
+}
+.items{
+  padding: 12px!important;
+  width: 100%;
 }

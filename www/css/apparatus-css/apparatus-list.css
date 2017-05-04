@@ -19,6 +19,7 @@ body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,s
   font-size: 14px;
   width: 100px;
   line-height: 30px;
+  margin-top: 0px;
 }
 
 .plan{
@@ -134,9 +135,11 @@ body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,s
   border: 1px solid black;
 }
 .button{
- line-height:20px;
+ line-height:20px !;
 }
-
+.colls p{
+  margin: 5px 10px 0px 10px;
+}
 
 
 

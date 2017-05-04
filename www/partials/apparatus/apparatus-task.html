@@ -4,26 +4,26 @@
     <div class="tasks">
       <div class="statuss">
         <p>当前任务:</p>
-        <p>{{taskalls.name}}</p>
-        <p>{{taskalls.time}}</p>
+        <p>{{name}}</p>
+        <p>{{time | date:"mm:ss"}}</p>
       </div>
 
         <ion-list class="tasklists">
-          <ion-item class="taskitem" ng-repeat="t in taskalls.task">
+          <ion-item class="taskitem items" ng-repeat="t in taskalls[0].sys" style="background: #E8E7E6;">
 
             <div class="tasklist">
 
-              <h4 style="background:{{upbackground(t.stateall)}}">{{t.title}}</h4>
+              <h4 style="background:{{upbackground(t.status)}}">{{t.name}}</h4>
 
               <div class="tasktime">
                 <div class="taskone">
                   <div class="oneleft">
-                    <p>计划开始时间:{{t.planstart}}</p>
-                    <p>实际开始时间:{{t.realitystart}}</p>
+                    <p>计划开始时间:{{t.plan_start_dt | date:"hh:mm:ss"}}</p>
+                    <p>实际开始时间:{{t.plan_end_dt | date:"hh:mm:ss"}}</p>
                   </div>
                   <div class="oneright">
                     <p>输入</p>
-                    <p>{{t.inputone}}/{{t.inputtwo}}</p>
+                    <p>{{t.plan_input}}/{{t.plan_output}}</p>
                   </div>
                 </div>
               </div>
@@ -31,18 +31,18 @@
               <div class="tasktime">
                 <div class="tasktwo">
                   <div class="oneleft">
-                    <p>计划结束时间:{{t.planend}}</p>
-                    <p>实际结束时间:{{t.realityend}}</p>
+                    <p>计划结束时间:{{t.real_start_dt | date:"hh:mm:ss"}}</p>
+                    <p>实际结束时间:{{t.real_end_dt | date:"hh:mm:ss"}}</p>
                   </div>
                   <div class="oneright">
                     <p>输出</p>
-                    <p>{{t.outputone}}/{{t.outputtwo}}</p>
+                    <p>{{t.real_input}}/{{t.real_output}}</p>
                   </div>
                 </div>
               </div>
 
               <div class="end">
-                <p>任务状态</p><span style="color:{{upcolor(t.stateall)}}">{{t.state}}</span>
+                <p>任务状态</p><span style="color:{{upcolor(t.status)}}">{{t.end_status}}</span>
               </div>
             </div>
           </ion-item>
