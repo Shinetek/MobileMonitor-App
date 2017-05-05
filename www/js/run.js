@@ -6,11 +6,11 @@ angular.module('starter')
                    JPushService) {
 
         // 初始化数据库放到deviceready前面，以便controller里去进行数据库的操作
-        SQLiteService.init("tblSystems").then(function (res) {
+      /*  SQLiteService.init("tblSystems").then(function (res) {
             // 走到这里就是初始化数据库成功了
         }, function (err) {
             alert("err : " + err);
-        });
+        });*/
 
         $ionicPlatform.ready(function () {
 

@@ -15,13 +15,12 @@ function ApparatusTaskCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
     showDelay: 0
   });
 
-  var url = "http://10.24.4.130:4701/_ds/mcs/task/detail/" + $stateParams.listname + "/" + $stateParams.task_id;
+  var url = "http://123.56.135.196:4202/_ds/mcs/task/detail/" + $stateParams.listname + "/" + $stateParams.task_id;
   var promise = HttpService.getdata(url,$http,$q);
   promise.then(function(res){
     $scope.name = $stateParams.name;
     $scope.time = $stateParams.time;
     $scope.taskalls = res;
-    //console.log($scope.taskalls[0].sys);
     $ionicLoading.hide();
   },function(err){
     console.log("失败");
