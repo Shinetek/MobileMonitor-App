@@ -18,7 +18,7 @@ function HttpService($http, $q){
         console.log("Success Get Data : " + url);
         deferred.resolve(data);
       }).error(function(data,status,headers,config){
-        console.log("Fail Get Data!");
+        console.log("Fail Get Data!" + url);
         deferred.reject(data);
       })
 
