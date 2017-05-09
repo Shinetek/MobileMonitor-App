@@ -29,7 +29,7 @@
 
         </ion-scroll>
 
-        <div style="width: 100%;background: white;height: 40px;padding-left: 5px;margin-bottom: 10px;border-bottom: 1px;border-color: #444444" >
+        <div ng-if="!(message == null)" style="width: 100%;background: white;height: 40px;padding-left: 5px">
             <div style="font-family: 宋体;font-size: small;height: 22px;padding-top: 10px;white-space:nowrap; text-overflow:ellipsis;" >
                 <!--<marquee behavior="scroll" loop="-1" scrollAmount="1" scrolldelay="0" width="300px" direction="up" style="height: 22px">-->
                     {{message}}
@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <ion-scroll style="height: 100%;overflow: hidden;width: 100%">
+        <ion-scroll style="height: 100%;overflow: hidden;width: 100%;margin-top: 10px;">
 
             <div class="list">
 
@@ -69,7 +69,7 @@
 
                     <div class="col col-25 col-center">
                         <a class="button  button-clear icon-top button-positive systemButton"
-                           href="#/tab/subsystem/custom">
+                           href="#/tab/subsystem/state/custom">
                             <img style="width: 32px;height: 32px;margin-bottom: 5px"
                                  ng-src="img/TreeListRegViewer.Icon.png"/>
 
@@ -84,4 +84,7 @@
         </ion-scroll>
 
     </ion-content>
+
+
+
 </ion-view>

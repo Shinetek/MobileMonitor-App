@@ -57,14 +57,14 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
             showDelay: 0
         });
 
-        // »ñÈ¡µ±Ç°ÏÔÊ¾µÄ¹ÊÕÏÊı¾İ
+        // è·å–å½“å‰æ˜¾ç¤ºçš„æ•…éšœæ•°æ®
         var url = CONFIG_GLOBAL.BASEURL + "_ds/mcs/faultlog/list/dtsf/undeal/" + _startIndex + "/" + _pageSize;
         HttpService.getdata(url).then(function (res) {
 
             for (var i = 0; i < res.length; i++) {
                 res[i] = res[i];
                 res[i].happen_dt = StaticMethodService.formatLongDatTime(res[i].happen_dt);
-                res[i].status = (res[i].status);
+                res[i].status = updateStatus(res[i].status);
                 $scope.faults.push(res[i]);
             }
 
@@ -105,10 +105,10 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
         var text;
         switch (status) {
             case "undeal":
-                text = "Î´´¦Àí";
+                text = "æœªå¤„ç†";
                 break;
             default :
-                text = "ÒÑ´¦Àí";
+                text = "å·²å¤„ç†";
                 break;
         }
         return text;

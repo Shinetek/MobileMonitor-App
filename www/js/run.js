@@ -30,9 +30,9 @@ angular.module('starter')
                 // 确认版本升级
                 AppVersionService.check();
 
-
+                // 推送服务启动
                 JPushService.init();
-                //JPushService.setAlias("myapp");
+                //JPushService.setAlias("myapp"); // 别名
 
             }, false);
 

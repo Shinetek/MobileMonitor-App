@@ -46,6 +46,9 @@
         "jpush-phonegap-plugin": {
             "APP_KEY": "42ddcacb17ad49582e9e9ab6",
             "PACKAGE_NAME": "com.ionicframework.fy4monitor805434"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.ionicframework.fy4monitor805434"
         }
     },
     "dependent_plugins": {
@@ -53,6 +56,9 @@
             "PACKAGE_NAME": "com.ionicframework.fy4monitor805434"
         },
         "cordova-plugin-jcore": {
+            "PACKAGE_NAME": "com.ionicframework.fy4monitor805434"
+        },
+        "cordova-plugin-app-event": {
             "PACKAGE_NAME": "com.ionicframework.fy4monitor805434"
         }
     }

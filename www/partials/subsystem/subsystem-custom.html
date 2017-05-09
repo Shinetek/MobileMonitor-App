@@ -33,16 +33,17 @@
 
           <div class="col col-25 col-center"  ng-repeat="s in systems">
 
-            <div style="vertical-align: bottom;" ng-click="selectedChanged(s.name,$event)">
+            <div style="text-align: center" ng-click="selectedChanged(s.name,$event)">
 
               <div style="" class="roundedOne" id="checkboxBlock" >
                 <input style="background-color: #0000AA;" id="{{s.name}}" type="checkbox" ng-checked="s.selected"   />
                 <label for="{{s.name}}"></label>
               </div>
 
+              <img style="height: 32px;width: 32px;margin-bottom: 5px" ng-src="{{s.icon}}" />
+
               <P >
-                <img style="height: 32px;width: 32px;margin-bottom: 5px" ng-src="{{s.icon}}" />
-                <nobr><font color="black" size="2px" face="宋体">{{s.name}} </font></nobr>
+                <font color="black" size="2px" face="宋体">{{s.name}} </font>
               </P>
 
             </div>
