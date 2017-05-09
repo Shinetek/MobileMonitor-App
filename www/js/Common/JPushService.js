@@ -10,6 +10,7 @@ JPushService.$inject = ['$http', '$window'];
 function JPushService($http, $window) {
 
     var _init = function () {
+        console.log("JPushService Inited!");
         $window.plugins.jPushPlugin.init();
         $window.plugins.jPushPlugin.setDebugMode(true);
     }
@@ -46,11 +47,6 @@ function JPushService($http, $window) {
             alert(obj);
         };
     }
-
-
-    //document.attachEvent('jpush.receiveMessage', function (event) {
-    //    alert(event);
-    //});
 
     return {
         init: _init,

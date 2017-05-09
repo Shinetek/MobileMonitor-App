@@ -21,7 +21,6 @@ function ApparatusTaskCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
     $scope.name = $stateParams.name;
     $scope.time = $stateParams.time;
     $scope.taskalls = res;
-    //console.log($scope.taskalls[0].sys);
     $ionicLoading.hide();
   },function(err){
     console.log("失败");
@@ -34,20 +33,8 @@ function ApparatusTaskCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
       return "#5A9055";
     }else if(status == "failure"){
       return "#D9534F";
-    }else if(status == "status"){
+    }else if(status == "waiting"){
       return "#AAAAAA"
     }
   };
-
-  //增加字体颜色变化
-  $scope.upcolor = function(status){
-    if(status == "success"){
-      return "#5A9055";
-    }else if(status == "failure"){
-      return "#D9534F";
-    }else if(status == "status"){
-      return "#AAAAAA"
-    }
-  };
-
 }

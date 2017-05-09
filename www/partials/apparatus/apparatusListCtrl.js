@@ -2,10 +2,10 @@
  * Created by admin on 2017/4/20.
  */
 angular
-  .module("starter.controllers")
-  .controller("ApparatusListCtrl",ApparatusListCtrl);
-ApparatusListCtrl.$inject = ["$scope", "$http", "$stateParams", "$ionicLoading", "$q", "HttpService","$ionicScrollDelegate"];
-function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpService, $ionicScrollDelegate){
+    .module("starter.controllers")
+    .controller("ApparatusListCtrl",ApparatusListCtrl);
+ApparatusListCtrl.$inject = ["$scope", "$http", "$stateParams", "$ionicLoading", "$q", "HttpService","$ionicScrollDelegate","NumberService","HeightService"];
+function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpService, $ionicScrollDelegate,NumberService,HeightService){
 
   //标题名称
   $scope.name = $stateParams.listname;
@@ -38,56 +38,29 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
   var url = 'http://10.24.4.130:4701/_ds/mcs/task/list/' + $scope.name;
   var promise = HttpService.getdata(url, $http, $q);
   promise.then(function(res){
-    $scope.day_plan = 0;
-    $scope.success = 0;
-    $scope.failure = 0;
-    $scope.runing = 0;
-    $scope.cur_plan = 0;
-    for(var i = 0; i < res.length; i++){
-      if(res[i].status == "success"){
-        $scope.success++;
-      }else if(res[i].status == "failure"){
-        $scope.failure++;
-      }else if(res[i].status == "running"){
-        $scope.runing++;
-      }
-    }
-    $scope.day_plan = res.length;
-    $scope.cur_plan = $scope.success + $scope.runing + $scope.failure;
-
     $scope.listDate = res;
-    var subname = $scope.listDate;
-    for(var i = 0; i < subname.length; i++){
-      if(subname[i].name.length > 2){
-        subname[i].name = subname[i].name.substring(0,2);
-      }
-    }
+    var results = NumberService.getnumber(res);
+    $scope.day_plan = results.day_plan;
+    $scope.cur_plan = results.cur_plan;
+    $scope.success = results.success;
+    $scope.failure = results.failure;
+
     $ionicLoading.hide();
 
-    //增加滚动
-    var index = null;
-    for(var i = 0; i < subname.length; i++){
-      if(subname[i].status == "running"){
-        index = i
-        break;
+    _heightall($scope.listDate,$scope.gird_height);
 
-      }
-    }
-    var scrollheight =  $scope.gird_height;
-    scrollheight = parseInt(scrollheight.height);
-    console.log(scrollheight);
-    var _heights = parseInt(index/4) * 57
-    if(_heights <= scrollheight){
-      $ionicScrollDelegate.$getByHandle('small').scrollTo(0,0);
-    }else{
-      var _height = parseInt(index/4) * 57 - scrollheight + 57;
-      console.log(_height)
-      $ionicScrollDelegate.$getByHandle('small').scrollTo(0,_height,true);
-    }
   }, function(err){
     console.log("err");
     $ionicLoading.hide();
   });
+
+  //增加滚动
+  function _heightall(data,height){
+    var heightall = HeightService.getheight(data,height);
+    $ionicScrollDelegate.$getByHandle('small').scrollTo(0,heightall,true);
+  }
+
+
 
   //下拉刷新数据
 
@@ -95,52 +68,15 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
     var url = 'http://10.24.4.130:4701/_ds/mcs/task/list/' + $scope.name;
     var promise = HttpService.getdata(url, $http, $q);
     promise.then(function(res){
-
-      $scope.day_plan = 0;
-      $scope.success = 0;
-      $scope.failure = 0;
-      $scope.runing = 0;
-      $scope.cur_plan = 0;
-      for(var i = 0; i < res.length; i++){
-        if(res[i].status == "success"){
-          $scope.success++;
-        }else if(res[i].status == "failure"){
-          $scope.failure++;
-        }else if(res[i].status == "running"){
-          $scope.runing++;
-        }
-      }
-      $scope.day_plan = res.length;
-      $scope.cur_plan = $scope.success + $scope.runing + $scope.failure;
-
-
       $scope.listDate = res;
-      var subname = $scope.listDate;
-      for(var i = 0; i < subname.length; i++){
-        if(subname[i].name.length > 2){
-          subname[i].name = subname[i].name.substring(0,2);
-        }
-      }
+      //计算观测计划数
+      var results = NumberService.getnumber(res);
+      $scope.day_plan = results.day_plan;
+      $scope.cur_plan = results.cur_plan;
+      $scope.success = results.success;
+      $scope.failure = results.failure;
 
-      var index = null;
-      for(var i = 0; i < subname.length; i++){
-        if(subname[i].status == "running"){
-          index = i
-          break;
-        }
-      }
-      var scrollheight =  $scope.gird_height;
-      scrollheight = parseInt(scrollheight.height);
-      console.log(scrollheight);
-      var _heights = parseInt(index/4) * 57
-      if(_heights <= scrollheight){
-        $ionicScrollDelegate.$getByHandle('small').scrollTo(0,0);
-      }else{
-        var _height = parseInt(index/4) * 57 - scrollheight + 57;
-        console.log(_height)
-        $ionicScrollDelegate.$getByHandle('small').scrollTo(0,_height,true);
-      }
-
+      _heightall($scope.listDate,$scope.gird_height);
     });
     $scope.$broadcast('scroll.refreshComplete');
   };
@@ -158,18 +94,15 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
     }
   };
 
+  //点击回到顶部
+  $scope.scrollTop = function(){
+    $ionicScrollDelegate.$getByHandle('small').scrollTop(true);
+  };
 
   $scope.taskdetail = function(task_id,name,time){
-    //获取当前任务名称与时间
-    //$scope.tasknames = tasknames;
-    //$scope.tasktimes = tasktimes;
-    //console.log($scope.tasknames,$scope.tasktimes);
-
     //增加当前任务跳转
-
     var addtask = "#/tab/subsystem/apparatus/" + $stateParams.listname + "/" + name + "/"+ time +"/" + task_id;
     console.log("addtask" + addtask);
     window.location.href = addtask;
   };
-
 }

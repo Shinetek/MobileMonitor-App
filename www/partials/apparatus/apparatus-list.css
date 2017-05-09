@@ -10,18 +10,29 @@ body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,s
 .observe{
   height: 30px;
   background: #28CDE0;
-  padding: 0px 0px 0px 5px;
+  padding: 0px 8px 0px 8px;
   margin-bottom: 2px;
   margin-top: 2px;
 }
 .observe h4{
   color: white;
   font-size: 14px;
+  height: 30px;
   width: 100px;
+  float: left;
+  margin: 0px;
   line-height: 30px;
-  margin-top: 0px;
 }
-
+.observe p{
+  color: white;
+  font-size: 14px;
+  height: 30px;
+  width: 100px;
+  float: right;
+  margin: 0px;
+  line-height: 30px;
+  text-align: right;
+}
 .plan{
   width: 100%;
   height: 80px;
@@ -134,131 +145,13 @@ body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,s
   border-radius:5px;
   border: 1px solid black;
 }
-.button{
- line-height:20px !;
-}
-.colls p{
-  margin: 5px 10px 0px 10px;
-}
-
-
-
-/*观测当前状态*/
-/*.tasks{
-  overflow: hidden;
-  height: 300px;
-}
-.statuss{
-  height: 31px;
-  background: #28CDE0;
-  padding: 7px 0px 0px 5px;
-  margin-bottom: 2px;
-  margin-top: 2px;
-}
-.statuss p{
-  color: white;
-  float: left;
+.colls p:nth-child(1){
+  margin: 5px 5px 0px 5px;
   font-size: 14px;
-  padding-right: 5px;
+}
+.colls p:nth-child(2){
+  margin: 5px 0px 0px 0px;
+  font-size: 14px;
 }
 
-.taskss{
-  width: 100%;
-  background: #E8E7E6;
-  text-align: center;
-  height: 280px;
-}
-.tasklists{
-  overflow: hidden;
-}
-.taskitem{
-  overflow: hidden;
-  background: #E8E7E6;
-  padding: 10px;
-}
-.tasklist{
-  height: 260px;
-  background: #053552;
-}
-.tasklist h4{
-  color: white;
-  background: #AAAAAA;
-  font-size: 16px;
-}
-.tasktime{
-  overflow: hidden;
-  padding: 0px 20px 0px 20px;
-}
-.taskone{
-  overflow: hidden;
-  border-bottom: 1px solid #aaaaaa;
-  padding-bottom: 5px;
-}
-.oneleft{
-  float: left;
-}
-.oneleft p{
-  color: white;
-}
-.oneright{
-  width: 50px;
-  float: right;
-  overflow: hidden;
-  background: #AAAAAA;
-}
-.oneright p:nth-child(1){
-  background: #AAAAAA;
-  color: white;
-}
-.oneright p:nth-child(2){
-  background: white;
-}
-.wroklist{
-  height: 100px;
-  overflow: hidden;
-  padding: 5px 20px 5px 20px;
-}
-.wrokleft{
-  float: left;
-  padding: 0px 0px 0px 10px;
-}
-.wrokleft p{
-  color: white;
-}
-.ps{
-  border-right: 1px solid #aaaaaa;
-  padding-right: 5px;
-  height: 90px;
-}
-.wrokright{
-  float: left;
-  padding-left: 40px;
-}
-.wrokright p{
-  color: white;
-}
-.tasktwo{
-  overflow: hidden;
-  border-top: 1px solid #aaaaaa;
-  padding: 5px 0px 5px 0px;
-  border-bottom: 1px solid #aaaaaa;
-}
-.end{
-  overflow: hidden;
-  padding: 0px 20px 0px 20px;
-}
-.end p{
-  font-size: 12px;
-  float: left;
-  color: white;
-  background: #F26E2D;
-  margin-top: 2px;
-  border-radius: 2px;
-}
-.end span{
-  float: left;
-  color: white;
-  font-size: 12px;
-  padding-left: 10px;
-  margin-top: 2px;
-}*/
+
