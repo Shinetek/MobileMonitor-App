@@ -4,7 +4,6 @@
 node_modules/
 platforms/
 .idea/
-*.log
-jsconfig.json
-typings/
 plugins/
+/www/lib/
+!/www/lib/ionic/
