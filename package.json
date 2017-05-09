@@ -40,20 +40,5 @@
     "cordova-plugin-file-opener2",
     "cordova-plugin-network-information"
   ],
-  "cordovaPlatforms": [],
-  "cordova": {
-    "plugins": {
-      "cordova-plugin-whitelist": {},
-      "cordova-plugin-console": {},
-      "cordova-plugin-statusbar": {},
-      "cordova-plugin-device": {},
-      "cordova-plugin-splashscreen": {},
-      "ionic-plugin-keyboard": {},
-      "cordova-plugin-app-version": {},
-      "cordova-plugin-file": {},
-      "cordova-plugin-file-transfer": {},
-      "cordova-plugin-file-opener2": {},
-      "cordova-plugin-network-information": {}
-    }
-  }
+  "cordovaPlatforms": []
 }

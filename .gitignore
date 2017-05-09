@@ -7,4 +7,4 @@ platforms/
 *.log
 jsconfig.json
 typings/
-plugins/*/
+plugins/
