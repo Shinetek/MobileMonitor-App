@@ -24,16 +24,15 @@
                 </nav>
             </div>
         </div>
-        <div class="big-img"
-             ng-if="L1FastViewCtrl.bigImgShow"
-             class="popover-backdrop" ng-click="L1FastViewCtrl.hideBigImg()">
-            <img class="img-responsive" src="{{L1FastViewCtrl.bigImgUrl}}"/>
-        </div>
+        <!--<div class="big-img"-->
+             <!--ng-if="L1FastViewCtrl.bigImgShow"-->
+             <!--class="popover-backdrop" ng-click="L1FastViewCtrl.hideBigImg()">-->
+            <!--<img class="img-responsive" src="{{L1FastViewCtrl.bigImgUrl}}"/>-->
+        <!--</div>-->
         <div>
             <ion-list>
                 <ion-item ng-repeat="taskItem in L1FastViewCtrl.currentTaskList | orderBy:['-time']"
-                          class="item-thumbnail-right"
-                          ng-click="L1FastViewCtrl.showBigImg(taskItem)">
+                          class="item-thumbnail-right" ng-click="L1FastViewCtrl.showBigImg(taskItem.task_id)">
                     <div class="d-inline-block">
                         <h2>{{taskItem.name}} - {{taskItem.time | formatTime}}</h2>
                         <p>{{taskItem.task_id}}</p>
@@ -41,8 +40,7 @@
                     <a class="thum-img">
                         <img width="80" height="80" src="{{taskItem.imgUrl}}"/>
                     </a>
-                    <ion-option-button class="button-positive">分享</ion-option-button>
-                    <ion-option-button class="button-info">查看</ion-option-button>
+                    <ion-option-button class="button-info">查看任务</ion-option-button>
                 </ion-item>
             </ion-list>
         </div>
