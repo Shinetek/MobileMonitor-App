@@ -83,6 +83,7 @@
     <allow-navigation href="http://10.24.4.131:8101" />
     <allow-navigation href="http://10.24.4.131:8100" />
     <allow-navigation href="http://10.24.4.118:8100" />
+    <allow-navigation href="http://192.168.226.141:8100" />
     <plugin name="cordova-plugin-app-event" spec="file:node_modules/cordova-plugin-app-event" />
     <plugin name="cordova-plugin-app-version" spec="~0.1.9" />
     <plugin name="cordova-plugin-console" spec="~1.0.7" />

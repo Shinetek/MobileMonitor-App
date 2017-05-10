@@ -19,6 +19,7 @@
             var taskID = $stateParams.taskID;
             var tmp = L1FastViewServices.getTask(taskID);
             self.task.name = tmp.name;
+            self.task.time = tmp.time;
             self.bigImgUrl = tmp.imgUrl.replace("&thum=1", "&thum=0");
         }
     }
