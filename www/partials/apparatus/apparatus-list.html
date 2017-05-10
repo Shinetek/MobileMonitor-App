@@ -58,6 +58,7 @@
     <div class="planlist">
       <div class="observe">
         <h4>观测任务表</h4>
+        <p ng-click="scrollTop()">回到顶部</p>
       </div>
 
       <ion-scroll class="scrolls" direction="y" style="margin-top: 2px;" ng-style="gird_height" delegate-handle="small">
@@ -65,8 +66,8 @@
         <div class="row row-wrap"><!-- ng-click="taskall(x.id)"-->
             <div class="col-25 cool button button-icon" ng-repeat="x in listDate | orderBy:'time'" style="background: {{upBackground(x.status)}};line-height: 15px;color: white;margin-bottom: 10px" ng-click="taskdetail(x.task_id,x.name,x.time)">
                 <div class="colls">
-                  <p>{{x.name}}</p>
-                  <p>{{x.time|date:"hh:mm"}}</p>
+                  <p>{{x.name | names}}</p>
+                  <p>{{x.time| fourTime}}</p>
                 </div>
             </div>
         </div>

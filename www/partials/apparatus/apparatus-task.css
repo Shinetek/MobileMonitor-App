@@ -61,7 +61,7 @@ body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,s
   width: 50px;
   float: right;
   overflow: hidden;
-  background: #AAAAAA;
+  background: white;
 }
 .oneright p:nth-child(1){
   background: #AAAAAA;
