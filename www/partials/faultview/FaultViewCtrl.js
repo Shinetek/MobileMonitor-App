@@ -16,8 +16,8 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
     $scope.data = {};
     $scope.data.currdate = date;
     $scope.data.queryDescribe = "";
-    $scope.data.queryDealType = "未处理 ";
-    $scope.data.querySystemName = Systems.all()[0].name + "(" + Systems.all()[0].id + ")";
+    $scope.data.queryDealType = "未处理";
+    $scope.data.querySystemName = Systems.all()[0].id;
 
     $scope.faults = new Array();
 
@@ -26,7 +26,7 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
     var _startIndex = 1;
     var _pageSize = 50;
 
-    $scope.$on('$ionicView.afterEnter',function(){
+    $scope.$on('$ionicView.afterEnter', function () {
         console.log("ionicView.afterEnter Init");
         PopoverService.initPop($scope, $ionicPopover, 'my-popover.html');
         updateFaultData();
@@ -62,8 +62,13 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
             showDelay: 0
         });
 
-        // 获取当前显示的故障数据
-        var url = CONFIG_GLOBAL.BASEURL + "_ds/mcs/faultlog/list/dtsf/undeal/" + _startIndex + "/" + _pageSize;
+        // 故障的处理状态
+        var dealtype = updateStatus($scope.data.queryDealType);
+        var sysid = $scope.data.querySystemName.toLowerCase();
+
+
+        // 获取当前显示的故障数据 _ds/mcs/faultlog/listf/dts/undeal/1/50
+        var url = CONFIG_GLOBAL.BASEURL + "_ds/mcs/faultlog/listf/" + sysid + "/" + dealtype + "/" + _startIndex + "/" + _pageSize;
         HttpService.getdata(url).then(function (res) {
 
             for (var i = 0; i < res.length; i++) {
@@ -75,7 +80,7 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
 
             console.log("updateFaultData success.");
 
-            if(res.length < 50)
+            if (res.length < 50)
                 isShow = false;
             else
                 isShow = true;
@@ -104,6 +109,9 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
         console.log("$scope.data.queryDescribe : " + $scope.data.queryDescribe);
         console.log("$scope.data.queryType : " + $scope.data.queryType);
 
+        $scope.faults = new Array();
+        _startIndex = 1
+        updateFaultData();
     }
 
     function updateStatus(status) {
@@ -112,8 +120,14 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
             case "undeal":
                 text = "未处理";
                 break;
-            default :
+            case "deal":
                 text = "已处理";
+                break;
+            case "未处理":
+                text = "undeal";
+                break;
+            case "已处理":
+                text = "deal";
                 break;
         }
         return text;
