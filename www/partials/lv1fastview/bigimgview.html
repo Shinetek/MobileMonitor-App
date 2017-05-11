@@ -1,0 +1,7 @@
+<ion-view ng-controller="BigImgViewController as BigImgCtrl" view-title="{{BigImgCtrl.task.name}}-{{BigImgCtrl.task.time | formatTime}}" data-ng-init="BigImgCtrl.pageInit()">
+    <ion-content style="background-color: black">>
+        <div class="big-img">
+            <img class="img-responsive" src="{{BigImgCtrl.bigImgUrl}}"/>
+        </div>
+    </ion-content>
+</ion-view>
