@@ -15,6 +15,11 @@ function NumberService(){
   };
   return{
     getnumber:function(res){
+      result.success = 0;
+      result.failure = 0;
+      result.runing = 0;
+      result.day_plan = 0;
+      result.cur_plan = 0;
       for(var i = 0; i < res.length; i++){
         if(res[i].status == "success"){
           result.success++;

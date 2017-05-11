@@ -6,9 +6,7 @@
     "use strict";
 
     var app = angular.module('starter.controllers');
-
     app.filter("fourTime", _fourTime);
-
     function _fourTime() {
         return function(str) {
             if(str.length == 6){

@@ -1,11 +1,12 @@
 <ion-view view-title="任务表">
   <ion-content>
     <!--当前状态-->
+    <ion-refresher class="pull" pulling-text="下拉刷新" on-refresh="news()"></ion-refresher>
     <div class="tasks">
       <div class="statuss">
         <p>当前任务:</p>
         <p>{{name}}</p>
-        <p>{{time | date:"mm:ss"}}</p>
+        <p>{{time | fourTime}}</p>
       </div>
 
         <ion-list class="tasklists">
