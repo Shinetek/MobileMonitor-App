@@ -35,7 +35,9 @@
         }
 
         function _pageInit() {
-            _getCapability();
+            _getCapability(function () {
+                
+            });
         }
 
         function _getCapability(next) {
@@ -63,7 +65,9 @@
 
         function _selectInstNavItem(navName) {
             self.instNavCurrentItem = navName;
-            _getCapability();
+            _getCapability(function () {
+                
+            });
         }
     }
 
