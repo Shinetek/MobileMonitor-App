@@ -24,24 +24,17 @@ angular.module('starter')
                     }
                 }
             })
+
             .state("tab.lv1fastview", {
                 url: "/lv1fastview",
                 views: {
                     "tab-lv1fastview": {
                         templateUrl: "partials/lv1fastview/lv1fastview.html",
-                        // controller: 'L1FastViewController'
+                        controller: 'L1FastViewController'
                     }
                 }
             })
-            .state("tab.lv1fastview-img", {
-                url: "/lv1fastview/bigimg/:taskID",
-                views: {
-                    "tab-lv1fastview": {
-                        templateUrl: "partials/lv1fastview/bigimgview.html",
-                        // controller: 'BigImgViewController'
-                    }
-                }
-            })
+
             // 故障信息
             .state('tab.faultview', {
                 url: '/faultview',
@@ -98,6 +91,6 @@ angular.module('starter')
 
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/tab/subsystem');
+        $urlRouterProvider.otherwise('/tab/lv1fastview');
 
     });

@@ -5,9 +5,9 @@ angular
     .module('starter.controllers')
     .controller('SubSystemCtrl', SubSystemCtrl)
 
-SubSystemCtrl.$inject = ['$scope', 'Sensors', 'SQLiteService', 'HttpService', 'JPushService', '$cordovaLocalNotification'];
+SubSystemCtrl.$inject = ['$scope', 'Sensors', 'SQLiteService', 'HttpService', 'JPushService'];
 
-function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService, $cordovaLocalNotification) {
+function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService) {
 
     $scope.sensors = Sensors.all();
 
@@ -15,7 +15,6 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService
     $scope.message = null;
 
     var _messgeId = 0;
-
 
     var onReceiveMessage = function (event) {
 
@@ -26,60 +25,45 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService
             $scope.message = event.content;
         }
 
-        var alarmTime = new Date();
-        alarmTime.setMinutes(alarmTime - 1);
-        $cordovaLocalNotification.schedule({
-            id: "1234",
-            at: alarmTime,
-            //message: "This is a message",
-            title: "This is a title",
-            //autoCancel: true,
-            sound: null
-        }).then(function () {
-            console.log("The notification has been set");
-        });
-
-        //$cordovaLocalNotification.schedule({
-        //    id: 'happi_alert',
-        //    date:       new Date() - 1,
-        //    message:    "Happi App Message",  // The message that is displayed
-        //    title:      "HappiApp Alert",  // The title of the message
-        //    sound:      "beep.caf",  // plays `beep.mp3` located in folder
-        //    //json:       String,  // Data to be passed through the notification
-        //    repeat:     "minutely",
-        //    autoCancel: true,
-        //}).then(function () {
-        //    console.log('callback for adding background notification');
-        //});
-
         $scope.$apply();//需要手动刷新
 
         console.log("message : " + $scope.message)
     };
 
-    function notification(){
-        console.log("notification");
-        var alarmTime = new Date();
-        alarmTime.setMinutes(alarmTime - 1);
-        $cordovaLocalNotification.schedule({
-            id: "1234",
-            at: alarmTime,
-            //message: "This is a message",
-            title: "This is a title",
-            //autoCancel: true,
-            sound: null
-        }).then(function () {
-            console.log("The notification has been set");
-        });
-    }
-
     $scope.$on('$ionicView.beforeEnter', function () {
 
-        document.addEventListener("deviceready", notification, false);
+        document.addEventListener("deviceready", updateData, false);
         document.addEventListener("jpush.receiveMessage", onReceiveMessage, false);
-        document.addEventListener("jpush.receiveNotification", onReceiveMessage, false);
 
     });
+
+    $scope.tofault = function () {
+        window.location.href = "#/tab/faultview";
+    }
+
+    function updateData() {
+
+        getdata();
+        getSensorStatus();
+
+    }
+
+    function getSensorStatus() {
+
+        var url = CONFIG_GLOBAL.BASEURL + "_ds/mcs/task/stat";
+        HttpService.getdata(url).then(function (res) {
+
+            var statuslist = eval(res[0]);
+            for (var i = 0; i < $scope.sensors.length; i++) {
+                $scope.sensors[i].success = statuslist[$scope.sensors[i].id].success;
+                $scope.sensors[i].fail = statuslist[$scope.sensors[i].id].failure;
+            }
+
+        }, function (err) {
+            console.log("获取仪器状态失败 : " + err);
+        });
+
+    }
 
     function getdata() {
 
