@@ -6,7 +6,7 @@
 
     "use strict";
 
-    angular.module("state.controller")
+    angular.module("starter.controllers")
         .controller("NRSCapabilityController", NRSCapabilityCtrlFn);
 
     NRSCapabilityCtrlFn.$inject = ["CapabilityServices", "$scope"];
@@ -29,18 +29,20 @@
         self.refreshData = _refreshData;
 
         function _refreshData() {
-
+            _getCapability(function () {
+                $scope.$broadcast('scroll.refreshComplete');
+            });
         }
 
         function _pageInit() {
             _getCapability();
         }
 
-        function _getCapability() {
+        function _getCapability(next) {
             CapabilityServices.getCapability("NRS", function (doc) {
-                if (!doc) return;
+                if (!doc) return next();
                 var inst = self.instNavCurrentItem.toUpperCase();
-                while (inst.length < 5) {
+                while (inst.length < 6) {
                     inst += "-";
                 }
                 self.capabilityItems.splice(0, self.capabilityItems.length);
@@ -51,6 +53,7 @@
                         });
                     }
                 }
+                next();
             });
         }
 
@@ -60,7 +63,8 @@
 
         function _selectInstNavItem(navName) {
             self.instNavCurrentItem = navName;
+            _getCapability();
         }
     }
 
-})
+})();

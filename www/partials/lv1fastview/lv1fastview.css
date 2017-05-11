@@ -74,3 +74,9 @@
     width: 100%;
     height: auto
 }
+
+.capability-value {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+}

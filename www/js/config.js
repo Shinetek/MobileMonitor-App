@@ -75,14 +75,7 @@ angular.module('starter')
                     }
                 }
             })
-            .state('tab.subsystem-capability-nrs', {
-                url: '/subsystem/capability/NRS',
-                views: {
-                    'tab-subsystem': {
-                        templateUrl: 'partials/capability/nrs-capability.html'
-                    }
-                }
-            })
+
             .state('tab.subsystem-capability-dts', {
                 url: '/subsystem/capability/DTS',
                 views: {
@@ -119,7 +112,23 @@ angular.module('starter')
                         controller: "ApparatusTaskCtrl"
                     }
                 }
-            });
+            })
+            .state("tab.capability", {
+                url: "/capability",
+                views: {
+                    "tab-capability": {
+                        templateUrl: "partials/capability/capability.html"
+                    }
+                }
+            })
+            .state('tab.capability-nrs', {
+                url: '/capability/NRS',
+                views: {
+                    'tab-capability': {
+                        templateUrl: 'partials/capability/nrs-capability.html'
+                    }
+                }
+            })
 
 
         // if none of the above states are matched, use this as the fallback

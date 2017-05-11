@@ -6,7 +6,7 @@
 
     "use strict";
 
-    angular.module("state.services")
+    angular.module("starter.services")
         .factory("CapabilityServices", CapabilityServicesFn);
 
     CapabilityServicesFn.$inject = ['$http']
@@ -19,7 +19,7 @@
         return self;
 
         function _getCapability(system, successFn) {
-            $http.get("http://123.56.135.196:4202/RSMS/api/rest/mcs/capability/" + system).success(successFn);
+            $http.get("http://123.56.135.196:4202/RSMS/api/rest/mcs/capability/" + system.toLowerCase()).success(successFn);
         }
     }
 
