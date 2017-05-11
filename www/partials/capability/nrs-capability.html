@@ -1,29 +1,34 @@
-<ion-view view-title="NRS性能参数" ng-controller="NRSPerformanceController as NRSPerformanceCtrl">
+<ion-view view-title="NRS性能参数" ng-controller="NRSCapabilityController as NRSCapabilityCtrl">
     <ion-content>
         <div>
-            <ion-refresher pulling-text="刷新" on-refresh="NRSPerformanceCtrl.refreshData()"></ion-refresher>
+            <ion-refresher pulling-text="刷新" on-refresh="NRSCapabilityCtrl.refreshData()"></ion-refresher>
             <div style="height: auto; background-color: rgba(36, 73, 114, 0.96);">
                 <div class="inst-profile-nav top-0">
                     <nav class="underline-nav" role="navigation">
                         <div class="underline-nav-item" role="tab"
-                             ng-class="{'selected':NRSPerformanceCtrl.instNavItemIsSelected('agri')}"
-                             ng-click="NRSPerformanceCtrl.selectInstNavItem('agri')">
+                             ng-class="{'selected':NRSCapabilityCtrl.instNavItemIsSelected('agri')}"
+                             ng-click="NRSCapabilityCtrl.selectInstNavItem('agri')">
                             <a>成像仪</a>
                         </div>
                         <div class="underline-nav-item" role="tab"
-                             ng-class="{'selected':NRSPerformanceCtrl.instNavItemIsSelected('giirs')}"
-                             ng-click="NRSPerformanceCtrl.selectInstNavItem('giirs')">
+                             ng-class="{'selected':NRSCapabilityCtrl.instNavItemIsSelected('giirs')}"
+                             ng-click="NRSCapabilityCtrl.selectInstNavItem('giirs')">
                             <a>探测仪</a>
                         </div>
                         <div class="underline-nav-item" role="tab"
-                             ng-class="{'selected':NRSPerformanceCtrl.instNavItemIsSelected('lmi')}"
-                             ng-click="NRSPerformanceCtrl.selectInstNavItem('lmi')">
+                             ng-class="{'selected':NRSCapabilityCtrl.instNavItemIsSelected('lmi')}"
+                             ng-click="NRSCapabilityCtrl.selectInstNavItem('lmi')">
                             <a>闪电仪</a>
                         </div>
                     </nav>
                 </div>
                 <div>
-
+                    <ion-list>
+                        <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" ng-repeat="item in NRSCapabilityCtrl.capabilityItems">
+                            <h2>{{item.name}}</h2>
+                            <i class="icon ion-chevron-right icon-accessory">{{item.value}}</i>
+                        </ion-item>
+                    </ion-list>
                 </div>
             </div>
         </div>
