@@ -35,10 +35,11 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
 
 
   //计划与列表数据
-  var url = 'http://10.24.4.130:4701/_ds/mcs/task/list/' + $scope.name;
+  var url = 'http://123.56.135.196:4202/_ds/mcs/task/list/' + $scope.name;
   var promise = HttpService.getdata(url, $http, $q);
-  promise.then(function(res){
+  promise.then(function (res) {
     $scope.listDate = res;
+    //计算观测计划数
     var results = NumberService.getnumber(res);
     $scope.day_plan = results.day_plan;
     $scope.cur_plan = results.cur_plan;
@@ -47,12 +48,14 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
 
     $ionicLoading.hide();
 
-    _heightall($scope.listDate,$scope.gird_height);
+    _heightall($scope.listDate, $scope.gird_height);
 
-  }, function(err){
+  }, function (err) {
     console.log("err");
     $ionicLoading.hide();
   });
+
+
 
   //增加滚动
   function _heightall(data,height){
@@ -60,12 +63,10 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
     $ionicScrollDelegate.$getByHandle('small').scrollTo(0,heightall,true);
   }
 
-
-
   //下拉刷新数据
 
   $scope.new = function(){
-    var url = 'http://10.24.4.130:4701/_ds/mcs/task/list/' + $scope.name;
+    var url = 'http://123.56.135.196:4202/_ds/mcs/task/list/' + $scope.name;
     var promise = HttpService.getdata(url, $http, $q);
     promise.then(function(res){
       $scope.listDate = res;
@@ -99,10 +100,9 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
     $ionicScrollDelegate.$getByHandle('small').scrollTop(true);
   };
 
+  //增加当前任务跳转
   $scope.taskdetail = function(task_id,name,time){
-    //增加当前任务跳转
     var addtask = "#/tab/subsystem/apparatus/" + $stateParams.listname + "/" + name + "/"+ time +"/" + task_id;
-    console.log("addtask" + addtask);
     window.location.href = addtask;
   };
 }
