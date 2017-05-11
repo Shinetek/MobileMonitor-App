@@ -30,7 +30,16 @@ angular.module('starter')
                 views: {
                     "tab-lv1fastview": {
                         templateUrl: "partials/lv1fastview/lv1fastview.html",
-                        controller: 'L1FastViewController'
+                        // controller: 'L1FastViewController'
+                    }
+                }
+            })
+            .state("tab.lv1fastview-bigimg", {
+                url: "/lv1fastview/bigimg/:taskID",
+                views: {
+                    "tab-lv1fastview": {
+                        templateUrl: "partials/lv1fastview/bigimgview.html",
+                        // controller: 'L1FastViewController'
                     }
                 }
             })
