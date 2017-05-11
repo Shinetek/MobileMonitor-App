@@ -92,10 +92,19 @@
                 }
                 self.currentTaskList.splice(0, self.currentTaskList.length);
                 doc.forEach(function (element) {
+                    // if ((element['task_id'].indexOf('AFN') > -1 ||
+                    //     element['task_id'].indexOf('ANN') > -1 ||
+                    //     element['task_id'].indexOf('ARN') > -1) &&
+                    //     element['status'] === 'success') {
+                    //     // 临时增加 imgUrl属性
+                    //     var inst = instName.toUpperCase();
+                    //     element.imgUrl = 'http://123.56.135.196:4202/fastview/lv1/FY4A/' + instName.toUpperCase() +'/C001/1000M?taskid=' + element['task_id'] + '&btime=' + element['task_id'].substring(3) + '&thum=1';
+                    //     console.log(element.imgUrl);
+                    //     self.currentTaskList.push(element);
+                    // }
                     if ((element['task_id'].indexOf('AFN') > -1 ||
                         element['task_id'].indexOf('ANN') > -1 ||
-                        element['task_id'].indexOf('ARN') > -1) &&
-                        element['status'] === 'success') {
+                        element['task_id'].indexOf('ARN') > -1)) {
                         // 临时增加 imgUrl属性
                         var inst = instName.toUpperCase();
                         element.imgUrl = 'http://123.56.135.196:4202/fastview/lv1/FY4A/' + instName.toUpperCase() +'/C001/1000M?taskid=' + element['task_id'] + '&btime=' + element['task_id'].substring(3) + '&thum=1';

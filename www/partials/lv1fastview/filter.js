@@ -10,5 +10,4 @@
 			return str.substring(0,2) + ":" + str.substring(2,4);
 		}
 	}
-
 })();
