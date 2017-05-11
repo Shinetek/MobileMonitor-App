@@ -1,7 +1,8 @@
 <ion-view view-title="NRS性能参数" ng-controller="NRSCapabilityController as NRSCapabilityCtrl" data-ng-init="NRSCapabilityCtrl.pageInit()">
     <ion-content>
+        <ion-refresher pulling-text="刷新" on-refresh="NRSCapabilityCtrl.refreshData()"></ion-refresher>
         <div>
-            <ion-refresher pulling-text="刷新" on-refresh="NRSCapabilityCtrl.refreshData()"></ion-refresher>
+            <!--<ion-refresher pulling-text="刷新" on-refresh="NRSCapabilityCtrl.refreshData()"></ion-refresher>-->
             <div style="height: auto; background-color: rgba(36, 73, 114, 0.96);">
                 <div class="inst-profile-nav top-0">
                     <nav class="underline-nav" role="navigation">
