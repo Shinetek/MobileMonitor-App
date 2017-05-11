@@ -16,13 +16,18 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
     $scope.data = {};
     $scope.data.currdate = date;
     $scope.data.queryDescribe = "";
-    $scope.data.queryType = "ALL";
+    $scope.data.queryDealType = "未处理 ";
+    $scope.data.querySystemName = Systems.all()[0].name + "(" + Systems.all()[0].id + ")";
+
     $scope.faults = new Array();
+
+    $scope.querySystems = Systems.all();
 
     var _startIndex = 1;
     var _pageSize = 50;
 
-    $scope.$on('ionicView.afterEnter',function(){
+    $scope.$on('$ionicView.afterEnter',function(){
+        console.log("ionicView.afterEnter Init");
         PopoverService.initPop($scope, $ionicPopover, 'my-popover.html');
         updateFaultData();
     })
