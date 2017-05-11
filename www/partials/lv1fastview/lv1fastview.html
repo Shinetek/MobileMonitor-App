@@ -31,7 +31,7 @@
         <!--</div>-->
         <div>
             <ion-list>
-                <ion-item ng-repeat="taskItem in L1FastViewCtrl.currentTaskList | orderBy:['-time']"
+                <ion-item ng-repeat="taskItem in L1FastViewCtrl.currentTaskList | orderBy:['time']"
                           class="item-thumbnail-right"
                           ng-click="L1FastViewCtrl.showBigImg(taskItem.task_id)">
                     <div class="d-inline-block">
