@@ -30,7 +30,16 @@ angular.module('starter')
                 views: {
                     "tab-lv1fastview": {
                         templateUrl: "partials/lv1fastview/lv1fastview.html",
-                        controller: 'L1FastViewController'
+                        // controller: 'L1FastViewController'
+                    }
+                }
+            })
+            .state("tab.lv1fastview-bigimg", {
+                url: "/lv1fastview/bigimg/:taskID",
+                views: {
+                    "tab-lv1fastview": {
+                        templateUrl: "partials/lv1fastview/bigimgview.html",
+                        // controller: 'L1FastViewController'
                     }
                 }
             })
@@ -66,7 +75,30 @@ angular.module('starter')
                     }
                 }
             })
-
+            .state('tab.subsystem-capability-nrs', {
+                url: '/subsystem/capability/NRS',
+                views: {
+                    'tab-subsystem': {
+                        templateUrl: 'partials/capability/nrs-capability.html'
+                    }
+                }
+            })
+            .state('tab.subsystem-capability-dts', {
+                url: '/subsystem/capability/DTS',
+                views: {
+                    'tab-subsystem': {
+                        templateUrl: 'partials/capability/dtsmrs-capability.html'
+                    }
+                }
+            })
+            .state('tab.subsystem-capability-mrs', {
+                url: '/subsystem/capability/mrs',
+                views: {
+                    'tab-subsystem': {
+                        templateUrl: 'partials/capability/dtsmrs-capability.html'
+                    }
+                }
+            })
             //添加成像仪观测任务运行状态监测
             .state('tab.apparatus-list', {
                 url: '/subsystem/apparatus/:listname',
