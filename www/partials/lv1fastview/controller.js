@@ -88,7 +88,7 @@
             var url = CONFIG_GLOBAL.BASEURL + '_ds/mcs/task/list/' + instName;
             L1FastViewServices.getInistTaskList(url, function (doc) {
                 if (doc === null || doc === undefined) {
-                    return;
+                    return next();
                 }
                 self.currentTaskList.splice(0, self.currentTaskList.length);
                 doc.forEach(function (element) {
