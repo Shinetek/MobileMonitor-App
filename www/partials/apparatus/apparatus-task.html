@@ -20,7 +20,7 @@
                 <div class="taskone">
                   <div class="oneleft">
                     <p>计划开始时间:{{t.plan_start_dt | fourTime}}</p>
-                    <p>实际开始时间:{{t.plan_end_dt | fourTime}}</p>
+                    <p>实际开始时间:{{t.real_start_dt| fourTime}}</p>
                   </div>
                   <div class="oneright">
                     <p style="background:{{upbackground(t.status)}}">输入</p>
@@ -32,7 +32,7 @@
               <div class="tasktime">
                 <div class="tasktwo">
                   <div class="oneleft">
-                    <p>计划结束时间:{{t.real_start_dt | fourTime}}</p>
+                    <p>计划结束时间:{{t.plan_end_dt | fourTime}}</p>
                     <p>实际结束时间:{{t.real_end_dt | fourTime}}</p>
                   </div>
                   <div class="oneright">

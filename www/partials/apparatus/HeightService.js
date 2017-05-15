@@ -22,7 +22,7 @@ function HeightService() {
         var _height = 0;
         return _height;
       } else {
-        var _height = parseInt(index / 4) * 57 - scrollheight + 85;
+        var _height = _heights - scrollheight + 87;
         return _height;
       }
     }

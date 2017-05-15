@@ -17,45 +17,47 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
     $scope.rename = "闪电仪状态";
   }
 
-  //获取滚动视图高度
-  //console.log(document.getElementById("heightall").offsetHeight);
-  //$scope.gird_height = {height:''+document.getElementById("heightall").offsetHeight-259+"px"};
-  //少20px为手机端与浏览器端高度塌陷值
-  $scope.gird_height = {height:''+document.getElementById("heightall").offsetHeight-239+"px"};
+
+  $scope.$on("$ionicView.afterEnter",function(){
+    //获取滚动视图高度
+    //console.log(document.getElementById("heightall").offsetHeight);
+    //$scope.gird_height = {height:''+document.getElementById("heightall").offsetHeight-259+"px"};
+    //少20px为手机端与浏览器端高度塌陷值
+    $scope.gird_height = {height:''+document.getElementById("heightall").offsetHeight-239+"px"};
 
 
-  //延迟加载
-  $ionicLoading.show({
-    content: "Loading",
-    animation: "fade-in",
-    showBackdrop: true,
-    maxWidth: 200,
-    showDelay: 0
+    //延迟加载
+    $ionicLoading.show({
+      content: "Loading",
+      animation: "fade-in",
+      showBackdrop: true,
+      maxWidth: 200,
+      showDelay: 0
+    });
+
+
+    //计划与列表数据
+    var url = 'http://123.56.135.196:4202/_ds/mcs/task/list/' + $scope.name;
+    var promise = HttpService.getdata(url, $http, $q);
+    promise.then(function (res) {
+      $scope.listDate = res;
+      //计算观测计划数
+      var results = NumberService.getnumber(res);
+      $scope.day_plan = results.day_plan;
+      $scope.cur_plan = results.cur_plan;
+      $scope.success = results.success;
+      $scope.failure = results.failure;
+
+      $ionicLoading.hide();
+
+      _heightall($scope.listDate, $scope.gird_height);
+
+    }, function (err) {
+      console.log("err");
+      $ionicLoading.hide();
+    });
+
   });
-
-
-  //计划与列表数据
-  var url = 'http://123.56.135.196:4202/_ds/mcs/task/list/' + $scope.name;
-  var promise = HttpService.getdata(url, $http, $q);
-  promise.then(function (res) {
-    $scope.listDate = res;
-    //计算观测计划数
-    var results = NumberService.getnumber(res);
-    $scope.day_plan = results.day_plan;
-    $scope.cur_plan = results.cur_plan;
-    $scope.success = results.success;
-    $scope.failure = results.failure;
-
-    $ionicLoading.hide();
-
-    _heightall($scope.listDate, $scope.gird_height);
-
-  }, function (err) {
-    console.log("err");
-    $ionicLoading.hide();
-  });
-
-
 
   //增加滚动
   function _heightall(data,height){
