@@ -43,9 +43,9 @@
                 self.capabilityItems.splice(0, self.capabilityItems.length);
                 for (var i = 0; i < doc.data.length; i++) {
                     if (doc.data[i].status === "success") {
-                        doc.data[i].statusImg = "../../img/check_128px_1180491_easyicon.net.png";
+                        doc.data[i].statusImg = "img/check_128px_1180491_easyicon.net.png";
                     } else {
-                        doc.data[i].statusImg = "../../img/error_128px_1181827_easyicon.net.png";
+                        doc.data[i].statusImg = "img/error_128px_1181827_easyicon.net.png";
                     }
                     self.capabilityItems.push(doc.data[i]);
                 }
@@ -97,9 +97,9 @@
                     if (doc.data[i]["instrument"] === inst) {
                         doc.data[i]["param"].forEach(function (item) {
                             if (item.status === "success") {
-                                item.statusImg = "../../img/check_128px_1180491_easyicon.net.png";
+                                item.statusImg = "img/check_128px_1180491_easyicon.net.png";
                             } else {
-                                item.statusImg = "../../img/error_128px_1181827_easyicon.net.png";
+                                item.statusImg = "img/error_128px_1181827_easyicon.net.png";
                             }
                             self.capabilityItems.push(item);
                         });
