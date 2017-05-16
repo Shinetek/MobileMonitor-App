@@ -1,7 +1,19 @@
-<ion-view>
+<ion-view view-title="DTS性能参数" ng-controller="DTSMRSCapabilityController as DTSMRSCapabilityCtrl" data-ng-init="DTSMRSCapabilityCtrl.pageInit()">
     <ion-content>
+        <ion-refresher pulling-text="刷新" on-refresh="DTSMRSCapabilityCtrl.refreshData()"></ion-refresher>
         <div>
-
+            <ion-list>
+                <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap"
+                          ng-repeat="item in DTSMRSCapabilityCtrl.capabilityItems">
+                    <img ng-src="{{item.statusImg}}"/>
+                    <div class="d-inline-block">
+                        <h2>{{item.name}}</h2>
+                    </div>
+                    <a class="capability-value">
+                        {{item.value}}
+                    </a>
+                </ion-item>
+            </ion-list>
         </div>
     </ion-content>
 </ion-view>

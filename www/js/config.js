@@ -75,23 +75,6 @@ angular.module('starter')
                     }
                 }
             })
-
-            .state('tab.subsystem-capability-dts', {
-                url: '/subsystem/capability/DTS',
-                views: {
-                    'tab-subsystem': {
-                        templateUrl: 'partials/capability/dtsmrs-capability.html'
-                    }
-                }
-            })
-            .state('tab.subsystem-capability-mrs', {
-                url: '/subsystem/capability/mrs',
-                views: {
-                    'tab-subsystem': {
-                        templateUrl: 'partials/capability/dtsmrs-capability.html'
-                    }
-                }
-            })
             //添加成像仪观测任务运行状态监测
             .state('tab.apparatus-list', {
                 url: '/subsystem/apparatus/:listname',
@@ -129,6 +112,15 @@ angular.module('starter')
                     }
                 }
             })
+            .state('tab.capability-dts', {
+                url: '/capability/DTSMRS/:sys',
+                views: {
+                    'tab-capability': {
+                        templateUrl: 'partials/capability/dtsmrs-capability.html'
+                    }
+                }
+            });
+
 
 
         // if none of the above states are matched, use this as the fallback
