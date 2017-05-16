@@ -1,7 +1,10 @@
-<ion-view ng-controller="BigImgViewController as BigImgCtrl" view-title="{{BigImgCtrl.task.name}}-{{BigImgCtrl.task.time | formatTime}}" data-ng-init="BigImgCtrl.pageInit()">
-    <ion-content style="background-color: black">>
-        <div class="big-img">
-            <img class="img-responsive" src="{{BigImgCtrl.bigImgUrl}}"/>
-        </div>
+<ion-view ng-controller="BigImgViewController as BigImgCtrl"
+          view-title="{{BigImgCtrl.task.name}}-{{BigImgCtrl.task.time | formatTime}}"
+          data-ng-init="BigImgCtrl.pageInit()">
+    <ion-content style="background-color: black">
+        <ion-scroll zooming="true" direction="xy" overflow-scroll="false" min-zoom="1" max-zoom="5"
+                    style="width: 100%; height: 100%">
+            <img style="width: 100%; height: auto; margin-top: 50px" src="{{BigImgCtrl.bigImgUrl}}"/>
+        </ion-scroll>
     </ion-content>
 </ion-view>
