@@ -44,7 +44,7 @@ angular.module('starter')
                 }
             })
             .state("tab.lv1fastview-taskinfo", {
-                url: "/lv1fastview/task/:listname/:name/:time/:task_id",
+                url: "/lv1fastview/task/:listname/:task_id",
                 views: {
                     "tab-lv1fastview": {
                         templateUrl: 'partials/apparatus/apparatus-task.html',

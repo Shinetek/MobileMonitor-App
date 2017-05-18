@@ -6,7 +6,7 @@
         .controller("L1FastViewController", L1FastViewCtrlFn)
         .controller("BigImgViewController", BigImgViewCtrlFn);
 
-    L1FastViewCtrlFn.$inject = ["L1FastViewServices", "$scope"];
+    L1FastViewCtrlFn.$inject = ["L1FastViewServices", "$scope", "$ionicListDelegate", "$ionicScrollDelegate"];
 
     BigImgViewCtrlFn.$inject = ["L1FastViewServices", "$scope", "$stateParams"];
 
@@ -24,7 +24,7 @@
         }
     }
 
-    function L1FastViewCtrlFn(L1FastViewServices, $scope) {
+    function L1FastViewCtrlFn(L1FastViewServices, $scope, $ionicListDelegate, $ionicScrollDelegate) {
         var self = this;
         // 当前navTab
         self.instNavCurrentItem = 'agri';
@@ -51,21 +51,16 @@
         self.goTaskStatus = _goTaskStatus;
 
         function _goTaskStatus(taskID) {
-            var url = "#/tab/lv1fastview/task/agri/黑体观测/001305/ABS20170517001305";
+            var url = "#/tab/lv1fastview/task/" + self.instNavCurrentItem + "/" + taskID;
             window.location.href = url;
+            $ionicListDelegate.closeOptionButtons();
         }
 
         function _showBigImg(taskID) {
-            // var addname = "#/tab/lv1fastview/bigimg/" + taskID;
-            // console.log("addname:" + addname);
-            // window.location.href = addname;
-            var url = "#/tab/lv1fastview/task/agri/黑体观测/001305/ABS20170517001305";
-            window.location.href = url
+            var addname = "#/tab/lv1fastview/bigimg/" + taskID;
+            console.log("addname:" + addname);
+            window.location.href = addname;
         }
-
-        // function _hideBigImg() {
-        // self.bigImgShow = false;
-        // }
 
         function _refreshData() {
             var instName = self.instNavCurrentItem;
@@ -78,8 +73,22 @@
             //获取仪器任务时间表
             var instName = self.instNavCurrentItem;
             _getTaskListForInst(instName, function (err) {
-
+                _setScrollToCurrentPosition();
             });
+        }
+
+        function _setScrollToCurrentPosition() {
+            var itemHeight = 100;
+            var currentTaskIndex = 0;
+            var nowStr = new Date().getUTCHours().toString() + new Date().getUTCMinutes().toString() + "00";
+            for (var i = 0; i < self.currentTaskList.length; i++) {
+                if (Number(nowStr) < Number(self.currentTaskList[i].time)) {
+                    currentTaskIndex = i;
+                    break;
+                }
+            }
+            var currentPosition = (currentTaskIndex < 3)? 0 : (currentTaskIndex -2) * itemHeight;
+            $ionicScrollDelegate.$getByHandle("TaskList-Content").scrollTo(0, currentPosition, true);
         }
 
         function _instNavItemIsSelected(navName) {

@@ -1,7 +1,7 @@
 
 <ion-view view-title="L1快视" ng-controller="L1FastViewController as L1FastViewCtrl"
           data-ng-init="L1FastViewCtrl.pageInit()">
-    <ion-content overflow-scroll="true" style="overflow: auto">
+    <ion-content overflow-scroll="true" style="overflow: auto" delegate-handle="TaskList-Content">
         <ion-refresher pulling-text="刷新" on-refresh="L1FastViewCtrl.refreshData()"></ion-refresher>
         <div style="height: auto; background-color: rgba(36, 73, 114, 0.96);">
             <div class="inst-profile-nav top-0">
