@@ -88,7 +88,7 @@ angular.module('starter')
 
             //增加仪器下当前任务详细报告
             .state("tab.apparatus-task", {
-                url: "/subsystem/apparatus/:listname/:name/:time/:task_id",
+                url: "/subsystem/apparatus/:listname/:task_id",
                 views: {
                     "tab-subsystem": {
                         templateUrl: 'partials/apparatus/apparatus-task.html',
