@@ -43,6 +43,15 @@ angular.module('starter')
                     }
                 }
             })
+            .state("tab.lv1fastview-taskinfo", {
+                url: "/lv1fastview/task/:listname/:name/:time/:task_id",
+                views: {
+                    "tab-lv1fastview": {
+                        templateUrl: 'partials/apparatus/apparatus-task.html',
+                        controller: "ApparatusTaskCtrl"
+                    }
+                }
+            })
 
             // 故障信息
             .state('tab.faultview', {

@@ -48,10 +48,19 @@
         // 显示大图
         self.showBigImg = _showBigImg;
 
+        self.goTaskStatus = _goTaskStatus;
+
+        function _goTaskStatus(taskID) {
+            var url = "#/tab/lv1fastview/task/agri/黑体观测/001305/ABS20170517001305";
+            window.location.href = url;
+        }
+
         function _showBigImg(taskID) {
-            var addname = "#/tab/lv1fastview/bigimg/" + taskID;
-            console.log("addname:" + addname);
-            window.location.href = addname;
+            // var addname = "#/tab/lv1fastview/bigimg/" + taskID;
+            // console.log("addname:" + addname);
+            // window.location.href = addname;
+            var url = "#/tab/lv1fastview/task/agri/黑体观测/001305/ABS20170517001305";
+            window.location.href = url
         }
 
         // function _hideBigImg() {

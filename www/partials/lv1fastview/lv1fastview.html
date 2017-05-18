@@ -41,8 +41,7 @@
                     <a class="thum-img">
                         <img width="80" height="80" ng-src="{{taskItem.imgUrl}}"/>
                     </a>
-                    <ion-option-button class="button-positive">分享</ion-option-button>
-                    <ion-option-button class="button-info">查看</ion-option-button>
+                    <ion-option-button class="button-positive" ng-click="L1FastViewCtrl.goTaskStatus(taskItem.task_id)">任务状态</ion-option-button>
                 </ion-item>
             </ion-list>
         </div>
