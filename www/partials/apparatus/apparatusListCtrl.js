@@ -19,6 +19,7 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
 
 
   $scope.$on("$ionicView.afterEnter",function(){
+
     //获取滚动视图高度
     //console.log(document.getElementById("heightall").offsetHeight);
     //$scope.gird_height = {height:''+document.getElementById("heightall").offsetHeight-259+"px"};
@@ -103,8 +104,8 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
   };
 
   //增加当前任务跳转
-  $scope.taskdetail = function(task_id,name,time){
-    var addtask = "#/tab/subsystem/apparatus/" + $stateParams.listname + "/" + name + "/"+ time +"/" + task_id;
+  $scope.taskdetail = function(task_id){
+    var addtask = "#/tab/subsystem/apparatus/" + $stateParams.listname + "/" + task_id;
     window.location.href = addtask;
   };
 }
