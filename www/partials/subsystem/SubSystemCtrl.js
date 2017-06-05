@@ -69,6 +69,7 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService
 
         SQLiteService.get("").then(function (res) {
 
+
             var s;
             var ss = new Array();
             for (var i = 0; i < res.rows.length; i++) {

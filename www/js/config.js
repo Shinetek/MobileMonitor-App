@@ -57,7 +57,7 @@ angular.module('starter')
             .state('tab.faultview', {
                 url: '/faultview',
                 views: {
-                    'tab-subsystem': {
+                    'tab-faultview': {
                         templateUrl: 'partials/faultview/faultview.html',
                         controller: 'FaultViewCtrl'
                     }
@@ -84,6 +84,20 @@ angular.module('starter')
                     }
                 }
             })
+
+
+
+            //添加卫星遥测
+            .state('tab.telemetery', {
+                url: '/telemetery',
+                views: {
+                    'tab-telemetery': {
+                        templateUrl: 'partials/telemetery/telemetery.html',
+                        controller: 'TelemeteryCtrl'
+                    }
+                }
+            })
+
             //添加成像仪观测任务运行状态监测
             .state('tab.apparatus-list', {
                 url: '/subsystem/apparatus/:listname',

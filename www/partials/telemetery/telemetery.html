@@ -1,0 +1,28 @@
+<ion-view view-title="卫星遥测">
+    <ion-content>
+        <ion-refresher class="pull" pulling-text="下拉刷新" on-refresh="news(x)"></ion-refresher>
+        <div class="list" style="margin: 0px;padding: 0px">
+            <div class="item item-input item-select">
+                <div class="input-label" style="font-size: 14px">
+                    分组选择
+                </div>
+                <select ng-change="change(x)" ng-model="x">
+                    <option ng-repeat="x in switch" value="{{x.level}}">
+                        {{x.level}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div>
+            <ion-list>
+
+                <ion-item class="item-remove-animate item-avatar item-icon-left ycitem" ng-repeat="yc in yc.Numbers">
+                    <i class="icon ion-ionic" style="color: green"></i>
+                    <div style="font-size: 18px">{{yc.ycname}}</div>
+                    <div style="font-size: 16px;margin-top: 5px;float: right">{{yc.ycvalue}}</div>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-view>

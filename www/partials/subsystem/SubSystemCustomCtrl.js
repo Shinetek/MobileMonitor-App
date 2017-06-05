@@ -14,7 +14,6 @@ function SubSystemCustomCtrl($scope, Systems, SQLiteService) {
     var systemlist = Systems.all();
 
     SQLiteService.get("").then(function (res) {
-
         for (var j = 0; j < systemlist.length; j++) {
             systemlist[j].selected = false;
 
@@ -44,7 +43,7 @@ function SubSystemCustomCtrl($scope, Systems, SQLiteService) {
                         $scope.systems[i].id,
                         $scope.systems[i].name,
                         $scope.systems[i].icon).then(function () {
-                        });
+                    });
                 }
                 else {
                     // 取消选中，删除数据

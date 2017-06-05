@@ -68,9 +68,11 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
 
 
         // 获取当前显示的故障数据 _ds/mcs/faultlog/listf/dts/undeal/1/50
-        var url = CONFIG_GLOBAL.BASEURL + "_ds/mcs/faultlog/listf/" + sysid + "/" + dealtype + "/" + _startIndex + "/" + _pageSize;
+        //var url = CONFIG_GLOBAL.BASEURL + "_ds/mcs/faultlog/listf/" + sysid + "/" + dealtype + "/" + _startIndex + "/" + _pageSize;
+        var url = "http://10.24.4.130:4701/" + "_ds/mcs/faultlog/listf/" + sysid + "/" + dealtype + "/" + _startIndex + "/" + _pageSize;
         HttpService.getdata(url).then(function (res) {
-
+            console.log(res);
+            $scope.faults = [];
             for (var i = 0; i < res.length; i++) {
                 res[i] = res[i];
                 res[i].happen_dt = StaticMethodService.formatLongDatTime(res[i].happen_dt);

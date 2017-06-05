@@ -42,20 +42,20 @@ angular.module('starter.services', ['ngCordova'])
       id: "agri",
       name: '成像仪',
       icon: 'img/accessories-camera-icon.png',
-      success: '10',
-      fail: '10'
+      success: '-',
+      fail: '-'
     }, {
       id: "giirs",
       name: '探测仪',
       icon: 'img/midori-globe-icon.png',
-      success: '10',
-      fail: '10'
+      success: '-',
+      fail: '-'
     }, {
       id: "lmi",
       name: '闪电仪',
       icon: 'img/flash.png',
-      success: '10',
-      fail: '10'
+      success: '-',
+      fail: '-'
     }];
 
     return {
@@ -126,7 +126,45 @@ angular.module('starter.services', ['ngCordova'])
         return systems;
       }
     };
-  });
+  })
+    .factory("teleSytem",function(){
+      var telesytem = [{
+        id:"a",
+        ycname:"成像仪TMC状态",
+        up_date:"20170526030904",
+        ycvalue:"1",
+        selected:false
+      },{
+        id:"b",
+        ycname:"探测仪INR流程总开关",
+        up_date:"20170526030904",
+        ycvalue : "236",
+        selected:false
+      },{
+        id:"c",
+        ycname:"成像仪OMC状态",
+        up_date:"20170526030904",
+        ycvalue : "1",
+        selected:false
+      },{
+        id:"d",
+        ycname:"成像仪工作指令待发计数",
+        up_date:"20170526030904",
+        ycvalue : "0",
+        selected:false
+      },{
+        id:"e",
+        ycname:"辐射计扫描机构状态",
+        up_date:"20170526030904",
+        ycvalue : "2",
+        selected:false
+      }];
+      return {
+        ycshu: function () {
+          return telesytem;
+        }
+      };
+    });
 
 
 
