@@ -20,7 +20,8 @@
         "gulp-minify-css": "^0.3.0",
         "gulp-rename": "^1.2.0",
         "gulp-sass": "^2.0.4",
-        "ionic-plugin-keyboard": "~2.2.1"
+        "ionic-plugin-keyboard": "~2.2.1",
+        "cordova-plugin-x-toast":"~2.6.0"
     },
     "devDependencies": {
         "bower": "^1.3.3",
@@ -38,7 +39,8 @@
         "cordova-plugin-file",
         "cordova-plugin-file-transfer",
         "cordova-plugin-file-opener2",
-        "cordova-plugin-network-information"
+        "cordova-plugin-network-information",
+        "cordova-plugin-x-toast"
     ],
     "cordovaPlatforms": [],
     "cordova": {
@@ -53,7 +55,8 @@
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},
-            "ionic-plugin-keyboard": {}
+            "ionic-plugin-keyboard": {},
+            "cordova-plugin-x-toast":{}
         }
     }
 }

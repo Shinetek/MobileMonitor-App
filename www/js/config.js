@@ -54,7 +54,7 @@ angular.module('starter')
             })
 
             // 故障信息
-            .state('tab.faultview', {
+            /*.state('tab.faultview', {
                 url: '/faultview',
                 views: {
                     'tab-faultview': {
@@ -62,7 +62,7 @@ angular.module('starter')
                         controller: 'FaultViewCtrl'
                     }
                 }
-            })
+            })*/
 
             .state('tab.subsystem', {
                 url: '/subsystem',
@@ -147,6 +147,6 @@ angular.module('starter')
 
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/tab/lv1fastview');
+        $urlRouterProvider.otherwise('/tab/subsystem');
 
     });

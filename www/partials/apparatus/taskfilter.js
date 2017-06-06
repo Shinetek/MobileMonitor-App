@@ -23,8 +23,10 @@
                 name = "地标观测"
             }else if(name == "GRS"){
                 name = "区域观测"
-            }else if(name = "LLV"){
+            }else if(name == "LLV"){
                 name = "常规观测"
+            }else if(name == "AMN"){
+                name = "月球常规观测"
             }
             var time = str.substring(11,15);
             var times = time.substring(0,2) + ":" + time.substring(2,4);
