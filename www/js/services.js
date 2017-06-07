@@ -75,6 +75,8 @@ angular.module('starter.services', ['ngCordova'])
 
   .factory('Systems', function () {
     var systems = [{
+      id:"全部"
+    },{
       id: 'DTS',
       name: '数据获取',
       icon: 'img/data-download.png',

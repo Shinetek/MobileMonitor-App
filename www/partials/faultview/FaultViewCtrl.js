@@ -5,9 +5,9 @@ angular
     .module('starter.controllers')
     .controller('FaultViewCtrl', FaultViewCtrl)
 
-FaultViewCtrl.$inject = ['$scope', 'SQLiteService', 'HttpService', 'Systems', '$ionicPopover', '$ionicLoading', 'PopoverService', 'StaticMethodService'];
+FaultViewCtrl.$inject = ['$scope', 'SQLiteService', 'HttpService', 'Systems', '$ionicPopover', '$ionicLoading', 'PopoverService'];
 
-function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopover, $ionicLoading, PopoverService, StaticMethodService) {
+function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopover, $ionicLoading, PopoverService) {
 
     var date = new Date();
 
@@ -29,28 +29,73 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
     $scope.$on('$ionicView.afterEnter', function () {
         console.log("ionicView.afterEnter Init");
         PopoverService.initPop($scope, $ionicPopover, 'my-popover.html');
-        updateFaultData();
+        //updateFaultData();
+        updateFaultAll()
     })
 
     $scope.refreshData = function () {
+        var sysid = $scope.data.querySystemName.toLowerCase();
 
         $scope.faults = new Array();
 
         _startIndex = 1
 
         console.log("previewData");
-        updateFaultData();
+        if(sysid == "全部"){
+            updateFaultAll()
+        }else{
+            updateFaultData();
+        }
         $scope.$broadcast('scroll.refreshComplete');
     }
 
     $scope.nextData = function () {
+        var sysid = $scope.data.querySystemName.toLowerCase();
 
         _startIndex += 50;
 
         console.log("nextData");
-        updateFaultData();
+        if(sysid == "全部"){
+            updateFaultAll()
+        }else{
+            updateFaultData();
+        }
         $scope.$broadcast('scroll.infiniteScrollComplete');
     }
+
+
+    function updateFaultAll(){
+
+        $ionicLoading.show({
+            content: 'Loading',
+            animation: 'fade-in',
+            showBackdrop: true,
+            maxWidth: 200,
+            showDelay: 0
+        });
+
+        var dealtype = updateStatus($scope.data.queryDealType);
+        var url = "http://10.24.4.130:4701/_ds/mcs/faultlog/codelistf/"+ dealtype + "/" + _startIndex + "/" + _pageSize;
+        HttpService.getdata(url).then(function(res){
+            $scope.faults = [];
+            for (var i = 0; i < res.length; i++) {
+                res[i] = res[i];
+                res[i].status = updateStatus(res[i].status);
+                $scope.faults.push(res[i]);
+            }
+            if (res.length < 50)
+                isShow = false;
+            else
+                isShow = true;
+
+            $ionicLoading.hide();
+        },function(error){
+            console.log("error");
+            $ionicLoading.hide();
+        });
+
+    }
+
 
     function updateFaultData() {
 
@@ -66,16 +111,14 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
         var dealtype = updateStatus($scope.data.queryDealType);
         var sysid = $scope.data.querySystemName.toLowerCase();
 
-
         // 获取当前显示的故障数据 _ds/mcs/faultlog/listf/dts/undeal/1/50
         //var url = CONFIG_GLOBAL.BASEURL + "_ds/mcs/faultlog/listf/" + sysid + "/" + dealtype + "/" + _startIndex + "/" + _pageSize;
         var url = "http://10.24.4.130:4701/" + "_ds/mcs/faultlog/listf/" + sysid + "/" + dealtype + "/" + _startIndex + "/" + _pageSize;
         HttpService.getdata(url).then(function (res) {
-            console.log(res);
             $scope.faults = [];
             for (var i = 0; i < res.length; i++) {
                 res[i] = res[i];
-                res[i].happen_dt = StaticMethodService.formatLongDatTime(res[i].happen_dt);
+                //res[i].happen_dt = StaticMethodService.formatLongDatTime(res[i].happen_dt);
                 res[i].status = updateStatus(res[i].status);
                 $scope.faults.push(res[i]);
             }
@@ -106,14 +149,20 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
     }
 
     $scope.filterData = function () {
-
+        var sysid = $scope.data.querySystemName.toLowerCase();
         console.log("$scope.data.currdate : " + $scope.data.currdate.toISOString().substr(0, 10));
         console.log("$scope.data.queryDescribe : " + $scope.data.queryDescribe);
         console.log("$scope.data.queryType : " + $scope.data.queryType);
 
         $scope.faults = new Array();
         _startIndex = 1
-        updateFaultData();
+
+        if(sysid == "全部"){
+            updateFaultAll()
+        }else{
+            updateFaultData();
+        }
+
     }
 
     function updateStatus(status) {
@@ -134,4 +183,13 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
         }
         return text;
     }
+
+    //增加跳转
+
+    $scope.openDeal = function(name,time){
+        var dealwith = "#/tab/subsystem/faultview/" + name + "/" + time;
+        console.log("addname:" + dealwith);
+        window.location.href = dealwith;
+    }
+
 }

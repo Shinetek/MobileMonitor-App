@@ -54,15 +54,26 @@ angular.module('starter')
             })
 
             // 故障信息
-            /*.state('tab.faultview', {
-                url: '/faultview',
+            .state('tab.faultview', {
+                url: '/subsystem/faultview',
                 views: {
-                    'tab-faultview': {
+                    'tab-subsystem': {
                         templateUrl: 'partials/faultview/faultview.html',
                         controller: 'FaultViewCtrl'
                     }
                 }
-            })*/
+            })
+
+            //处理故障
+            .state('tab.faultview-deal', {
+                url: '/subsystem/faultview/:name/:time',
+                views: {
+                    'tab-subsystem': {
+                        templateUrl: 'partials/faultview/faultdispose.html',
+                        controller: 'FaultDisposeCtrl'
+                    }
+                }
+            })
 
             .state('tab.subsystem', {
                 url: '/subsystem',
@@ -75,7 +86,6 @@ angular.module('starter')
             })
 
             .state('tab.subsystem-custom', {
-                //url:'/subsystem/:state',
                 url: '/subsystem/state/:state',
                 views: {
                     'tab-subsystem': {

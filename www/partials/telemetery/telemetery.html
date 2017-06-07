@@ -7,8 +7,9 @@
                     分组选择
                 </div>
                 <select ng-change="change(x)" ng-model="x">
-                    <option ng-repeat="x in switch" value="{{x.level}}">
-                        {{x.level}}
+                    <option  value="全部">全部</option>
+                    <option ng-repeat="x in selectshow" value="{{x}}">
+                        {{x}}
                     </option>
                 </select>
             </div>
@@ -17,10 +18,10 @@
         <div>
             <ion-list>
 
-                <ion-item class="item-remove-animate item-avatar item-icon-left ycitem" ng-repeat="yc in yc.Numbers">
-                    <i class="icon ion-ionic" style="color: green"></i>
-                    <div style="font-size: 18px">{{yc.ycname}}</div>
-                    <div style="font-size: 16px;margin-top: 5px;float: right">{{yc.ycvalue}}</div>
+                <ion-item class="item-remove-animate item-avatar item-icon-left ycitem" ng-repeat="yc in yc">
+                    <i class="icon ion-ionic" style="color:{{newColor(yc.state)}}"></i>
+                    <div style="font-size:18px">{{yc.ycname}}</div>
+                    <div style="font-size:16px;margin-top: 5px;float: right">{{yc.ycvalue}}</div>
                 </ion-item>
             </ion-list>
         </div>

@@ -11,11 +11,11 @@ angular.module('starter')
                     $cordovaToast) {
 
         // 初始化数据库放到deviceready前面，以便controller里去进行数据库的操作
-       /* SQLiteService.init("tblSystems").then(function (res) {
+        SQLiteService.init("tblSystems").then(function (res) {
              //console.log("走到这里就是初始化数据库成功了")
          }, function (err) {
              alert("err : " + err);
-         });*/
+         });
 
 
 

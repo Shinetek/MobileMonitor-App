@@ -1,31 +1,23 @@
-<ion-view view-title="" style="background: rgba(186, 182, 179, 0.33)">
-    <ion-nav-bar>
+<ion-view view-title="报警信息">
 
-        <ion-nav-back-button class="button-clear" style="color: #628fc0;font-size: medium">
-            <i class="ion-chevron-left"></i> 地面系统
-        </ion-nav-back-button>
-
-        <ion-nav-buttons side="right">
-
-            <label class="item-input-wrapper" style="background-color: transparent;cursor: hand"
-                   ng-click="openPopover($event)">
-                查询&nbsp;<i class="icon ion-ios-search-strong"></i>
-            </label>
-
-        </ion-nav-buttons>
-    </ion-nav-bar>
     <ion-content overflow-scroll="true">
+
         <ion-refresher pulling-text="下拉刷新数据" on-refresh="refreshData()"></ion-refresher>
+
+
+        <div style="height: 40px; padding: 5px 8px;background:#E8E7E6;">
+            <p style="float: left;line-height: 30px;font-size: 16px">故障列表</p>
+            <div style="float: right;line-height: 30px;background: #E8E7E6" class="item-input-wrapper" ng-click="openPopover($event)">
+                查询&nbsp;<i class="icon ion-ios-search-strong"></i>
+            </div>
+        </div>
+
         <ion-list>
 
-            <div class="item item-divider">
-                故障列表
-            </div>
-
-            <ion-item class="row-no-padding" style="padding: 10px" ng-repeat="f in faults">
+            <ion-item class="row-no-padding" style="padding: 10px;" ng-repeat="f in faults" ng-click="openDeal(f.code,f.happen_dt)">
                 <h2 style="display: inline-block"><strong>{{f.code}}-{{f.category}}</strong></h2>
 
-                <p style="float: right ">{{f.happen_dt}} </p><br>
+                <p style="float: right ">{{f.happen_dt | allTime}} </p><br>
 
                 <div style="width:200px;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;float:left;display: inline-block;font-size: small">
                     {{f.describe}}
@@ -38,3 +30,4 @@
         <ion-infinite-scroll immediate-check="false" ng-if="!isShow" on-infinite="nextData()" distance="1%"></ion-infinite-scroll>
     </ion-content>
 </ion-view>
+

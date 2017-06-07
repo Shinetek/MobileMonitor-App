@@ -1,0 +1,26 @@
+<ion-view view-title="故障处理">
+    <ion-content>
+        <ul class="list" ng-repeat="deal in fault">
+            <li class="item">
+                <div style="float: left;margin-right: 10px">故障代号</div>
+                <i class="icon ion-arrow-right-a"></i>
+                <div style="float: right">{{deal.code}}</div>
+            </li>
+            <li class="item">
+                <div style="float: left;margin-right: 10px">故障时间</div>
+                <i class="icon ion-arrow-right-a"></i>
+                <div style="float:right">{{deal.happen_dt | allTime}}</div>
+            </li>
+            <li class="item">
+                <div style="float:left;margin-right: 10px;margin-bottom:5px">故障描述</div>
+                <i class="icon ion-arrow-down-a"></i>
+                <div style="float:left;white-space: normal">{{deal.describe}}</div>
+            </li>
+            <li class="item">
+                <div style="float:left;margin-right: 10px">处理方案</div>
+                <i class="icon ion-arrow-down-a"></i>
+                <div style="border: 2px solid #E8E7E6;height: 150px;white-space: normal;margin-top: 10px"></div>
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>
