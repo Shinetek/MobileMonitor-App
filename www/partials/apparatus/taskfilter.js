@@ -27,6 +27,8 @@
                 name = "常规观测"
             }else if(name == "AMN"){
                 name = "月球常规观测"
+            }else if(name == "AIB"){
+                name = "红外背景数据获取"
             }
             var time = str.substring(11,15);
             var times = time.substring(0,2) + ":" + time.substring(2,4);

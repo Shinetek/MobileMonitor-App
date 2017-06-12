@@ -5,9 +5,9 @@ angular
     .module('starter.controllers')
     .controller('SubSystemCtrl', SubSystemCtrl)
 
-SubSystemCtrl.$inject = ['$scope', 'Sensors', 'SQLiteService', 'HttpService', 'JPushService'];
+SubSystemCtrl.$inject = ['$scope', 'Sensors', 'SQLiteService', 'HttpService', 'JPushService',"$http","$interval"];
 
-function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService) {
+function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService,$http,$interval) {
 
     $scope.sensors = Sensors.all();
 
@@ -34,8 +34,68 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService
 
         document.addEventListener("deviceready", updateData, false);
         document.addEventListener("jpush.receiveMessage", onReceiveMessage, false);
-
+        rolldata()
     });
+
+
+    //滚动视图数据
+    function rolldata(){
+        var url = "http://10.24.4.130:4701/_ds/mcs/faultlog/rollistf/undeal";
+        $http({
+            method:"GET",
+            url:url
+        }).success(function(data){
+            $scope.tumble = data;
+            $scope.tumblelast = [];
+            $scope.tumblelast.push($scope.tumble[0])
+            console.log($scope.tumblelast);
+            $scope.long = data.length
+            updateSwiper($scope.long)
+
+            console.log($scope.tumble )
+        }).error(function(error){
+            console.log("error")
+        })
+    }
+
+    //滚动视图
+    function updateSwiper(long){
+        var oUl = $("#rollplay").find("ul");
+        $scope.timer = 0;  //记录定时器
+        $scope.iNow = 0;  //记录第几个
+
+
+        if($scope.oldiNow){
+            $scope.iNow = $scope.oldiNow
+        }else{
+            $scope.iNow = 0
+        }
+
+        $scope.timer = $interval(timerInner, 3000);
+
+        function timerInner(){
+            $scope.iNow++;
+            roll();
+        }
+
+        function roll(){
+            oUl.animate({top:-32 * $scope.iNow}, function(){
+                if($scope.iNow == long){
+                    $scope.iNow = 0;
+                    oUl.css("top", 0);
+                }
+            })
+        }
+    }
+
+    //清除定时器
+    $scope.$on("$ionicView.leave", function () {
+        $interval.cancel($scope.timer);
+        $scope.oldiNow = $scope.iNow
+    });
+
+
+
 
     $scope.tofault = function () {
         window.location.href = "#/tab/faultview";

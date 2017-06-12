@@ -75,8 +75,6 @@ angular.module('starter.services', ['ngCordova'])
 
   .factory('Systems', function () {
     var systems = [{
-      id:"全部"
-    },{
       id: 'DTS',
       name: '数据获取',
       icon: 'img/data-download.png',
@@ -129,41 +127,31 @@ angular.module('starter.services', ['ngCordova'])
       }
     };
   })
-    .factory("teleSytem",function(){
-      var telesytem = [{
-        id:"a",
-        ycname:"成像仪TMC状态",
-        up_date:"20170526030904",
-        ycvalue:"1",
-        selected:false
+    .factory("FaultID",function(){
+      var faultName = [{
+        id:"全部"
       },{
-        id:"b",
-        ycname:"探测仪INR流程总开关",
-        up_date:"20170526030904",
-        ycvalue : "236",
-        selected:false
-      },{
-        id:"c",
-        ycname:"成像仪OMC状态",
-        up_date:"20170526030904",
-        ycvalue : "1",
-        selected:false
-      },{
-        id:"d",
-        ycname:"成像仪工作指令待发计数",
-        up_date:"20170526030904",
-        ycvalue : "0",
-        selected:false
-      },{
-        id:"e",
-        ycname:"辐射计扫描机构状态",
-        up_date:"20170526030904",
-        ycvalue : "2",
-        selected:false
+        id: 'DTS'
+      }, {
+        id: 'NRS'
+      }, {
+        id: 'PGS'
+      }, {
+        id: 'SWS'
+      }, {
+        id: 'MCS'
+      }, {
+        id: 'DSS'
+      }, {
+        id: 'MRS'
+      }, {
+        id: 'CVS'
+      }, {
+        id: 'CNS'
       }];
       return {
-        ycshu: function () {
-          return telesytem;
+        faultname: function () {
+          return faultName
         }
       };
     });

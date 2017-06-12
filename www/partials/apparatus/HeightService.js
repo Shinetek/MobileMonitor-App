@@ -10,19 +10,20 @@ function HeightService() {
   return {
     getheight: function (res, srcoll) {
       for (var i = 0; i < res.length; i++) {
-        if (res[i].status == "waiting") {
-          index = i;
-          break;
-        }
+          if (res[i].status == "waiting") {
+            index = i;
+            break;
+          }
       }
+
       var scrollheight = srcoll;
       scrollheight = parseInt(scrollheight.height);
-      var _heights = Math.floor(index / 4) * 57;
+      var _heights = Math.floor(index / 4) * 66;
       if (_heights <= scrollheight) {
         var _height = 0;
         return _height;
       } else {
-        var _height = _heights - scrollheight + 87;
+        var _height = _heights - scrollheight;
         return _height;
       }
     }

@@ -5,9 +5,9 @@ angular
     .module('starter.controllers')
     .controller('FaultViewCtrl', FaultViewCtrl)
 
-FaultViewCtrl.$inject = ['$scope', 'SQLiteService', 'HttpService', 'Systems', '$ionicPopover', '$ionicLoading', 'PopoverService'];
+FaultViewCtrl.$inject = ['$scope', 'SQLiteService', 'HttpService', 'FaultID', '$ionicPopover', '$ionicLoading', 'PopoverService'];
 
-function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopover, $ionicLoading, PopoverService) {
+function FaultViewCtrl($scope, SQLiteService, HttpService, FaultID, $ionicPopover, $ionicLoading, PopoverService) {
 
     var date = new Date();
 
@@ -17,11 +17,11 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, Systems, $ionicPopove
     $scope.data.currdate = date;
     $scope.data.queryDescribe = "";
     $scope.data.queryDealType = "未处理";
-    $scope.data.querySystemName = Systems.all()[0].id;
+    $scope.data.querySystemName = FaultID.faultname()[0].id;
 
     $scope.faults = new Array();
 
-    $scope.querySystems = Systems.all();
+    $scope.querySystems = FaultID.faultname();
 
     var _startIndex = 1;
     var _pageSize = 50;

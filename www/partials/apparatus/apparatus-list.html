@@ -1,77 +1,59 @@
 <ion-view view-title="{{rename}}" id="heightall">
   <ion-content class="main" scroll="false">
-    <!--计划任务数-->
-    <div class="observe">
-      <h4>观测计划数</h4>
+
+    <div class="head">
+      <p>观测计划数</p>
+      <p ng-click="scrollTop()">回到顶部</p>
     </div>
-
-    <div class="plan">
-
-      <div class="planup">
-
-        <div class="upleft">
-
-          <div class="dayplan">
-
-            <div>日计划</div>
-            <div>{{day_plan}}</div>
-
+    <ion-scroll class="listall" direction="y" ng-style="gird_height" delegate-handle="small">
+      <ion-refresher class="pull" pulling-text="下拉刷新" on-refresh="new()"></ion-refresher>
+      <div class="row rows" style="height: 70px;padding-top: 0px 5px">
+        <div class="col" style="height: 60px;background: #E8E7E6;border-bottom: 0px">
+          <div class="cola" style="background: #2d2d2d">
+            <p>日计划</p>
+          </div>
+          <div class="colaa">
+            <p>{{day_plan}}</p>
           </div>
         </div>
-
-        <div class="upright">
-
-          <div class="daysucceed">
-
-            <div>成功</div>
-            <div>{{success}}</div>
-
+        <div class="col" style="height: 60px;background: #E8E7E6;border-bottom: 0px">
+          <div class="cola" style="background: #3e79b5">
+            <p>截至当前</p>
+          </div>
+          <div class="colaa">
+            <p>{{cur_plan}}</p>
           </div>
         </div>
-
+        <div class="col" style="height: 60px;background: #E8E7E6;border-bottom: 0px">
+          <div class="cola" style="background: #3e8f3e">
+            <p>成功</p>
+          </div>
+          <div class="colaa">
+            <p>{{success}}</p>
+          </div>
+        </div>
+        <div class="col" style="height: 60px;background: #E8E7E6;border-bottom: 0px;border-right: 0px">
+          <div class="cola" style="background: #D9534F">
+            <p>失败</p>
+          </div>
+          <div class="colaa">
+            <p>{{failure}}</p>
+          </div>
+        </div>
       </div>
 
-        <div class="planxia">
-
-          <div class="upleft">
-
-            <div class="current">
-
-              <div>截至当前</div>
-              <div>{{cur_plan}}</div>
-
-            </div>
-          </div>
-
-          <div class="upright">
-
-            <div class="failed">
-
-              <div>失败</div>
-              <div>{{failure}}</div>
-            </div>
-          </div>
-        </div>
-    </div>
-
-    <!--任务列表-->
-    <div class="planlist">
-      <div class="observe">
-        <h4>观测任务表</h4>
-        <p ng-click="scrollTop()">回到顶部</p>
-      </div>
-
-      <ion-scroll class="scrolls" direction="y" style="margin-top: 2px;" ng-style="gird_height" delegate-handle="small">
-        <ion-refresher class="pull" pulling-text="下拉刷新" on-refresh="new()"></ion-refresher>
+      <div>
         <div class="row row-wrap">
-            <div class="col-25 cool button button-icon" ng-repeat="x in listDate | orderBy:'time'" style="background: {{upBackground(x.status)}};line-height: 15px;color: white;margin-bottom: 10px" ng-click="taskdetail(x.task_id,x.name,x.time)">
-                <div class="colls">
-                  <p>{{x.name | names}}</p>
-                  <p>{{x.time| fourTime}}</p>
-                </div>
+          <div class="col-25 cool button button-icon" ng-repeat="x in listDate | orderBy:'time'" style="line-height: 22px;color: white;margin-bottom: 10px" ng-click="taskdetail(x.task_id,x.name,x.time)">
+            <div class="colls" style="background: {{upBackground(x.status)}}">
+              <p>{{x.name | names}}</p>
+              <p>{{x.time| fourTime}}</p>
             </div>
+          </div>
         </div>
-      </ion-scroll>
-    </div>
+
+      </div>
+    </ion-scroll>
+
   </ion-content>
 </ion-view>

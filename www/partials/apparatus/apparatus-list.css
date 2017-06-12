@@ -1,156 +1,70 @@
 body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select,img{margin:0;padding:0;}
 
+/*新的*/
 .main{
-  width: 100%;
-  background: #E8E7E6;
-}
-
-/*观测计划数*/
-.observe{
-  height: 30px;
-  background: #28CDE0;
-  padding: 0px 8px 0px 8px;
-  margin-bottom: 2px;
-  margin-top: 2px;
-}
-.observe h4{
-  color: white;
-  font-size: 14px;
-  height: 30px;
-  width: 100px;
-  float: left;
-  margin: 0px;
-  line-height: 30px;
-}
-.observe p{
-  color: white;
-  font-size: 14px;
-  height: 30px;
-  width: 100px;
-  float: right;
-  margin: 0px;
-  line-height: 30px;
-  text-align: right;
-}
-.plan{
-  width: 100%;
-  height: 80px;
-  background: #28CDE0;
-}
-.planup{
-  width: 100%;
-  height: 40px;
-}
-.planxia{
-  width: 100%;
-  height: 40px;
-}
-
-.upleft,.upright{
-  float: left;
-  width: 50%;
-  height: 40px;
-  position: relative;
-}
-.dayplan,.daysucceed,.current,.failed{
-  width: 85%;
-  height: 25px;
-  position: absolute;
-  left:0;
-  right:0;
-  top:0;
-  bottom:0;
-  margin: auto;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px #888888;
-  background: white;
-}
-
-.dayplan div:nth-child(2),.daysucceed div:nth-child(2),.current div:nth-child(2),.failed div:nth-child(2){
-  float: right;
-  width: 50%;
-  height: 25px;
-  text-align: center;
-  line-height: 25px;
-  background: white;
-  border-radius:0px 5px 5px 0px;
-  font-size: 12px;
-}
-.dayplan div:nth-child(1){
-  font-size: 12px;
-  float: left;
-  width: 50%;
-  height: 25px;
-  text-align: center;
-  line-height: 25px;
-  background: #E0E0E0;
-  border-radius:5px 0px 0px 5px;
-  position: relative;
-}
-
-.daysucceed div:nth-child(1){
-  font-size: 12px;
-  color: white;
-  float: left;
-  width: 50%;
-  height: 25px;
-  text-align: center;
-  line-height: 25px;
-  background: #5A9055;
-  border-radius:5px 0px 0px 5px;
-}
-.current div:nth-child(1){
-  font-size: 12px;
-  color: white;
-  float: left;
-  width: 50%;
-  height: 25px;
-  text-align: center;
-  line-height: 25px;
-  background: #0B5D8B;
-  border-radius:5px 0px 0px 5px;
-}
-.failed div:nth-child(1){
-  font-size: 12px;
-  color: white;
-  float: left;
-  width: 50%;
-  height: 25px;
-  text-align: center;
-  line-height: 25px;
-  background: #D9534F;
-  border-radius:5px 0px 0px 5px;
-}
-
-/*观测任务列表*/
-.planlist{
+  background: #ffffff;
   overflow: hidden;
 }
-.scrolls{
-  width: 100%;
-  background: #D9F4FD;
-  text-align: center;
+.head{
+  height: 30px;
+  background: #28CDE0;
+  padding: 0px 10px;
 }
-.task{
-  height: 100px;
+.head p:nth-child(1) {
+  float: left;
+  line-height: 30px;
+  color: white;
+}
+.head p:nth-child(2){
+  float: right;
+  line-height: 30px;
+  color: white;
+}
+
+.rows{
+  background: #E8E7E6;
+}
+.cola{
+  width: auto;
+  height: 25px;
+  background: red;
+  line-height: 25px;
+  text-align: center;
+  border-radius:8px;
+}
+.cola p{
+  float: left;
+  height: 25px;
+  width: 100%;
+  color: white;
+}
+.colaa{
+  width: auto;
+  height: 25px;
   background: white;
-  margin-top: 3px;
+  line-height: 25px;
+  text-align: center;
+  border-radius:8px;
+}
+.colaa p{
+  float: left;
+  height: 25px;
+  width: 100%;
+}
+.listall{
+  background: #D9F4FD;
+  background: white;
+  height: 100%;
+  width: 100%;
+}
+.colls{
+  background: black;
+  border-radius: 5px;
 }
 .cool{
-  font-size: 13px;
-  margin-bottom: 10px;
-  background: #5A9055;
-  color: white;
-  border-radius:5px;
-  border: 1px solid black;
+  border: 1px solid #E8E7E6;
+  padding-top: 5px!important;
+  padding-bottom: 5px!important;
+  margin-bottom: 0px!important;
+  border-radius: 8px;
 }
-.colls p:nth-child(1){
-  margin: 5px 5px 0px 5px;
-  font-size: 14px;
-}
-.colls p:nth-child(2){
-  margin: 5px 0px 0px 0px;
-  font-size: 14px;
-}
-
-

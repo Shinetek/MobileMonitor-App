@@ -24,7 +24,8 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
     //console.log(document.getElementById("heightall").offsetHeight);
     //$scope.gird_height = {height:''+document.getElementById("heightall").offsetHeight-259+"px"};
     //少20px为手机端与浏览器端高度塌陷值
-    $scope.gird_height = {height:''+document.getElementById("heightall").offsetHeight-239+"px"};
+    //$scope.gird_height = {height:''+document.getElementById("heightall").offsetHeight-239+"px"};
+    $scope.gird_height = {height:''+document.getElementById("heightall").offsetHeight-121+"px"};
 
 
     //延迟加载
@@ -67,21 +68,24 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
   }
 
   //下拉刷新数据
-
   $scope.new = function(){
     var url = 'http://123.56.135.196:4202/_ds/mcs/task/list/' + $scope.name;
-    var promise = HttpService.getdata(url, $http, $q);
-    promise.then(function(res){
-      $scope.listDate = res;
+    $http({
+      method:"GET",
+      url:url
+    }).success(function(data){
+      $scope.listDate = data;
       //计算观测计划数
-      var results = NumberService.getnumber(res);
+      var results = NumberService.getnumber(data);
       $scope.day_plan = results.day_plan;
       $scope.cur_plan = results.cur_plan;
       $scope.success = results.success;
       $scope.failure = results.failure;
 
-      _heightall($scope.listDate,$scope.gird_height);
-    });
+      //_heightall($scope.listDate,$scope.gird_height);
+    }).error(function(error){
+        console.log("error");
+    })
     $scope.$broadcast('scroll.refreshComplete');
   };
 
