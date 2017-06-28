@@ -10,7 +10,8 @@ FaultDisposeCtrl.$inject = ["$scope", "$http", "$ionicLoading", "$q", "HttpServi
 function FaultDisposeCtrl($scope, $http, $ionicLoading, $q, HttpService,$stateParams){
 
     //获取故障任务与时间
-    $scope.code = $stateParams.name.substr(0,3).toLowerCase();
+    $scope.code = $stateParams.code.substr(0,3).toLowerCase();
+    $scope.id = $stateParams.id
 
     //延迟加载
     $ionicLoading.show({
@@ -21,12 +22,12 @@ function FaultDisposeCtrl($scope, $http, $ionicLoading, $q, HttpService,$statePa
         showDelay: 0
     });
 
-    var url = "http://10.24.4.130:4701/_ds/mcs/faultlog/allistf/" + $scope.code;
+    var url = "http://123.56.135.196:4202/_ds/mcs/faultlog/allistf/" + $scope.code;
     var promise = HttpService.getdata(url, $http, $q);
         promise.then(function(res){
             $scope.fault = []
             for(var i = 0; i < res.length; i++){
-                if(res[i].code == $stateParams.name && res[i].happen_dt == $stateParams.time){
+                if(res[i].code == $stateParams.code && res[i]._id == $scope.id){
                     $scope.fault.push(res[i]);
                 }
             }

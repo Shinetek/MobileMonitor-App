@@ -14,7 +14,7 @@
 
         <ion-list>
 
-            <ion-item class="row-no-padding" style="padding: 10px;" ng-repeat="f in faults" ng-click="openDeal(f.code,f.happen_dt)">
+            <ion-item class="row-no-padding" style="padding: 10px;" ng-repeat="f in faults" ng-click="openDeal(f.code,f._id)">
                 <h2 style="display: inline-block"><strong>{{f.code}}-{{f.category}}</strong></h2>
 
                 <p style="float: right ">{{f.happen_dt | allTime}} </p><br>
@@ -27,7 +27,7 @@
             </ion-item>
 
         </ion-list>
-        <ion-infinite-scroll immediate-check="false" ng-if="!isShow" on-infinite="nextData()" distance="1%"></ion-infinite-scroll>
+        <ion-infinite-scroll immediate-check="false" ng-if="isShow" on-infinite="nextData()" distance="1%"></ion-infinite-scroll>
     </ion-content>
 </ion-view>
 

@@ -27,15 +27,14 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, FaultID, $ionicPopove
     var _pageSize = 50;
 
     $scope.$on('$ionicView.afterEnter', function () {
+        $scope.faults = new Array();
         console.log("ionicView.afterEnter Init");
         PopoverService.initPop($scope, $ionicPopover, 'my-popover.html');
-        //updateFaultData();
         updateFaultAll()
     })
 
     $scope.refreshData = function () {
         var sysid = $scope.data.querySystemName.toLowerCase();
-
         $scope.faults = new Array();
 
         _startIndex = 1
@@ -75,9 +74,8 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, FaultID, $ionicPopove
         });
 
         var dealtype = updateStatus($scope.data.queryDealType);
-        var url = "http://10.24.4.130:4701/_ds/mcs/faultlog/codelistf/"+ dealtype + "/" + _startIndex + "/" + _pageSize;
+        var url = "http://123.56.135.196:4202/_ds/mcs/faultlog/codelistf/"+ dealtype + "/" + _startIndex + "/" + _pageSize;
         HttpService.getdata(url).then(function(res){
-            $scope.faults = [];
             for (var i = 0; i < res.length; i++) {
                 res[i] = res[i];
                 res[i].status = updateStatus(res[i].status);
@@ -113,9 +111,8 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, FaultID, $ionicPopove
 
         // 获取当前显示的故障数据 _ds/mcs/faultlog/listf/dts/undeal/1/50
         //var url = CONFIG_GLOBAL.BASEURL + "_ds/mcs/faultlog/listf/" + sysid + "/" + dealtype + "/" + _startIndex + "/" + _pageSize;
-        var url = "http://10.24.4.130:4701/" + "_ds/mcs/faultlog/listf/" + sysid + "/" + dealtype + "/" + _startIndex + "/" + _pageSize;
+        var url = "http://123.56.135.196:4202/" + "_ds/mcs/faultlog/listf/" + sysid + "/" + dealtype + "/" + _startIndex + "/" + _pageSize;
         HttpService.getdata(url).then(function (res) {
-            $scope.faults = [];
             for (var i = 0; i < res.length; i++) {
                 res[i] = res[i];
                 //res[i].happen_dt = StaticMethodService.formatLongDatTime(res[i].happen_dt);
@@ -186,10 +183,8 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, FaultID, $ionicPopove
 
     //增加跳转
 
-    $scope.openDeal = function(name,time){
-        var dealwith = "#/tab/subsystem/faultview/" + name + "/" + time;
-        console.log("addname:" + dealwith);
-        window.location.href = dealwith;
-    }
-
+    $scope.openDeal = function(code,id){
+     var dealwith = "#/tab/subsystem/faultview/" + code + "/" + id;
+     window.location.href = dealwith;
+     }
 }

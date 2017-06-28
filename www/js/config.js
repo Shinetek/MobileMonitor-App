@@ -66,7 +66,7 @@ angular.module('starter')
 
             //处理故障
             .state('tab.faultview-deal', {
-                url: '/subsystem/faultview/:name/:time',
+                url: '/subsystem/faultview/:code/:id',
                 views: {
                     'tab-subsystem': {
                         templateUrl: 'partials/faultview/faultdispose.html',

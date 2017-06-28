@@ -63,7 +63,7 @@ angular.module('starter')
                     $ionicHistory.goBack();
             }else{
                 $rootScope.backButtonPressedOnceToExit = true;
-                $cordovaToast.showShortTop('再按一次退出系统');
+                $cordovaToast.showShortBottom('再按一次退出系统');
                 setTimeout(function () {
                     $rootScope.backButtonPressedOnceToExit = false;
                 }, 2000);

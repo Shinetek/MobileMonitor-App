@@ -9,6 +9,8 @@ SubSystemCtrl.$inject = ['$scope', 'Sensors', 'SQLiteService', 'HttpService', 'J
 
 function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService,$http,$interval) {
 
+
+
     $scope.sensors = Sensors.all();
 
     $scope.systems = {};
@@ -16,7 +18,7 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService
 
     var _messgeId = 0;
 
-    var onReceiveMessage = function (event) {
+    /*var onReceiveMessage = function (event) {
 
         //var message;
         if (device.platform == "Android") {
@@ -28,31 +30,41 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService
         $scope.$apply();//需要手动刷新
 
         console.log("message : " + $scope.message)
-    };
+    };*/
 
     $scope.$on('$ionicView.beforeEnter', function () {
 
         document.addEventListener("deviceready", updateData, false);
-        document.addEventListener("jpush.receiveMessage", onReceiveMessage, false);
+        //document.addEventListener("jpush.receiveMessage", onReceiveMessage, false);
         rolldata()
     });
 
 
     //滚动视图数据
     function rolldata(){
-        var url = "http://10.24.4.130:4701/_ds/mcs/faultlog/rollistf/undeal";
+        //var url = "http://123.56.135.196:4202/_ds/mcs/faultlog/rollistf/undeal";
+        var url = "http://123.56.135.196:4202/_ds/mcs/faultlog/rollistf/undeal"
         $http({
             method:"GET",
             url:url
         }).success(function(data){
-            $scope.tumble = data;
+            $scope.tumble = [];
+
+            if(data.length > 5){
+                for(var i = 0; i < 5; i++){
+                    $scope.tumble.push(data[i]);
+                }
+                $scope.long = 5
+            }else{
+                for(var i = 0; i < data.length; i++){
+                    $scope.tumble.push(data[i]);
+                }
+                $scope.long = data.length;
+            }
             $scope.tumblelast = [];
             $scope.tumblelast.push($scope.tumble[0])
-            console.log($scope.tumblelast);
-            $scope.long = data.length
-            updateSwiper($scope.long)
 
-            console.log($scope.tumble )
+            updateSwiper($scope.long)
         }).error(function(error){
             console.log("error")
         })
@@ -80,7 +92,7 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService
 
         function roll(){
             oUl.animate({top:-32 * $scope.iNow}, function(){
-                if($scope.iNow == long){
+                if($scope.iNow >= long){
                     $scope.iNow = 0;
                     oUl.css("top", 0);
                 }
@@ -169,7 +181,6 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService
 
     $scope.instrument = function (listname) {
         var addname = "#/tab/subsystem/apparatus/" + listname;
-        console.log("addname:" + addname);
         window.location.href = addname;
     }
 }

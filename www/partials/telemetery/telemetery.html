@@ -1,5 +1,5 @@
-<ion-view view-title="卫星遥测">
-    <ion-content>
+<ion-view view-title="卫星遥测" id="heightall">
+    <ion-content overflow-scroll="false" style="overflow: hidden">
         <ion-refresher class="pull" pulling-text="下拉刷新" on-refresh="news(x)"></ion-refresher>
         <div class="list" style="margin: 0px;padding: 0px">
             <div class="item item-input item-select">
@@ -18,10 +18,10 @@
         <div>
             <ion-list>
 
-                <ion-item class="item-remove-animate item-avatar item-icon-left ycitem" ng-repeat="yc in yc">
-                    <i class="icon ion-ionic" style="color:{{newColor(yc.state)}}"></i>
-                    <div style="font-size:18px">{{yc.ycname}}</div>
-                    <div style="font-size:16px;margin-top: 5px;float: right">{{yc.ycvalue}}</div>
+                <ion-item class="item-remove-animate item-avatar item-icon-left ycitem" ng-repeat="y in yc" style="min-height:{{minPadd(yc)}};padding-top:{{newpadd(yc)}};padding-bottom:{{newpadd(yc)}};">
+                    <i class="icon ion-ionic" style="color:{{newColor(y.state)}}"></i>
+                    <div style="font-size:14px;float: left">{{y.ycname}}</div>
+                    <div style="font-size:14px;float: right">{{y.ycvalue}}</div>
                 </ion-item>
             </ion-list>
         </div>

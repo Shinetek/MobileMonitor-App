@@ -18,12 +18,12 @@ function HeightService() {
 
       var scrollheight = srcoll;
       scrollheight = parseInt(scrollheight.height);
-      var _heights = Math.floor(index / 4) * 66;
+      var _heights = Math.floor(index / 4) * 56;
       if (_heights <= scrollheight) {
         var _height = 0;
         return _height;
       } else {
-        var _height = _heights - scrollheight;
+        var _height = _heights - 120;
         return _height;
       }
     }
