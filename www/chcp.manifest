@@ -305,7 +305,7 @@
   },
   {
     "file": "js/services.js",
-    "hash": "408d47330975f1693ad31ad2ad2b481c"
+    "hash": "dfd0c5e1696490b998dbeb1fae0fc6e2"
   },
   {
     "file": "lib/angular-animate/.bower.json",
@@ -1981,7 +1981,7 @@
   },
   {
     "file": "partials/faultview/FaultViewCtrl.js",
-    "hash": "9e1ead7110e04f2228c8d9c62259f1a9"
+    "hash": "77ae6e64cfe4458ccedea4f8a1eea628"
   },
   {
     "file": "partials/lv1fastview/bigimgview.html",
@@ -2033,11 +2033,11 @@
   },
   {
     "file": "partials/telemetery/telemetery.html",
-    "hash": "f4a5fdacd0c45d5fdc075e12c4af579b"
+    "hash": "ea1c6b16c1e0e07ebc868cea4c498a45"
   },
   {
     "file": "partials/telemetery/TelemeteryCtrl.js",
-    "hash": "5c28fda3b7b34096e3942acfa486c910"
+    "hash": "5d5971dfb839efcff85eca0300f8e085"
   },
   {
     "file": "service-worker.js",

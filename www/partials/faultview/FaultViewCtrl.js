@@ -81,10 +81,11 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, FaultID, $ionicPopove
                 res[i].status = updateStatus(res[i].status);
                 $scope.faults.push(res[i]);
             }
-            if (res.length < 50)
-                isShow = false;
-            else
-                isShow = true;
+            if (res.length < 50){
+                $scope.isShow = false;
+            } else{
+                $scope.isShow = true;
+            }
 
             $ionicLoading.hide();
         },function(error){
@@ -122,12 +123,11 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, FaultID, $ionicPopove
 
             console.log("updateFaultData success.");
 
-            if (res.length < 50)
-                isShow = false;
-            else
-                isShow = true;
-
-            console.log("isShow : " + isShow)
+            if (res.length < 50){
+                $scope.isShow = false;
+            } else{
+                $scope.isShow = true;
+            }
 
             $ionicLoading.hide();
 
@@ -136,9 +136,7 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, FaultID, $ionicPopove
 
         }, function (err) {
 
-            isShow = false;
-            console.log("isShow : " + isShow)
-
+            $scope.isShow = false;
             $ionicLoading.hide();
             //$scope.$broadcast('scroll.refreshComplete');
 

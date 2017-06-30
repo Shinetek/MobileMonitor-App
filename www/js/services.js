@@ -154,7 +154,27 @@ angular.module('starter.services', ['ngCordova'])
           return faultName
         }
       };
-    });
+    })
+    .factory("TeleID",function(){
+      var teleName = [{
+        id:"探测仪"
+      },{
+        id: '姿态'
+      }, {
+        id: '成像仪'
+      }, {
+        id: '闪电仪'
+      }, {
+        id: '轨道'
+      }, {
+        id: '全部'
+      }];
+      return {
+        telename: function () {
+          return teleName
+        }
+      };
+    })
 
 
 

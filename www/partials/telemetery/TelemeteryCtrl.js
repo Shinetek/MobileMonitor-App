@@ -5,9 +5,13 @@
 angular
     .module("starter.controllers")
     .controller("TelemeteryCtrl",TelemeteryCtrl);
-TelemeteryCtrl.$inject = ["$scope","$http","$ionicLoading", "$q", "HttpService"];
+TelemeteryCtrl.$inject = ["$scope","$http","$ionicLoading", "$q", "HttpService","TeleID"];
 
-function TelemeteryCtrl($scope, $http,$ionicLoading, $q, HttpService){
+function TelemeteryCtrl($scope, $http,$ionicLoading, $q, HttpService,TeleID){
+
+    //设置select下拉选项第一个不为空白效果
+    $scope.x = "卫星平台";
+    $scope.name = TeleID.telename();
 
     $ionicLoading.show({
         content: "Loading",
@@ -17,33 +21,25 @@ function TelemeteryCtrl($scope, $http,$ionicLoading, $q, HttpService){
         showDelay: 0
     });
 
-    var url = "http://123.56.135.196:4202/_ds/mcs/capability/satellite";
+    var url ="http://123.56.135.196:4202/_ds/mcs/capability/satellitegroup";
     var promise = HttpService.getdata(url, $http, $q);
     promise.then(function(res){
-        $scope.switch = res;
-        $scope.selected = [];
         $scope.selectshow = [];
-        for(var i = 0; i < res.length; i++){
-            $scope.selected.push(res[i].level);
+        for(var i = 0; i < $scope.name.length; i++){
+            $scope.selectshow.push( $scope.name[i].id);
         }
-        for(var i = 0; i < $scope.selected.length; i++){
-            if($scope.selectshow.indexOf($scope.selected[i]) == -1){
-                $scope.selectshow.push($scope.selected[i]);
+        for(var i = 0; i < res.length; i++){
+            if(res[i].level == $scope.x){
+                $scope.yc = res[i].Numbers;
             }
         }
-
         $ionicLoading.hide();
-
-        //设置select下拉选项第一个不为空白效果
-        $scope.x = "全部";
-
-        //初始效果数据
-        $scope.yc = $scope.switch;
 
     },function(err){
         console.log("err");
         $ionicLoading.hide();
     });
+
 
 
     //改变value值数据
