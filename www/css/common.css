@@ -1,3 +1,7 @@
 .top-0 {
     top: 0px!important;
 }
+.platform-android .action-sheet .action-sheet-title, .platform-android .action-sheet .button{
+    text-align: center;
+    border-bottom: 1px solid #E8E7E6;
+}

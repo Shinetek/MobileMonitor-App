@@ -5,7 +5,7 @@
   },
   {
     "file": "css/common.css",
-    "hash": "c1a404be764832c5d8f0d95bed987932"
+    "hash": "c9522d60f37e68614ae5f26e846578cc"
   },
   {
     "file": "css/style.css",
@@ -168,6 +168,10 @@
     "hash": "96c828d40a28a1a486a9f5cbf799f2a9"
   },
   {
+    "file": "img/logo.png",
+    "hash": "b8b9fe0d633aa1240396922f9651e7ea"
+  },
+  {
     "file": "img/max.png",
     "hash": "66572ace014ac9119866c3190c8a0a03"
   },
@@ -261,7 +265,7 @@
   },
   {
     "file": "index.html",
-    "hash": "1a66753eb7af3b8f3df32e3769eebcec"
+    "hash": "55bfccfcbd6f89a46623fd5640cd613f"
   },
   {
     "file": "js/Common/AppVersionService.js",
@@ -289,7 +293,7 @@
   },
   {
     "file": "js/config.js",
-    "hash": "34b370cb97a07c3b4f8058b0dfa53d95"
+    "hash": "71bb2f80c44e94b020f7be94e4ccf482"
   },
   {
     "file": "js/controllers.js",
@@ -1892,6 +1896,26 @@
     "hash": "ed31eec617c3faa0199341144ee94912"
   },
   {
+    "file": "partials/affiche/affiche.html",
+    "hash": "bf07444146c4d720a61ef6c5c8dac9d3"
+  },
+  {
+    "file": "partials/affiche/AfficheCtrl.js",
+    "hash": "5c9d7f7edb42477cc7a024a6119efa7b"
+  },
+  {
+    "file": "partials/affiche/histroty.html",
+    "hash": "202767ac1057e914c94ad086830bd7e5"
+  },
+  {
+    "file": "partials/affiche/release.html",
+    "hash": "f7dfb579ac9dd468b35b2a418e0986f2"
+  },
+  {
+    "file": "partials/affiche/ReleaseCtrl.js",
+    "hash": "997d52644272f0b066ebf25b28d6c588"
+  },
+  {
     "file": "partials/apparatus/apparatus-list.css",
     "hash": "d68a585cb295468d66ecb9b7af6a6e1f"
   },
@@ -1901,11 +1925,11 @@
   },
   {
     "file": "partials/apparatus/apparatus-task.css",
-    "hash": "1397b5084be714c453d0e210ca61015c"
+    "hash": "e6d8f088fd999201ebeed5f812b35705"
   },
   {
     "file": "partials/apparatus/apparatus-task.html",
-    "hash": "8deac0f40d7df32a1ab1778002c886f0"
+    "hash": "dcbe8a371bc0571e9ed59ce28a9d19e2"
   },
   {
     "file": "partials/apparatus/apparatusListCtrl.js",
@@ -1989,7 +2013,7 @@
   },
   {
     "file": "partials/lv1fastview/controller.js",
-    "hash": "ff87bddc4e5a26ab2aa197114e8191d3"
+    "hash": "193156ea8474aaec851b232977f1780f"
   },
   {
     "file": "partials/lv1fastview/filter.js",
@@ -2021,7 +2045,7 @@
   },
   {
     "file": "partials/subsystem/SubSystemCtrl.js",
-    "hash": "a38d6c839f3c35e9f6a2029a8fd69ab6"
+    "hash": "a96dd22746d200aedca5dc5a70af8eeb"
   },
   {
     "file": "partials/subsystem/SubSystemCustomCtrl.js",
@@ -2029,7 +2053,7 @@
   },
   {
     "file": "partials/tabs.html",
-    "hash": "9068d662d4f36d878fdf05099b1f3c06"
+    "hash": "a4f4aada85919ef0df23048bba922afc"
   },
   {
     "file": "partials/telemetery/telemetery.html",

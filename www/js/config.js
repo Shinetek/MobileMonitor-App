@@ -152,9 +152,38 @@ angular.module('starter')
                         templateUrl: 'partials/capability/dtsmrs-capability.html'
                     }
                 }
+            })
+
+            //系统公告
+            .state('tab.affiche', {
+                url: '/affiche',
+                views: {
+                    'tab-affiche': {
+                        templateUrl: 'partials/affiche/affiche.html',
+                        controller: "AfficheCtrl"
+                    }
+                }
+            })
+
+            .state('tab.affiche-release', {
+                url: '/affiche/release',
+                views: {
+                    'tab-affiche': {
+                        templateUrl: 'partials/affiche/release.html',
+                        controller: "ReleaseCtrl"
+                    }
+                }
+            })
+
+            .state('tab.affiche-histroty', {
+                url: '/affiche/histroty',
+                views: {
+                    'tab-affiche': {
+                        templateUrl: 'partials/affiche/histroty.html'
+                        //controller: "AfficheCtrl"
+                    }
+                }
             });
-
-
 
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/tab/subsystem');

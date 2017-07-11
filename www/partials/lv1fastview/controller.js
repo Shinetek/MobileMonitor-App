@@ -6,7 +6,7 @@
         .controller("L1FastViewController", L1FastViewCtrlFn)
         .controller("BigImgViewController", BigImgViewCtrlFn);
 
-    L1FastViewCtrlFn.$inject = ["L1FastViewServices", "$scope", "$ionicListDelegate", "$ionicScrollDelegate"];
+    L1FastViewCtrlFn.$inject = ["L1FastViewServices", "$scope", "$ionicListDelegate", "$ionicScrollDelegate","$ionicLoading"];
 
     BigImgViewCtrlFn.$inject = ["L1FastViewServices", "$scope", "$stateParams"];
 
@@ -24,7 +24,7 @@
         }
     }
 
-    function L1FastViewCtrlFn(L1FastViewServices, $scope, $ionicListDelegate, $ionicScrollDelegate) {
+    function L1FastViewCtrlFn(L1FastViewServices, $scope, $ionicListDelegate, $ionicScrollDelegate,$ionicLoading) {
         var self = this;
         // 当前navTab
         self.instNavCurrentItem = 'agri';
@@ -103,8 +103,18 @@
         }
 
         function _getTaskListForInst(instName, next) {
+            $ionicLoading.show({
+                content: "Loading",
+                animation: "fade-in",
+                showBackdrop: true,
+                maxWidth: 200,
+                showDelay: 0
+            });
+
             var url = CONFIG_GLOBAL.BASEURL + '_ds/mcs/task/list/' + instName;
             L1FastViewServices.getInistTaskList(url, function (doc) {
+                $ionicLoading.hide()
+
                 if (doc === null || doc === undefined) {
                     return next();
                 }
@@ -121,8 +131,9 @@
                     //     self.currentTaskList.push(element);
                     // }
                     if ((element['task_id'].indexOf('AFN') > -1 ||
-                        element['task_id'].indexOf('ANN') > -1 ||
-                        element['task_id'].indexOf('ARN') > -1)) {
+                        element['task_id'].indexOf('GRS') > -1 ||
+                        element['task_id'].indexOf('GLS') > -1 ||
+                        element['task_id'].indexOf('LMV') > -1)) {
                         // 临时增加 imgUrl属性
                         // var inst = instName.toUpperCase();
                         var time = new Date().getTime();

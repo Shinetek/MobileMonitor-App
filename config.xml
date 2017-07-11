@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.fy4monitor805434" version="0.0.27" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.ionicframework.fy4monitor805434" version="0.0.28" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>FY4Monitor</name>
   <description>
 
@@ -118,6 +118,6 @@
   <chcp>
     <auto-download enabled="true"/>
     <auto-install enabled="true"/>
-    <config-file url="http://10.24.4.130:8088/update/chcp.json"/>
+    <config-file url="http://10.24.4.130/update/chcp.json"/>
   </chcp>
 </widget>

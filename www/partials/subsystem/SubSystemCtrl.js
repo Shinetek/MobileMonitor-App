@@ -5,9 +5,9 @@ angular
     .module('starter.controllers')
     .controller('SubSystemCtrl', SubSystemCtrl)
 
-SubSystemCtrl.$inject = ['$scope', 'Sensors', 'SQLiteService', 'HttpService', 'JPushService',"$http","$interval"];
+SubSystemCtrl.$inject = ['$scope', 'Sensors', 'SQLiteService', 'HttpService', 'JPushService',"$http","$interval","$location"];
 
-function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService,$http,$interval) {
+function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService,$http,$interval,$location) {
 
 
 
@@ -99,6 +99,26 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService
             })
         }
     }
+
+    //切至后台停止定时器
+    document.addEventListener("pause", onPause, false);
+    function onPause() {
+        if($location.path() == "/tab/subsystem") {
+            $interval.cancel($scope.timer);
+            $scope.oldiNow = $scope.iNow
+        }
+    }
+
+    //切至前台开始定时器
+    document.addEventListener("resume", onResume, false);
+    function onResume() {
+        if($location.path() == "/tab/subsystem"){
+            $scope.oldiNow = $scope.oldiNow
+            updateSwiper(5)
+        }
+    }
+
+
 
     //清除定时器
     $scope.$on("$ionicView.leave", function () {
