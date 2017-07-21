@@ -95,7 +95,48 @@ angular.module('starter')
                 }
             })
 
+            //增加卫星报警
+            .state('tab.subsystem-satewar', {
+                url: '/subsystem/listfault/WXB',
+                views: {
+                    'tab-subsystem': {
+                        templateUrl: 'partials/custom/satewar/satewar.html',
+                        controller: 'SatewarCtrl'
+                    }
+                }
+            })
 
+            //卫星详情
+            .state('tab.subsystem-satedetails', {
+                url: '/subsystem/listfault/WXB/:id',
+                views: {
+                    'tab-subsystem': {
+                        templateUrl: 'partials/custom/satewar/satedetails.html',
+                        controller: 'SateDetailsCtrl'
+                    }
+                }
+            })
+
+            .state('tab.subsystem-observeimg', {
+                url: '/subsystem/listfault/GSQ/giirs/:TaskNumber',
+                views: {
+                    'tab-subsystem': {
+                        templateUrl: 'partials/custom/observe/observeimg.html',
+                        controller: 'ObtxyimgCtrl'
+                    }
+                }
+            })
+
+            //区域观测
+            .state('tab.subsystem-observe', {
+                url: '/subsystem/listfault/GSQ',
+                views: {
+                    'tab-subsystem': {
+                        templateUrl: 'partials/custom/observe/observe.html',
+                        controller: 'ObserveCtrl'
+                    }
+                }
+            })
 
             //添加卫星遥测
             .state('tab.telemetery', {

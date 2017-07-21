@@ -119,6 +119,16 @@ angular.module('starter.services', ['ngCordova'])
       name: '计算机网络',
       icon: 'img/network.png',
       selected: false
+    },{
+      id:'GSQ',
+      name:"观测区域",
+      icon:"img/search-globegg.png",
+      selected:false
+    },{
+      id:'WXB',
+      name:"卫星报警",
+      icon:"img/satellite.png",
+      selected:false
     }];
 
     return {

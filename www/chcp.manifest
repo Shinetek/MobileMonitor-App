@@ -212,6 +212,10 @@
     "hash": "75d868006918080999b2db770411dcce"
   },
   {
+    "file": "img/satellite.png",
+    "hash": "29a479c38a1d8363882ae6c66aae9b8f"
+  },
+  {
     "file": "img/satellite(1).png",
     "hash": "363e4cc98bfbcefb4c79195e4bfca4b1"
   },
@@ -222,6 +226,10 @@
   {
     "file": "img/search-globe.png",
     "hash": "48cc54a75f89c2d6981b88844ffe945c"
+  },
+  {
+    "file": "img/search-globegg.png",
+    "hash": "f651d7284a0a6d38dc5737f827151680"
   },
   {
     "file": "img/social_round_product_hunt_149px_1196573_easyicon.net.png",
@@ -265,7 +273,7 @@
   },
   {
     "file": "index.html",
-    "hash": "55bfccfcbd6f89a46623fd5640cd613f"
+    "hash": "cd91a75fe1719e3b5390eb163bb6c96a"
   },
   {
     "file": "js/Common/AppVersionService.js",
@@ -293,7 +301,7 @@
   },
   {
     "file": "js/config.js",
-    "hash": "71bb2f80c44e94b020f7be94e4ccf482"
+    "hash": "9aab28daacd45e3fa5e5138565eca6d0"
   },
   {
     "file": "js/controllers.js",
@@ -309,7 +317,7 @@
   },
   {
     "file": "js/services.js",
-    "hash": "dfd0c5e1696490b998dbeb1fae0fc6e2"
+    "hash": "bcdb8cfabaa2cb1ab7bb20c86db9f859"
   },
   {
     "file": "lib/angular-animate/.bower.json",
@@ -1973,7 +1981,7 @@
   },
   {
     "file": "partials/capability/capability.html",
-    "hash": "b1ca2c04d000ce820e372cff45dcf5cd"
+    "hash": "3d4b72a8f0f85d095eeaeee27a1f9e31"
   },
   {
     "file": "partials/capability/dtsmrs-capability.html",
@@ -1982,6 +1990,22 @@
   {
     "file": "partials/capability/nrs-capability.html",
     "hash": "d8ea45c37f8e6dc059c1a93085e6f50d"
+  },
+  {
+    "file": "partials/custom/satewar/satedetails.html",
+    "hash": "f52c683ba885097edff27a35cf4a9c2a"
+  },
+  {
+    "file": "partials/custom/satewar/satewar.html",
+    "hash": "a550d66f8c86492d406d1fa17aeec927"
+  },
+  {
+    "file": "partials/custom/satewar/SatewarCtrl.js",
+    "hash": "8b426ce3561a1af76cbbaed03d2add39"
+  },
+  {
+    "file": "partials/custom/satewar/SsteDetailsCtrl.js",
+    "hash": "a5e300d73b59eddbb4c312a5a8a02401"
   },
   {
     "file": "partials/faultview/faultdispose.html",
@@ -2013,7 +2037,7 @@
   },
   {
     "file": "partials/lv1fastview/controller.js",
-    "hash": "193156ea8474aaec851b232977f1780f"
+    "hash": "3beca6fae3a667fd77bff29fe5288e99"
   },
   {
     "file": "partials/lv1fastview/filter.js",
@@ -2041,11 +2065,11 @@
   },
   {
     "file": "partials/subsystem/subsystem.html",
-    "hash": "27e748e866bf6936eb1afd7ab69769e6"
+    "hash": "0bbd582f13a281490e9f745a3ca2f3d0"
   },
   {
     "file": "partials/subsystem/SubSystemCtrl.js",
-    "hash": "a96dd22746d200aedca5dc5a70af8eeb"
+    "hash": "010dd14837b5c23c1f7c3a6f4a0102e8"
   },
   {
     "file": "partials/subsystem/SubSystemCustomCtrl.js",

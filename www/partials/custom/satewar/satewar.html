@@ -1,0 +1,19 @@
+<ion-view view-title="卫星报警"  >
+    <ion-content>
+        <ion-refresher pulling-text="下拉刷新数据" on-refresh="refreshData()"></ion-refresher>
+        <ion-list>
+            <ion-item class="row-no-padding" style="padding: 10px;" ng-repeat="f in faults" ng-click="statedeta(f._id)">
+                <h2 style="display: inline-block"><strong>{{f.code}}-{{f.category}}</strong></h2>
+
+                <p style="float: right ">{{f.happen_dt | allTime}} </p><br>
+
+                <div style="width:200px;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;float:left;display: inline-block;font-size: small">
+                    {{f.describe}}
+                </div>
+
+                <p style="float: right;color: red;display: inline-block;font-family: 宋体">{{f.status}}</p>
+            </ion-item>
+
+        </ion-list>
+    </ion-content>
+</ion-view>

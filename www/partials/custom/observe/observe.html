@@ -1,0 +1,34 @@
+<ion-view view-title="区域观测"  >
+    <ion-content>
+        <div style="height: auto; background-color: rgba(36, 73, 114, 0.96);">
+            <div class="inst-profile-nav top-0">
+                <nav class="underline-nav" role="navigation">
+                    <div class="underline-nav-item" role="tab"
+                         ng-class="{'selected':instNavItemIsSelected('agri')}"
+                         ng-click="selectInstNavItem('agri')">
+                        <a>成像仪</a>
+                    </div>
+                    <div class="underline-nav-item" role="tab"
+                         ng-class="{'selected':instNavItemIsSelected('giirs')}"
+                         ng-click="selectInstNavItem('giirs')">
+                        <a>探测仪</a>
+                    </div>
+                    <div class="underline-nav-item" role="tab"
+                         ng-class="{'selected':instNavItemIsSelected('lmi')}"
+                         ng-click="selectInstNavItem('lmi')">
+                        <a>闪电仪</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <ion-list>
+            <ion-item class="item item-icon-left item-icon-right" ng-repeat="T in timelist" ng-click="choice(T.TaskNumber)">
+                <i style="color: dodgerblue" class="icon ion-android-globe"></i>
+                <p style="float: left">开始：{{T.ScanBeginTime | fourTime}}</p>
+                <p style="float: right">结束：{{T.ScanEndTime | fourTime}}</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

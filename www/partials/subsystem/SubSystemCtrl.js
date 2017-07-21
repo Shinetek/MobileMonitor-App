@@ -149,6 +149,7 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService
             for (var i = 0; i < $scope.sensors.length; i++) {
                 $scope.sensors[i].success = statuslist[$scope.sensors[i].id].success;
                 $scope.sensors[i].fail = statuslist[$scope.sensors[i].id].failure;
+                $scope.sensors[i].day_plan = statuslist[$scope.sensors[i].id].day_plan;
             }
 
         }, function (err) {

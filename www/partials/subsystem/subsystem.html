@@ -11,14 +11,17 @@
                         <img style="width: 32px;height: 32px;margin:  auto;" ng-src="{{s.icon}}"/>
 
                         <div>
-                            <font size="2" color="red" face="Arial">
-                                {{s.fail}}
+                            <font size="2" color="white" face="Arial">
+                                {{s.day_plan}}
+                            </font>
+                            <font size="2" color="white">/</font>
+                            <font size="2" color="#adff2f" face="Arial">
+                                {{s.success}}
                             </font>
 
                             <font size="2" color="white">/</font>
-
-                            <font size="2" color="#adff2f" face="Arial">
-                                {{s.success}}
+                            <font size="2" color="red" face="Arial">
+                                {{s.fail}}
                             </font>
                         </div>
                         <font size="2" color="white" face="宋体">{{s.name}}</font>
@@ -67,7 +70,7 @@
                             </label>
                         </div>
 
-                        <a class="button  button-clear icon-top button-positive systemButton" href="#/tab/faultview"
+                        <a class="button  button-clear icon-top button-positive systemButton" href="#/tab/subsystem/listfault/{{s.id}}"
                            style="z-index: 1">
                             <img style="height: 32px;width: 32px;margin-bottom: 5px" ng-src="{{s.icon}}"/>
 
