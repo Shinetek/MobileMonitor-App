@@ -33,7 +33,7 @@ function SatewarCtrl($scope,$http,$ionicLoading,$ionicPopup){
 
     //获取mcs数据
     function showdata(){
-        var url = "http://123.56.135.196:4202/_ds/mcs/faultlog/allistf/" + warname
+        var url = CONFIG_GLOBAL.BASEURL +"_ds/mcs/faultlog/allistf/" + warname
         $http({
             method:"GET",
             url:url

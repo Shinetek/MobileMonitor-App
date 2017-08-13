@@ -133,12 +133,13 @@
                     if ((element['task_id'].indexOf('AFN') > -1 ||
                         element['task_id'].indexOf('GRS') > -1 ||
                         element['task_id'].indexOf('GLS') > -1 ||
-                        element['task_id'].indexOf('LMV') > -1)) {
+                        element['task_id'].indexOf('LMV') > -1 ||
+                        element['task_id'].indexOf('ACN') > -1)) {
                         // 临时增加 imgUrl属性
                         // var inst = instName.toUpperCase();
                         var time = new Date().getTime();
-                        element.imgUrl = 'http://123.56.135.196:4202/fastview/lv1/FY4A/' + instName.toUpperCase() +'/C001/1000M?taskid=' + element['task_id'] + '&btime=' + element['task_id'].substring(3) + '&thum=1&time=' + time;
-                        console.log(element.imgUrl);
+                        element.imgUrl = CONFIG_GLOBAL.BASEURL +'fastview/lv1/FY4A/' + instName.toUpperCase() +'/C001/1000M?taskid=' + element['task_id'] + '&btime=' + element['task_id'].substring(3) + '&thum=1&time=' + time;
+                        //console.log(element.imgUrl);
                         self.currentTaskList.push(element);
                     }
                 });

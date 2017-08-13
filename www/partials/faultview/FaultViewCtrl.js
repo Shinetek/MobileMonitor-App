@@ -74,7 +74,7 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, FaultID, $ionicPopove
         });
 
         var dealtype = updateStatus($scope.data.queryDealType);
-        var url = "http://123.56.135.196:4202/_ds/mcs/faultlog/codelistf/"+ dealtype + "/" + _startIndex + "/" + _pageSize;
+        var url = CONFIG_GLOBAL.BASEURL +"_ds/mcs/faultlog/codelistf/"+ dealtype + "/" + _startIndex + "/" + _pageSize;
         HttpService.getdata(url).then(function(res){
             for (var i = 0; i < res.length; i++) {
                 res[i] = res[i];
@@ -112,7 +112,7 @@ function FaultViewCtrl($scope, SQLiteService, HttpService, FaultID, $ionicPopove
 
         // 获取当前显示的故障数据 _ds/mcs/faultlog/listf/dts/undeal/1/50
         //var url = CONFIG_GLOBAL.BASEURL + "_ds/mcs/faultlog/listf/" + sysid + "/" + dealtype + "/" + _startIndex + "/" + _pageSize;
-        var url = "http://123.56.135.196:4202/" + "_ds/mcs/faultlog/listf/" + sysid + "/" + dealtype + "/" + _startIndex + "/" + _pageSize;
+        var url = CONFIG_GLOBAL.BASEURL +"_ds/mcs/faultlog/listf/" + sysid + "/" + dealtype + "/" + _startIndex + "/" + _pageSize;
         HttpService.getdata(url).then(function (res) {
             for (var i = 0; i < res.length; i++) {
                 res[i] = res[i];

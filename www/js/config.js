@@ -195,6 +195,24 @@ angular.module('starter')
                 }
             })
 
+            .state('tab.capability-mcs', {
+                url: '/capability/MCS',
+                views: {
+                    'tab-capability': {
+                        templateUrl: 'partials/capability/mcs-capability.html'
+                    }
+                }
+            })
+
+            .state('tab.capability-cvs', {
+                url: '/capability/CVS',
+                views: {
+                    'tab-capability': {
+                        templateUrl: 'partials/capability/cvs-capability.html'
+                    }
+                }
+            })
+
             //系统公告
             .state('tab.affiche', {
                 url: '/affiche',
@@ -222,6 +240,16 @@ angular.module('starter')
                     'tab-affiche': {
                         templateUrl: 'partials/affiche/histroty.html'
                         //controller: "AfficheCtrl"
+                    }
+                }
+            })
+
+            .state('tab.timeable', {
+                url: '/timeable',
+                views: {
+                    'tab-timeable': {
+                        templateUrl: 'partials/timeable/timeable.html',
+                        controller:"TimeableCtrl"
                     }
                 }
             });

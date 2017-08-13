@@ -39,7 +39,7 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
 
 
     //计划与列表数据
-    var url = 'http://123.56.135.196:4202/_ds/mcs/task/list/' + $scope.name;
+    var url = CONFIG_GLOBAL.BASEURL +'_ds/mcs/task/list/' + $scope.name;
     var promise = HttpService.getdata(url, $http, $q);
     promise.then(function (res) {
       $scope.listDate = res;
@@ -69,7 +69,7 @@ function ApparatusListCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
 
   //下拉刷新数据
   $scope.new = function(){
-    var url = 'http://123.56.135.196:4202/_ds/mcs/task/list/' + $scope.name;
+    var url = CONFIG_GLOBAL.BASEURL +'_ds/mcs/task/list/' + $scope.name;
     $http({
       method:"GET",
       url:url

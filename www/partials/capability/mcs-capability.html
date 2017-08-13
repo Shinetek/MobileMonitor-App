@@ -1,0 +1,43 @@
+<ion-view view-title="MCS性能参数" ng-controller="MCSCapabilityController as MCSCapabilityCtrl" data-ng-init="MCSCapabilityCtrl.pageInit()">
+    <ion-content>
+        <ion-refresher pulling-text="刷新" on-refresh="MCSCapabilityCtrl.refreshData()"></ion-refresher>
+        <div>
+            <!--<ion-refresher pulling-text="刷新" on-refresh="NRSCapabilityCtrl.refreshData()"></ion-refresher>-->
+            <div style="height: auto; background-color: rgba(36, 73, 114, 0.96);">
+                <div class="inst-profile-nav top-0">
+                    <nav class="underline-nav" role="navigation">
+                        <div class="underline-nav-item" role="tab"
+                             ng-class="{'selected':MCSCapabilityCtrl.instNavItemIsSelected('TELECM')}"
+                             ng-click="MCSCapabilityCtrl.selectInstNavItem('TELECM')">
+                            <a>TELECM</a>
+                        </div>
+                        <div class="underline-nav-item" role="tab"
+                             ng-class="{'selected':MCSCapabilityCtrl.instNavItemIsSelected('TASKST')}"
+                             ng-click="MCSCapabilityCtrl.selectInstNavItem('TASKST')">
+                            <a>TASKST</a>
+                        </div>
+                        <div class="underline-nav-item" role="tab"
+                             ng-class="{'selected':MCSCapabilityCtrl.instNavItemIsSelected('TIMETA')}"
+                             ng-click="MCSCapabilityCtrl.selectInstNavItem('TIMETA')">
+                            <a>TIMETA</a>
+                        </div>
+                    </nav>
+                </div>
+                <div>
+                    <ion-list>
+                        <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap"
+                                  ng-repeat="item in MCSCapabilityCtrl.capabilityItems">
+                            <img ng-src="{{item.statusImg}}"/>
+                            <div class="d-inline-block">
+                                <h2>{{item.name}}</h2>
+                            </div>
+                            <a class="capability-value">
+                                {{item.value}}
+                            </a>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

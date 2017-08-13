@@ -9,16 +9,20 @@ ObserveCtrl.$inject = ["$scope","$http","$ionicLoading"];
 
 function ObserveCtrl($scope,$http,$ionicLoading){
 
-    $ionicLoading.show({
-        content: "Loading",
-        animation: "fade-in",
-        showBackdrop: true,
-        maxWidth: 200,
-        showDelay: 0
-    });
 
     var instNavItem = "agri"
-    showdata(instNavItem)
+
+    $scope.$on("$ionicView.afterEnter",function(){
+        $ionicLoading.show({
+            content: "Loading",
+            animation: "fade-in",
+            showBackdrop: true,
+            maxWidth: 200,
+            showDelay: 0
+        });
+        
+        showdata(instNavItem)
+    })
 
     //上来为成像仪选中
     $scope.instNavItemIsSelected = function(navName){
@@ -31,9 +35,9 @@ function ObserveCtrl($scope,$http,$ionicLoading){
         showdata(navName)
     }
 
-    function showdata(){
+    function showdata(instNavItem){
 
-        var url = "http://10.24.4.130:4202/_ds/mcs/rsms/api/rest/" + instNavItem
+        var url = CONFIG_GLOBAL.BASEURL +"_ds/mcs/rsms/api/rest/" + instNavItem;
         $http({
             method:"GET",
             url:url

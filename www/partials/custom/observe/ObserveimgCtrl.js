@@ -11,6 +11,7 @@ function ObtxyimgCtrl($scope,$http,$stateParams,CanvasTxy){
 
 
     $scope.number= $stateParams.TaskNumber
+    $scope.canimg = "img/GIIRS_background.png"
 
 
     //屏幕的高度
@@ -38,7 +39,7 @@ function ObtxyimgCtrl($scope,$http,$stateParams,CanvasTxy){
 
     //获取单个区域数据
     function showdata(instNavItem){
-        var url = "http://10.24.4.130:4202/_ds/mcs/rsms/api/rest/" + instNavItem
+        var url = CONFIG_GLOBAL.BASEURL +"_ds/mcs/rsms/api/rest/" + instNavItem
         $http({
             method:"GET",
             url:url

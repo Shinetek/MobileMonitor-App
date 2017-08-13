@@ -1,0 +1,27 @@
+<ion-view view-title="观测时间表"  id="timeheight">
+    <ion-content>
+        <div style="height: auto; background-color: rgba(36, 73, 114, 0.96);">
+            <div class="inst-profile-nav top-0">
+                <nav class="underline-nav" role="navigation">
+                    <div class="underline-nav-item" role="tab"
+                         ng-class="{'selected':instNavItemIsSelected('agri')}"
+                         ng-click="selectInstNavItem('agri')">
+                        <a>成像仪</a>
+                    </div>
+                    <div class="underline-nav-item" role="tab"
+                         ng-class="{'selected':instNavItemIsSelected('giirs')}"
+                         ng-click="selectInstNavItem('giirs')">
+                        <a>探测仪</a>
+                    </div>
+                    <div class="underline-nav-item" role="tab"
+                         ng-class="{'selected':instNavItemIsSelected('lmi')}"
+                         ng-click="selectInstNavItem('lmi')">
+                        <a>闪电仪</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div id="svgss" style="width: {{allwidth}}; height: {{high}}">
+        </div>
+    </ion-content>
+</ion-view>

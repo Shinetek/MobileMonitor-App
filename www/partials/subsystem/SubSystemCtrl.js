@@ -42,8 +42,7 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService
 
     //滚动视图数据
     function rolldata(){
-        //var url = "http://123.56.135.196:4202/_ds/mcs/faultlog/rollistf/undeal";
-        var url = "http://123.56.135.196:4202/_ds/mcs/faultlog/rollistf/undeal"
+        var url = CONFIG_GLOBAL.BASEURL +"_ds/mcs/faultlog/rollistf/undeal"
         $http({
             method:"GET",
             url:url
@@ -176,7 +175,6 @@ function SubSystemCtrl($scope, Sensors, SQLiteService, HttpService, JPushService
             }
 
             var stateUrl = CONFIG_GLOBAL.BASEURL + "_ds/mcs/faultlog/stat";
-            //var url = "http://10.24.4.130:4701/api/ground";
             HttpService.getdata(stateUrl).then(function (res) {
 
                 var rest = eval(res[0]);

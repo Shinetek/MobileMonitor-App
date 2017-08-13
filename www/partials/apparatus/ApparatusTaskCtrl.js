@@ -17,7 +17,7 @@ function ApparatusTaskCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
 
   $scope.task_id = $stateParams.task_id;
 
-  var url = "http://123.56.135.196:4202/_ds/mcs/task/detail/" + $stateParams.listname + "/" + $stateParams.task_id;
+  var url = CONFIG_GLOBAL.BASEURL +"_ds/mcs/task/detail/" + $stateParams.listname + "/" + $stateParams.task_id;
   var promise = HttpService.getdata(url,$http,$q);
   promise.then(function(res){
     $scope.taskalls = res;
@@ -30,7 +30,7 @@ function ApparatusTaskCtrl($scope, $http, $stateParams, $ionicLoading, $q, HttpS
   //下拉刷新
 
   $scope.news = function(){
-    var url = "http://123.56.135.196:4202/_ds/mcs/task/detail/" + $stateParams.listname + "/" + $stateParams.task_id;
+    var url = CONFIG_GLOBAL.BASEURL +"_ds/mcs/task/detail/" + $stateParams.listname + "/" + $stateParams.task_id;
     $http({
       method:"GET",
       url:url

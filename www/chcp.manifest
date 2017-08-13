@@ -152,12 +152,20 @@
     "hash": "c8b5ddcdab025eab7ecdb999432e7a6d"
   },
   {
+    "file": "img/GIIRS_background.png",
+    "hash": "20a0cd26fd143d1c907e2043a72ba7b7"
+  },
+  {
     "file": "img/gps.png",
     "hash": "2dcccfacfdabf12505ba3bd582b8c874"
   },
   {
     "file": "img/idisk.png",
     "hash": "f2ba3b113d557b40ee6f43c076d5fd6a"
+  },
+  {
+    "file": "img/IFLFY4.png",
+    "hash": "34e9cfae0a55bdfdda26cd5ad35f8cde"
   },
   {
     "file": "img/ionic.png",
@@ -273,7 +281,7 @@
   },
   {
     "file": "index.html",
-    "hash": "cd91a75fe1719e3b5390eb163bb6c96a"
+    "hash": "02e32999f245592b27c53d24eaa1069c"
   },
   {
     "file": "js/Common/AppVersionService.js",
@@ -301,7 +309,7 @@
   },
   {
     "file": "js/config.js",
-    "hash": "9aab28daacd45e3fa5e5138565eca6d0"
+    "hash": "24d1e04098acf58a5508c70d1a58c140"
   },
   {
     "file": "js/controllers.js",
@@ -1941,11 +1949,11 @@
   },
   {
     "file": "partials/apparatus/apparatusListCtrl.js",
-    "hash": "afbbd895cd87fb669ff58ee60122e156"
+    "hash": "951d250bc9db9434110fe04ea92b0a66"
   },
   {
     "file": "partials/apparatus/ApparatusTaskCtrl.js",
-    "hash": "4101e86e14afd9c3be58e463f7365fc3"
+    "hash": "f25f893053ec77ae9def6c0794d93df8"
   },
   {
     "file": "partials/apparatus/HeightService.js",
@@ -1992,6 +2000,26 @@
     "hash": "d8ea45c37f8e6dc059c1a93085e6f50d"
   },
   {
+    "file": "partials/custom/observe/Canvas.js",
+    "hash": "884d51ebab76f59f86b707df8d03836a"
+  },
+  {
+    "file": "partials/custom/observe/observe.html",
+    "hash": "378fd8b356e54cdbfa7fe3af14a82935"
+  },
+  {
+    "file": "partials/custom/observe/ObserveCtrl.js",
+    "hash": "973576882e1868ed4c9c9b5a65c00506"
+  },
+  {
+    "file": "partials/custom/observe/observeimg.html",
+    "hash": "7fbf254ea638211ac5e11522a7cf73c1"
+  },
+  {
+    "file": "partials/custom/observe/ObserveimgCtrl.js",
+    "hash": "a44f331c19e83965d992150187b7bdbe"
+  },
+  {
     "file": "partials/custom/satewar/satedetails.html",
     "hash": "f52c683ba885097edff27a35cf4a9c2a"
   },
@@ -2001,11 +2029,11 @@
   },
   {
     "file": "partials/custom/satewar/SatewarCtrl.js",
-    "hash": "8b426ce3561a1af76cbbaed03d2add39"
+    "hash": "fa0ff25f61c5c28a2337bec87d44e8e4"
   },
   {
     "file": "partials/custom/satewar/SsteDetailsCtrl.js",
-    "hash": "a5e300d73b59eddbb4c312a5a8a02401"
+    "hash": "df49205e7e4954fb635793c018f7ef60"
   },
   {
     "file": "partials/faultview/faultdispose.html",
@@ -2013,7 +2041,7 @@
   },
   {
     "file": "partials/faultview/FaultDisposeCtrl.js",
-    "hash": "ff7bc1345375a5d2ce23b0c4ac77fd1d"
+    "hash": "ceb10f7864f976d0a741ffc55624f7e5"
   },
   {
     "file": "partials/faultview/faultquery.html",
@@ -2029,7 +2057,7 @@
   },
   {
     "file": "partials/faultview/FaultViewCtrl.js",
-    "hash": "77ae6e64cfe4458ccedea4f8a1eea628"
+    "hash": "7efaab83b8a8a6fb45586933ea5e16eb"
   },
   {
     "file": "partials/lv1fastview/bigimgview.html",
@@ -2037,7 +2065,7 @@
   },
   {
     "file": "partials/lv1fastview/controller.js",
-    "hash": "3beca6fae3a667fd77bff29fe5288e99"
+    "hash": "3e06fe2d67f7756e89871553fd44985c"
   },
   {
     "file": "partials/lv1fastview/filter.js",
@@ -2069,7 +2097,7 @@
   },
   {
     "file": "partials/subsystem/SubSystemCtrl.js",
-    "hash": "010dd14837b5c23c1f7c3a6f4a0102e8"
+    "hash": "d9a0f40c685299db22fb71a40ff31a1a"
   },
   {
     "file": "partials/subsystem/SubSystemCustomCtrl.js",
@@ -2077,7 +2105,7 @@
   },
   {
     "file": "partials/tabs.html",
-    "hash": "a4f4aada85919ef0df23048bba922afc"
+    "hash": "27902738e9796e564da7d4ef4c8acba0"
   },
   {
     "file": "partials/telemetery/telemetery.html",
@@ -2085,7 +2113,15 @@
   },
   {
     "file": "partials/telemetery/TelemeteryCtrl.js",
-    "hash": "5d5971dfb839efcff85eca0300f8e085"
+    "hash": "259d1d97c7a633eb6564a1f46fa62aa3"
+  },
+  {
+    "file": "partials/timeable/timeable.html",
+    "hash": "18b3b89e236e5d02724a0307571fdf11"
+  },
+  {
+    "file": "partials/timeable/TimeableCtrl.js",
+    "hash": "1bbd3dcac1c14c4bd07aa132855f263c"
   },
   {
     "file": "service-worker.js",

@@ -22,7 +22,7 @@ function FaultDisposeCtrl($scope, $http, $ionicLoading, $q, HttpService,$statePa
         showDelay: 0
     });
 
-    var url = "http://123.56.135.196:4202/_ds/mcs/faultlog/allistf/" + $scope.code;
+    var url = CONFIG_GLOBAL.BASEURL +"_ds/mcs/faultlog/allistf/" + $scope.code;
     var promise = HttpService.getdata(url, $http, $q);
         promise.then(function(res){
             $scope.fault = []

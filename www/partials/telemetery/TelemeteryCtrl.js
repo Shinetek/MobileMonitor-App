@@ -21,7 +21,7 @@ function TelemeteryCtrl($scope, $http,$ionicLoading, $q, HttpService,TeleID){
         showDelay: 0
     });
 
-    var url ="http://123.56.135.196:4202/_ds/mcs/capability/satellitegroup";
+    var url = CONFIG_GLOBAL.BASEURL +"_ds/mcs/capability/satellitegroup";
     var promise = HttpService.getdata(url, $http, $q);
     promise.then(function(res){
         $scope.selectshow = [];
@@ -45,7 +45,7 @@ function TelemeteryCtrl($scope, $http,$ionicLoading, $q, HttpService,TeleID){
     //改变value值数据
     $scope.change = function(x){
         if(x != "全部"){
-            var url = "http://123.56.135.196:4202/_ds/mcs/capability/satellitegroup";
+            var url = CONFIG_GLOBAL.BASEURL +"_ds/mcs/capability/satellitegroup";
             var promise = HttpService.getdata(url, $http, $q)
             promise.then(function(res){
                 $scope.yc = null;
@@ -61,7 +61,7 @@ function TelemeteryCtrl($scope, $http,$ionicLoading, $q, HttpService,TeleID){
                 $ionicLoading.hide();
             })
         }else{
-            var url = "http://123.56.135.196:4202/_ds/mcs/capability/satellite";
+            var url = CONFIG_GLOBAL.BASEURL +"_ds/mcs/capability/satellite";
             var promise = HttpService.getdata(url, $http, $q)
             promise.then(function(res){
                 $scope.yc = null;
@@ -77,7 +77,7 @@ function TelemeteryCtrl($scope, $http,$ionicLoading, $q, HttpService,TeleID){
 
     $scope.news = function(x){
         if(x != "全部"){
-            var url = "http://123.56.135.196:4202/_ds/mcs/capability/satellitegroup";
+            var url = CONFIG_GLOBAL.BASEURL +"_ds/mcs/capability/satellitegroup";
             $http({
                 method:"GET",
                 url:url
@@ -93,7 +93,7 @@ function TelemeteryCtrl($scope, $http,$ionicLoading, $q, HttpService,TeleID){
                 console.log("error")
             })
         }else{
-            var url = "http://123.56.135.196:4202/_ds/mcs/capability/satellite";
+            var url = CONFIG_GLOBAL.BASEURL +"_ds/mcs/capability/satellite";
             $http({
                 method:"GET",
                 url:url
